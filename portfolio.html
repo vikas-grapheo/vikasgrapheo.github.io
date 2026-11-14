@@ -12,504 +12,438 @@
 
 <style>
 :root {
-  --bg: #090909;
-  --card: #151515;
-  --gold: #d6ad65;
-  --white: #f7f5f0;
-  --muted: #aaa49a;
+  --bg:#090909;
+  --card:#151515;
+  --gold:#d6ad65;
+  --white:#f7f5f0;
+  --muted:#aaa49a;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior:smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+a { text-decoration:none;color:inherit; }
 
 /* HEADER */
 
 header {
-  width: 100%;
-  min-height: 80px;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(9,9,9,0.96);
-  border-bottom: 1px solid rgba(214,173,101,0.15);
-  backdrop-filter: blur(12px);
+  width:100%;
+  min-height:80px;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,9,9,.96);
+  border-bottom:1px solid rgba(214,173,101,.15);
+  backdrop-filter:blur(12px);
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:1px;
 }
 
-.logo span {
-  color: var(--gold);
-}
+.logo span { color:var(--gold); }
 
 nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  display:flex;
+  align-items:center;
+  gap:30px;
 }
 
 nav a {
-  color: var(--muted);
-  font-size: 14px;
-  transition: 0.3s;
+  color:var(--muted);
+  font-size:14px;
+  transition:.3s;
 }
 
-nav a:hover,
-nav a.active {
-  color: var(--gold);
-}
+nav a:hover,nav a.active { color:var(--gold); }
 
 .nav-cta {
-  background: var(--gold);
-  color: #090909 !important;
-  padding: 11px 20px;
-  border-radius: 4px;
-  font-weight: 700;
-}
-
-.nav-cta:hover {
-  background: #f0cb85;
+  background:var(--gold);
+  color:#090909 !important;
+  padding:11px 20px;
+  border-radius:4px;
+  font-weight:700;
 }
 
 .menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--gold);
-  font-size: 29px;
-  cursor: pointer;
+  display:none;
+  background:none;
+  border:none;
+  color:var(--gold);
+  font-size:29px;
+  cursor:pointer;
 }
 
 /* HERO */
 
 .hero {
-  min-height: 390px;
-  padding: 100px 8% 80px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-height:390px;
+  padding:100px 8% 80px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   background:
-    radial-gradient(ellipse at top, rgba(120,75,25,0.24), transparent 65%),
-    var(--bg);
+  radial-gradient(ellipse at top,rgba(120,75,25,.24),transparent 65%),
+  var(--bg);
 }
 
 .eyebrow {
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 22px;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:22px;
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(42px, 7vw, 75px);
-  line-height: 1.1;
-  margin-bottom: 22px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,7vw,75px);
+  line-height:1.1;
+  margin-bottom:22px;
 }
 
-.hero h1 span {
-  color: var(--gold);
-}
+.hero h1 span { color:var(--gold); }
 
 .hero p {
-  color: var(--muted);
-  max-width: 550px;
-  line-height: 1.8;
-  font-size: 15px;
+  color:var(--muted);
+  max-width:550px;
+  line-height:1.8;
+  font-size:15px;
 }
 
-/* PORTFOLIO SECTION */
+/* PORTFOLIO */
 
-.section {
-  padding: 55px 8% 100px;
-}
+.section { padding:55px 8% 100px; }
 
 .section-heading {
-  text-align: center;
-  margin-bottom: 40px;
+  text-align:center;
+  margin-bottom:40px;
 }
 
 .section-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  margin-bottom: 12px;
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:12px;
 }
 
-.section-heading h2 span {
-  color: var(--gold);
-}
+.section-heading h2 span { color:var(--gold); }
 
 .section-heading p {
-  color: var(--muted);
-  font-size: 14px;
+  color:var(--muted);
+  font-size:14px;
 }
 
-/* FILTER BUTTONS */
+/* FILTERS */
 
 .filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 45px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:45px;
 }
 
 .filter-btn {
-  padding: 11px 21px;
-  border: 1px solid rgba(214,173,101,0.35);
-  background: transparent;
-  color: var(--muted);
-  border-radius: 30px;
-  font-family: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  transition: 0.3s;
+  padding:11px 21px;
+  border:1px solid rgba(214,173,101,.35);
+  background:transparent;
+  color:var(--muted);
+  border-radius:30px;
+  font-family:inherit;
+  font-size:13px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--gold);
-  color: #090909;
-  border-color: var(--gold);
+.filter-btn:hover,.filter-btn.active {
+  background:var(--gold);
+  color:#090909;
+  border-color:var(--gold);
 }
 
 /* PROJECT GRID */
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
 }
 
 .project {
-  background: var(--card);
-  border: 1px solid rgba(214,173,101,0.13);
-  border-radius: 9px;
-  overflow: hidden;
-  transition: 0.35s;
-  animation: fadeIn 0.5s ease;
+  background:var(--card);
+  border:1px solid rgba(214,173,101,.13);
+  border-radius:9px;
+  overflow:hidden;
+  transition:.35s;
+  animation:fadeIn .5s ease;
 }
 
 .project:hover {
-  transform: translateY(-8px);
-  border-color: var(--gold);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transform:translateY(-8px);
+  border-color:var(--gold);
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
 }
 
 .project-image {
-  height: 260px;
-  overflow: hidden;
-  position: relative;
-  background: #202020;
-  cursor: zoom-in;
+  height:260px;
+  overflow:hidden;
+  position:relative;
+  background:#202020;
+  cursor:zoom-in;
 }
 
 .project img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s;
 }
 
-.project:hover img {
-  transform: scale(1.07);
-}
+.project:hover img { transform:scale(1.07); }
 
 .zoom-label {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 0.3s;
-  color: var(--gold);
-  font-size: 14px;
-  font-weight: 700;
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:.3s;
+  color:var(--gold);
+  font-size:14px;
+  font-weight:700;
 }
 
-.project:hover .zoom-label {
-  opacity: 1;
-}
+.project:hover .zoom-label { opacity:1; }
 
-.project-info {
-  padding: 20px;
-}
+.project-info { padding:20px; }
 
 .project-info small {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .project-info h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 21px;
-  margin-top: 8px;
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  margin-top:8px;
 }
 
 .project-info p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-  margin-top: 8px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-top:8px;
 }
 
-.project.hidden {
-  display: none;
-}
+.project.hidden { display:none; }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity:0;transform:translateY(12px); }
+  to { opacity:1;transform:translateY(0); }
 }
 
-/* CTA SECTION */
+/* CTA */
 
 .cta {
-  margin: 0 8% 90px;
-  padding: 65px 25px;
-  text-align: center;
-  border: 1px solid rgba(214,173,101,0.3);
-  border-radius: 10px;
+  margin:0 8% 90px;
+  padding:65px 25px;
+  text-align:center;
+  border:1px solid rgba(214,173,101,.3);
+  border-radius:10px;
   background:
-    radial-gradient(ellipse at center, rgba(120,75,25,0.2), transparent 70%),
-    #111;
+  radial-gradient(ellipse at center,rgba(120,75,25,.2),transparent 70%),
+  #111;
 }
 
 .cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 5vw, 45px);
-  margin-bottom: 15px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,5vw,45px);
+  margin-bottom:15px;
 }
 
-.cta h2 span {
-  color: var(--gold);
-}
+.cta h2 span { color:var(--gold); }
 
 .cta p {
-  color: var(--muted);
-  margin-bottom: 28px;
-  line-height: 1.7;
+  color:var(--muted);
+  margin-bottom:28px;
+  line-height:1.7;
 }
 
 .cta-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #090909;
-  padding: 14px 28px;
-  border-radius: 4px;
-  font-weight: 700;
-  transition: 0.3s;
+  display:inline-block;
+  background:var(--gold);
+  color:#090909;
+  padding:14px 28px;
+  border-radius:4px;
+  font-weight:700;
+  transition:.3s;
 }
 
 .cta-btn:hover {
-  background: #f0cb85;
-  transform: translateY(-3px);
+  background:#f0cb85;
+  transform:translateY(-3px);
 }
 
 /* LIGHTBOX */
 
 .lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(0,0,0,.95);
+  justify-content:center;
+  align-items:center;
+  padding:25px;
 }
 
-.lightbox.show {
-  display: flex;
-}
+.lightbox.show { display:flex; }
 
 .lightbox img {
-  max-width: 90%;
-  max-height: 85vh;
-  object-fit: contain;
-  border: 1px solid rgba(214,173,101,0.4);
-  border-radius: 5px;
+  max-width:90%;
+  max-height:85vh;
+  object-fit:contain;
+  border:1px solid rgba(214,173,101,.4);
+  border-radius:5px;
 }
 
 .close-lightbox {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background: none;
-  border: none;
-  color: var(--gold);
-  font-size: 42px;
-  cursor: pointer;
+  position:absolute;
+  top:20px;
+  right:30px;
+  background:none;
+  border:none;
+  color:var(--gold);
+  font-size:42px;
+  cursor:pointer;
 }
 
 /* FOOTER */
 
 footer {
-  text-align: center;
-  padding: 28px 15px;
-  color: var(--muted);
-  font-size: 13px;
-  border-top: 1px solid rgba(214,173,101,0.15);
+  text-align:center;
+  padding:28px 15px;
+  color:var(--muted);
+  font-size:13px;
+  border-top:1px solid rgba(214,173,101,.15);
 }
 
-footer span {
-  color: var(--gold);
-}
+footer span { color:var(--gold); }
 
-/* WHATSAPP BUTTON */
+/* WHATSAPP */
 
 .whatsapp {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: #25d366;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 27px;
-  z-index: 90;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  z-index:90;
+  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  header {
-    padding: 18px 5%;
-  }
+@media(max-width:900px) {
+  .grid { grid-template-columns:repeat(2,1fr); }
+  header { padding:18px 5%; }
 }
 
-@media (max-width: 650px) {
-  header {
-    min-height: 70px;
-  }
+@media(max-width:650px) {
+  header { min-height:70px; }
+  .logo { font-size:21px; }
 
-  .logo {
-    font-size: 21px;
-  }
-
-  .menu-btn {
-    display: block;
-  }
+  .menu-btn { display:block; }
 
   nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #101010;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 12px 5% 20px;
-    border-bottom: 1px solid rgba(214,173,101,0.2);
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#101010;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:12px 5% 20px;
   }
 
-  nav.active {
-    display: flex;
-  }
+  nav.active { display:flex; }
 
   nav a {
-    padding: 13px 5px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding:13px 5px;
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
 
   .nav-cta {
-    text-align: center;
-    margin-top: 12px;
+    text-align:center;
+    margin-top:12px;
   }
 
   .hero {
-    min-height: 330px;
-    padding: 75px 6%;
+    min-height:330px;
+    padding:75px 6%;
   }
 
   .eyebrow {
-    font-size: 10px;
-    letter-spacing: 3px;
+    font-size:10px;
+    letter-spacing:3px;
   }
 
-  .section {
-    padding: 45px 5% 70px;
-  }
+  .section { padding:45px 5% 70px; }
 
-  .section-heading h2 {
-    font-size: 31px;
-  }
+  .section-heading h2 { font-size:31px; }
 
   .grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    grid-template-columns:1fr;
+    gap:22px;
   }
 
-  .project-image {
-    height: 250px;
-  }
+  .project-image { height:250px; }
 
   .cta {
-    margin: 0 5% 65px;
-    padding: 50px 20px;
+    margin:0 5% 65px;
+    padding:50px 20px;
   }
 
-  .lightbox img {
-    max-width: 100%;
-  }
+  .lightbox img { max-width:100%; }
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
   <a class="logo" href="index.html">VIKAS <span>GRAPHEO.</span></a>
@@ -527,8 +461,6 @@ footer span {
   </nav>
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
   <div class="eyebrow">SELECTED CREATIVE PROJECTS</div>
 
@@ -539,8 +471,6 @@ footer span {
     discover unique ideas and see how imagination becomes design.
   </p>
 </section>
-
-<!-- PORTFOLIO -->
 
 <section class="section">
 
@@ -553,94 +483,84 @@ footer span {
 
   <div class="filters">
     <button class="filter-btn active" data-filter="all">All Designs</button>
-    <button class="filter-btn" data-filter="logo">Logo</button>
-    <button class="filter-btn" data-filter="poster">Poster</button>
-    <button class="filter-btn" data-filter="banner">Banner</button>
-    <button class="filter-btn" data-filter="thumbnail">Thumbnail</button>
+    <button class="filter-btn" data-filter="food">Food Graphics</button>
+    <button class="filter-btn" data-filter="typography">Typography</button>
+    <button class="filter-btn" data-filter="premium">Premium</button>
     <button class="filter-btn" data-filter="social">Social Media</button>
     <button class="filter-btn" data-filter="creative">Creative</button>
   </div>
 
-  <!-- PROJECT GRID -->
+  <!-- FIVE ORIGINAL GITHUB IMAGES -->
 
   <div class="grid">
 
-    <div class="project" data-category="logo">
+    <div class="project" data-category="food">
       <div class="project-image">
-        <img src="images/logo.jpg" alt="Logo Design">
+        <img src="images/Create Eye-Catching Burger Graphics That Will Wow Your Social Media Followers.jpeg"
+        alt="Burger Graphics Design" loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
       <div class="project-info">
-        <small>Brand Identity</small>
-        <h3>Logo Design</h3>
-        <p>Creative logo concepts for building memorable brands.</p>
+        <small>Food Graphics</small>
+        <h3>Burger Graphics</h3>
+        <p>Eye-catching food graphics designed for social media promotions.</p>
       </div>
     </div>
 
-    <div class="project" data-category="poster">
+    <div class="project" data-category="typography">
       <div class="project-image">
-        <img src="images/poster.png" alt="Poster Design">
+        <img src="images/Design Is Thinking Made Visual_ Minimal Graphic Design Quote & Typography Inspiration.jpeg"
+        alt="Minimal Typography Design" loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
       <div class="project-info">
-        <small>Visual Communication</small>
-        <h3>Poster Design</h3>
-        <p>Eye-catching posters designed to communicate ideas.</p>
+        <small>Typography</small>
+        <h3>Minimal Design</h3>
+        <p>Creative typography and visual communication inspiration.</p>
       </div>
     </div>
 
-    <div class="project" data-category="banner">
+    <div class="project" data-category="premium">
       <div class="project-image">
-        <img src="images/banner.jpg" alt="Banner Design">
+        <img src="images/PREMIUM.jpg"
+        alt="Premium Graphic Design" loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
       <div class="project-info">
-        <small>Digital Graphics</small>
-        <h3>Banner Design</h3>
-        <p>Professional banners for brands and online platforms.</p>
-      </div>
-    </div>
-
-    <div class="project" data-category="thumbnail">
-      <div class="project-image">
-        <img src="images/thumbnail.png" alt="YouTube Thumbnail Design">
-        <div class="zoom-label">VIEW DESIGN ↗</div>
-      </div>
-      <div class="project-info">
-        <small>YouTube Graphics</small>
-        <h3>YouTube Thumbnail</h3>
-        <p>Bold thumbnails created to make videos stand out.</p>
+        <small>Premium Graphics</small>
+        <h3>Premium Design</h3>
+        <p>Professional premium-style creative graphics and concepts.</p>
       </div>
     </div>
 
     <div class="project" data-category="social">
       <div class="project-image">
-        <img src="images/social.jpg" alt="Social Media Design">
+        <img src="images/SUBSCRIPION.jpg"
+        alt="Subscription Graphic Design" loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
       <div class="project-info">
         <small>Social Media</small>
-        <h3>Social Media Design</h3>
-        <p>Modern graphics for social media content and promotions.</p>
+        <h3>Subscription Design</h3>
+        <p>Modern promotional graphics for digital services.</p>
       </div>
     </div>
 
     <div class="project" data-category="creative">
       <div class="project-image">
-        <img src="images/creative.png" alt="Creative Artwork">
+        <img src="images/graphic-design-template_23-2150868707.jpg"
+        alt="Creative Graphic Design Template" loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
       <div class="project-info">
         <small>Creative Studio</small>
         <h3>Creative Artwork</h3>
-        <p>Unique visual concepts created with imagination.</p>
+        <p>Unique graphic design concepts and visual creativity.</p>
       </div>
     </div>
 
   </div>
 </section>
-
-<!-- CALL TO ACTION -->
 
 <section class="cta">
   <h2>Have a Project <span>in Mind?</span></h2>
@@ -651,8 +571,6 @@ footer span {
   <a href="contact.html" class="cta-btn">Start a Project ↗</a>
 </section>
 
-<!-- LIGHTBOX -->
-
 <div class="lightbox" id="lightbox">
   <button class="close-lightbox" id="closeLightbox" aria-label="Close image">
     &times;
@@ -660,42 +578,37 @@ footer span {
   <img id="zoomImage" src="" alt="Full size design">
 </div>
 
-<!-- WHATSAPP -->
-
 <a class="whatsapp"
-   href="https://wa.me/91YOURNUMBER"
-   target="_blank"
-   rel="noopener"
-   aria-label="Chat on WhatsApp">✆</a>
-
-<!-- FOOTER -->
+href="https://wa.me/91YOURNUMBER"
+target="_blank"
+rel="noopener"
+aria-label="Chat on WhatsApp">✆</a>
 
 <footer>
   © 2026 <span>Vikas Grapheo.</span> All Rights Reserved.
 </footer>
 
 <script>
+
 /* MOBILE MENU */
 
 function toggleMenu() {
   document.getElementById("navigation").classList.toggle("active");
 }
 
-/* CLOSE MOBILE MENU AFTER CLICK */
-
 document.querySelectorAll("#navigation a").forEach(function(link) {
-  link.addEventListener("click", function() {
+  link.addEventListener("click",function() {
     document.getElementById("navigation").classList.remove("active");
   });
 });
 
-/* PORTFOLIO FILTER */
+/* FILTER SYSTEM */
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projects = document.querySelectorAll(".project");
 
 filterButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
+  button.addEventListener("click",function() {
 
     filterButtons.forEach(function(btn) {
       btn.classList.remove("active");
@@ -726,7 +639,7 @@ const zoomImage = document.getElementById("zoomImage");
 const closeLightbox = document.getElementById("closeLightbox");
 
 document.querySelectorAll(".project-image img").forEach(function(image) {
-  image.addEventListener("click", function() {
+  image.addEventListener("click",function() {
     zoomImage.src = image.src;
     zoomImage.alt = image.alt;
     lightbox.classList.add("show");
@@ -740,20 +653,22 @@ function closeImage() {
   document.body.style.overflow = "";
 }
 
-closeLightbox.addEventListener("click", closeImage);
+closeLightbox.addEventListener("click",closeImage);
 
-lightbox.addEventListener("click", function(event) {
-  if (event.target === lightbox) {
+lightbox.addEventListener("click",function(event) {
+  if(event.target === lightbox) {
     closeImage();
   }
 });
 
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
+document.addEventListener("keydown",function(event) {
+  if(event.key === "Escape") {
     closeImage();
   }
 });
+
 </script>
 
 </body>
-</html>
+  </html>
+  
