@@ -8,48 +8,85 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+/* CONTACT PAGE RESET */
+body {
+  background: #080808 !important;
+  color: #f5f5f5 !important;
+  margin: 0;
+}
+
+.contact-page,
+.contact-page * {
+  box-sizing: border-box;
+}
+
 .contact-page {
-  padding: 60px 7%;
-  background: #080808;
-  color: #fff;
+  background: #080808 !important;
+  color: #f5f5f5 !important;
+  padding: 50px 7% 70px;
 }
 
+/* HEADER */
+body header {
+  background: #080808 !important;
+  border-bottom: 1px solid #292929;
+}
+
+body header .logo {
+  color: #d6ad55 !important;
+}
+
+body header nav a {
+  color: #eeeeee !important;
+  text-decoration: none;
+}
+
+body header nav a:hover,
+body header nav a.active {
+  color: #d6ad55 !important;
+}
+
+/* HERO */
 .contact-hero {
+  background: #080808 !important;
+  color: #ffffff !important;
   text-align: center;
-  padding: 65px 20px 45px;
+  padding: 75px 20px 55px;
 }
 
-.eyebrow {
-  color: #d6ad55;
+.contact-hero .eyebrow {
+  color: #d6ad55 !important;
   letter-spacing: 3px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .contact-hero h1 {
+  color: #ffffff !important;
   font-size: clamp(38px, 6vw, 65px);
-  margin: 18px 0;
+  margin: 20px 0;
 }
 
-.contact-hero h1 span,
-.gold {
-  color: #d6ad55;
+.contact-hero h1 span {
+  color: #d6ad55 !important;
 }
 
-.contact-hero p,
-.form-heading p {
-  color: #aaa;
+.contact-hero p {
+  color: #aaaaaa !important;
   line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
 }
 
+/* FORM CONTAINER */
 .inquiry-wrapper {
   max-width: 750px;
   margin: auto;
-  padding: 38px;
-  background: #111;
-  border: 1px solid #292929;
+  padding: 40px;
+  background: #111111 !important;
+  border: 1px solid #333333;
   border-radius: 18px;
-  box-shadow: 0 15px 45px rgba(0,0,0,.35);
+  box-shadow: 0 15px 45px rgba(0,0,0,.4);
 }
 
 .form-heading {
@@ -57,62 +94,86 @@
   margin-bottom: 35px;
 }
 
-.form-heading h2 {
-  font-size: 30px;
-  margin: 12px 0;
+.form-heading .eyebrow {
+  color: #d6ad55 !important;
+  letter-spacing: 3px;
+  font-size: 12px;
 }
 
+.form-heading h2 {
+  color: #ffffff !important;
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.form-heading h2 .gold {
+  color: #d6ad55 !important;
+}
+
+.form-heading p {
+  color: #aaaaaa !important;
+  line-height: 1.8;
+}
+
+/* INPUT FIELDS */
 .inquiry-form label {
   display: block;
-  margin: 19px 0 8px;
-  color: #eee;
+  color: #eeeeee !important;
+  margin: 20px 0 9px;
   font-size: 14px;
 }
 
 .inquiry-form input,
 .inquiry-form select,
 .inquiry-form textarea {
+  display: block;
   width: 100%;
   padding: 15px;
-  border: 1px solid #333;
+  background: #1b1b1b !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
   border-radius: 8px;
-  background: #191919;
-  color: #fff;
-  font: inherit;
+  font-size: 14px;
+  font-family: inherit;
   outline: none;
-  box-sizing: border-box;
-  transition: .3s;
 }
 
 .inquiry-form input:focus,
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
-  border-color: #d6ad55;
-  box-shadow: 0 0 0 2px rgba(214,173,85,.12);
-}
-
-.inquiry-form textarea {
-  min-height: 135px;
-  resize: vertical;
+  border-color: #d6ad55 !important;
+  box-shadow: 0 0 0 2px rgba(214,173,85,.15);
 }
 
 .inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder {
-  color: #777;
+  color: #999999 !important;
+  opacity: 1;
+}
+
+.inquiry-form select option {
+  background: #1b1b1b;
+  color: #ffffff;
 }
 
 .inquiry-form input[type="date"] {
   color-scheme: dark;
 }
 
+.inquiry-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* WHATSAPP BUTTON */
 .submit-btn {
   width: 100%;
-  margin-top: 25px;
-  padding: 16px;
+  margin-top: 28px;
+  padding: 17px;
+  background: #d6ad55 !important;
+  color: #111111 !important;
   border: none;
   border-radius: 8px;
-  background: #d6ad55;
-  color: #111;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -120,54 +181,67 @@
 }
 
 .submit-btn:hover {
-  background: #f0c96f;
+  background: #f0c96f !important;
   transform: translateY(-2px);
 }
 
 .form-note {
+  color: #999999 !important;
   text-align: center;
-  color: #999;
   font-size: 12px;
   line-height: 1.7;
-  margin-top: 15px;
+  margin-top: 17px;
 }
 
+/* CONTACT DETAILS */
 .contact-info {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 35px;
-  color: #aaa;
-  font-size: 14px;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact-info p {
+  color: #cccccc !important;
 }
 
 .contact-info a {
-  color: #d6ad55;
+  color: #d6ad55 !important;
   text-decoration: none;
 }
 
-.contact-info a:hover {
-  text-decoration: underline;
+/* FOOTER */
+body footer {
+  background: #050505 !important;
+  color: #aaaaaa !important;
+  text-align: center;
+  padding: 25px 15px;
+  border-top: 1px solid #292929;
 }
 
+/* MOBILE */
 @media(max-width:600px) {
+  .contact-hero {
+    padding: 50px 18px 40px;
+  }
+
   .contact-page {
-    padding: 35px 5%;
+    padding: 30px 5% 50px;
   }
 
   .inquiry-wrapper {
-    padding: 23px 17px;
+    padding: 25px 18px;
   }
 
   .form-heading h2 {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .contact-info {
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
   }
 }
 </style>
@@ -205,29 +279,26 @@
     <div class="form-heading">
       <div class="eyebrow">PROJECT INQUIRY FORM</div>
 
-      <h2>Tell Me About Your <span class="gold">Project.</span></h2>
+      <h2>
+        Tell Me About Your
+        <span class="gold">Project.</span>
+      </h2>
 
-      <p>Fill in the details and send your inquiry directly through WhatsApp.</p>
+      <p>
+        Fill in the details and send your inquiry directly through WhatsApp.
+      </p>
     </div>
 
     <form class="inquiry-form" id="inquiryForm">
 
       <label for="clientName">Your Name *</label>
-      <input
-        type="text"
-        id="clientName"
-        placeholder="Enter your full name"
-        required
-      >
+      <input type="text" id="clientName"
+        placeholder="Enter your full name" required>
 
       <label for="clientPhone">Your Mobile Number *</label>
-      <input
-        type="tel"
-        id="clientPhone"
+      <input type="tel" id="clientPhone"
         placeholder="Enter your mobile number"
-        pattern="[0-9+\s()-]{10,16}"
-        required
-      >
+        pattern="[0-9+\s()-]{10,16}" required>
 
       <label for="service">Select Your Service *</label>
       <select id="service" required>
@@ -255,11 +326,9 @@
       <input type="date" id="deadline">
 
       <label for="details">Project Details *</label>
-      <textarea
-        id="details"
+      <textarea id="details"
         placeholder="Describe your project, design idea, requirements..."
-        required
-      ></textarea>
+        required></textarea>
 
       <button type="submit" class="submit-btn">
         Send Inquiry on WhatsApp ↗
@@ -271,12 +340,18 @@
       </p>
 
     </form>
-
   </div>
 
   <div class="contact-info">
-    <p>Mobile: <a href="tel:+917834905783">+91 78349 05783</a></p>
-    <p>Email: <a href="mailto:vvikas67001@gmail.com">vvikas67001@gmail.com</a></p>
+    <p>Mobile:
+      <a href="tel:+917834905783">+91 78349 05783</a>
+    </p>
+
+    <p>Email:
+      <a href="mailto:vvikas67001@gmail.com">
+        vvikas67001@gmail.com
+      </a>
+    </p>
   </div>
 
 </section>
@@ -287,6 +362,7 @@
 
 <script>
 document.getElementById("inquiryForm").addEventListener("submit", function(event) {
+
   event.preventDefault();
 
   const name = document.getElementById("clientName").value.trim();
@@ -318,9 +394,13 @@ ${details}
 Please contact me regarding this project.`;
 
   const whatsappNumber = "917834905783";
-  const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
 
-  window.open(whatsappURL, "_blank");
+  const whatsappURL =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message);
+
+  window.location.href = whatsappURL;
+
 });
 </script>
 
