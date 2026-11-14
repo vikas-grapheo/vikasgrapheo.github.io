@@ -3,78 +3,1019 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services | Vikas Grapheo</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Services | Vikas Grapheo</title>
+<meta name="description" content="Explore professional graphic design services at Vikas Grapheo including branding, logos, posters, banners and social media graphics.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090909;
+  --card: #151515;
+  --gold: #d6ad65;
+  --white: #f7f5f0;
+  --muted: #aaa49a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292929;
+  background: #090909;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo span,
+.footer-logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  font-size: 14px;
+  color: #ddd;
+  transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--gold);
+}
+
+.nav-btn,
+.main-btn {
+  background: var(--gold);
+  color: #111;
+  padding: 13px 22px;
+  border-radius: 3px;
+  font-weight: 700;
+  display: inline-block;
+  transition: .3s;
+}
+
+.main-btn:hover,
+.nav-btn:hover {
+  background: #f0cc8a;
+  transform: translateY(-3px);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 530px;
+  padding: 100px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 45%, #302516 0%, transparent 50%),
+    #090909;
+  border-bottom: 1px solid #292929;
+}
+
+.hero-content {
+  max-width: 850px;
+  animation: fadeUp .9s ease both;
+}
+
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 78px);
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 650px;
+  margin: auto;
+}
+
+.hero-links {
+  margin-top: 35px;
+}
+
+/* SECTION */
+
+.section {
+  padding: 90px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-heading small {
+  color: var(--gold);
+  letter-spacing: 4px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-top: 15px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 15px;
+  line-height: 1.8;
+}
+
+/* SERVICES */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+}
+
+.service-card {
+  background: var(--card);
+  padding: 35px 28px;
+  border: 1px solid #292929;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  background: #19160f;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -70px;
+  bottom: -70px;
+  border: 1px solid #66502d;
+  border-radius: 50%;
+  opacity: .5;
+  transition: .4s;
+}
+
+.service-card:hover::after {
+  transform: scale(1.8);
+}
+
+.service-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.service-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+}
+
+.service-symbol {
+  font-size: 28px;
+  color: var(--gold);
+}
+
+.service-category {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  min-height: 75px;
+}
+
+.service-features {
+  margin: 20px 0;
+  padding-top: 18px;
+  border-top: 1px solid #303030;
+}
+
+.service-features li {
+  list-style: none;
+  color: #c7c1b7;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.service-features li::before {
+  content: "✦";
+  color: var(--gold);
+  margin-right: 9px;
+}
+
+.service-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-link:hover {
+  color: #f0cc8a;
+}
+
+/* FEATURE SECTION */
+
+.feature-section {
+  background: #101010;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.feature-art {
+  min-height: 390px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #66502d;
+  background:
+    radial-gradient(circle, #44351d, #17130d 60%, #090909);
+  font-family: 'Playfair Display', serif;
+  font-size: 45px;
+  color: var(--gold);
+}
+
+.feature-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.feature-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+/* PROCESS */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.process-card {
+  background: var(--card);
+  border: 1px solid #292929;
+  padding: 30px 22px;
+  transition: .3s;
+}
+
+.process-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+}
+
+.process-card span {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  color: var(--gold);
+}
+
+.process-card h3 {
+  font-size: 19px;
+  margin: 18px 0 12px;
+}
+
+.process-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* CTA */
+
+.cta {
+  margin: 20px 8% 90px;
+  padding: 70px 25px;
+  text-align: center;
+  border: 1px solid #4b3c25;
+  background: linear-gradient(135deg, #17130d, #111);
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #292929;
+  padding: 35px 8%;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #25d366;
+  color: white;
+  padding: 14px 19px;
+  border-radius: 40px;
+  font-weight: 700;
+  z-index: 99;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width: 950px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 750px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #111;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 440px;
+    padding: 80px 6%;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .feature-art {
+    min-height: 280px;
+    font-size: 38px;
+  }
+
+  .feature-text h2 {
+    font-size: 34px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta {
+    margin: 20px 5% 70px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+  }
+}
+
+@media(max-width: 400px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+}
+</style>
 </head>
+
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
-  <nav>
+
+  <a href="index.html" class="logo">
+    VIKAS <span>GRAPHEO.</span>
+  </a>
+
+  <button class="menu-btn"
+  onclick="toggleMenu()">☰</button>
+
+  <nav id="navigation">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a class="active" href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-btn">Start a Project ↗</a>
   </nav>
+
 </header>
 
+<main>
+
+<!-- HERO -->
+
 <section class="hero">
-  <div class="eyebrow">WHAT I CAN CREATE FOR YOU</div>
-  <h1>Creative <span>Services.</span></h1>
-  <p>Thoughtful design solutions for your ideas, projects and brands.</p>
-  <a href="contact.html" class="btn">Request a Project ↗</a>
-</section>
 
-<section class="section">
-  <div class="grid">
+  <div class="hero-content">
 
-    <div class="card">
-      <div class="eyebrow">01 / BRANDING</div>
-      <h3>Logo Design</h3>
-      <p>Custom logos, brand marks and visual identity concepts.</p>
-      <a class="btn" href="contact.html">Order Now ↗</a>
-    </div>
+    <div class="tag">WHAT WE CAN CREATE FOR YOU</div>
 
-    <div class="card">
-      <div class="eyebrow">02 / PRINT</div>
-      <h3>Poster Design</h3>
-      <p>Promotional posters, event graphics and advertisements.</p>
-      <a class="btn" href="contact.html">Order Now ↗</a>
-    </div>
+    <h1>
+      Creative <span>Services.</span>
+    </h1>
 
-    <div class="card">
-      <div class="eyebrow">03 / DIGITAL</div>
-      <h3>Banner Design</h3>
-      <p>Website banners, promotional graphics and cover designs.</p>
-      <a class="btn" href="contact.html">Order Now ↗</a>
-    </div>
+    <p>
+      From powerful brand identities to eye-catching
+      digital graphics, we create thoughtful visual
+      solutions that bring your ideas to life.
+    </p>
 
-    <div class="card">
-      <div class="eyebrow">04 / SOCIAL</div>
-      <h3>YouTube Thumbnails</h3>
-      <p>Creative thumbnails that make your video stand out.</p>
-      <a class="btn" href="contact.html">Order Now ↗</a>
-    </div>
-
-    <div class="card">
-      <div class="eyebrow">05 / SOCIAL</div>
-      <h3>Social Media Posts</h3>
-      <p>Professional posts and graphics for social platforms.</p>
-      <a class="btn" href="contact.html">Order Now ↗</a>
-    </div>
-
-    <div class="card">
-      <div class="eyebrow">06 / CUSTOM</div>
-      <h3>Custom Designs</h3>
-      <p>Have another idea? Tell me about your project.</p>
-      <a class="btn" href="contact.html">Discuss Project ↗</a>
+    <div class="hero-links">
+      <a href="#all-services" class="main-btn">
+        Explore Services ↗
+      </a>
     </div>
 
   </div>
+
 </section>
 
-<footer>© 2026 Vikas Grapheo. All Rights Reserved.</footer>
+<!-- ALL SERVICES -->
+
+<section class="section" id="all-services">
+
+  <div class="section-heading">
+
+    <small>OUR EXPERTISE</small>
+
+    <h2>What We Create</h2>
+
+    <p>
+      Creative design solutions for individuals,
+      creators and growing businesses.
+    </p>
+
+  </div>
+
+  <div class="services-grid">
+
+    <!-- SERVICE 1 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">01</span>
+        <span class="service-symbol">✦</span>
+      </div>
+
+      <div class="service-category">BRANDING</div>
+
+      <h3>Logo Design</h3>
+
+      <p>
+        Unique and memorable logo designs that
+        communicate your brand personality.
+      </p>
+
+      <ul class="service-features">
+        <li>Custom Logo Concepts</li>
+        <li>Modern Brand Marks</li>
+        <li>Professional Identity</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 2 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">02</span>
+        <span class="service-symbol">◇</span>
+      </div>
+
+      <div class="service-category">PRINT DESIGN</div>
+
+      <h3>Poster Design</h3>
+
+      <p>
+        Creative promotional posters for events,
+        announcements and marketing campaigns.
+      </p>
+
+      <ul class="service-features">
+        <li>Event Posters</li>
+        <li>Promotional Posters</li>
+        <li>Advertising Graphics</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 3 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">03</span>
+        <span class="service-symbol">✧</span>
+      </div>
+
+      <div class="service-category">DIGITAL DESIGN</div>
+
+      <h3>Banner Design</h3>
+
+      <p>
+        Attractive digital banners and cover designs
+        for websites and online platforms.
+      </p>
+
+      <ul class="service-features">
+        <li>Website Banners</li>
+        <li>Promotional Banners</li>
+        <li>Cover Designs</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 4 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">04</span>
+        <span class="service-symbol">◎</span>
+      </div>
+
+      <div class="service-category">YOUTUBE DESIGN</div>
+
+      <h3>YouTube Thumbnails</h3>
+
+      <p>
+        Eye-catching video thumbnails designed
+        to create a strong first impression.
+      </p>
+
+      <ul class="service-features">
+        <li>Video Thumbnails</li>
+        <li>Educational Thumbnails</li>
+        <li>Creative Covers</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 5 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">05</span>
+        <span class="service-symbol">◈</span>
+      </div>
+
+      <div class="service-category">SOCIAL MEDIA</div>
+
+      <h3>Social Media Posts</h3>
+
+      <p>
+        Professional social media graphics
+        that make your online presence memorable.
+      </p>
+
+      <ul class="service-features">
+        <li>Instagram Posts</li>
+        <li>Facebook Graphics</li>
+        <li>Promotional Creatives</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 6 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">06</span>
+        <span class="service-symbol">✺</span>
+      </div>
+
+      <div class="service-category">BUSINESS DESIGN</div>
+
+      <h3>Business Graphics</h3>
+
+      <p>
+        Creative visual materials that help
+        businesses present their products and ideas.
+      </p>
+
+      <ul class="service-features">
+        <li>Business Promotions</li>
+        <li>Marketing Graphics</li>
+        <li>Digital Advertisements</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 7 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">07</span>
+        <span class="service-symbol">✧</span>
+      </div>
+
+      <div class="service-category">BRAND IDENTITY</div>
+
+      <h3>Brand Identity</h3>
+
+      <p>
+        Consistent visual elements that give
+        your brand a recognizable identity.
+      </p>
+
+      <ul class="service-features">
+        <li>Brand Colour Concepts</li>
+        <li>Typography Direction</li>
+        <li>Visual Identity Elements</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Get This Service ↗
+      </a>
+
+    </div>
+
+    <!-- SERVICE 8 -->
+
+    <div class="service-card">
+
+      <div class="service-top">
+        <span class="service-number">08</span>
+        <span class="service-symbol">✦</span>
+      </div>
+
+      <div class="service-category">CUSTOM DESIGN</div>
+
+      <h3>Custom Designs</h3>
+
+      <p>
+        Have a unique idea? Let's discuss your
+        requirements and create something special.
+      </p>
+
+      <ul class="service-features">
+        <li>Creative Concepts</li>
+        <li>Personalized Graphics</li>
+        <li>Special Projects</li>
+      </ul>
+
+      <a href="contact.html" class="service-link">
+        Discuss Your Idea ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEATURE -->
+
+<section class="section feature-section">
+
+  <div class="feature-grid">
+
+    <div class="feature-art">
+      CREATIVE<br>BY DESIGN.
+    </div>
+
+    <div class="feature-text">
+
+      <div class="tag">OUR APPROACH</div>
+
+      <h2>
+        Every Design Begins With An Idea.
+      </h2>
+
+      <p>
+        We believe great design is created by
+        understanding the purpose behind every project.
+        Our focus is on creativity, clear communication
+        and thoughtful visual presentation.
+      </p>
+
+      <p>
+        Whether you need a logo, poster, thumbnail
+        or digital graphic, we aim to create a design
+        that represents your vision.
+      </p>
+
+      <a href="about.html" class="main-btn">
+        Know More About Us ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <small>HOW IT WORKS</small>
+
+    <h2>Our Working Process</h2>
+
+    <p>
+      A simple and creative journey from idea to design.
+    </p>
+
+  </div>
+
+  <div class="process-grid">
+
+    <div class="process-card">
+      <span>01</span>
+      <h3>Discuss</h3>
+      <p>
+        Tell us about your project,
+        ideas and requirements.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>02</span>
+      <h3>Plan</h3>
+      <p>
+        We understand the concept
+        and choose a creative direction.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>03</span>
+      <h3>Design</h3>
+      <p>
+        Your ideas are transformed
+        into creative visual designs.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>04</span>
+      <h3>Deliver</h3>
+      <p>
+        The final design is delivered
+        according to project requirements.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="tag">READY TO START?</div>
+
+  <h2>Let's Create Something Amazing.</h2>
+
+  <p>
+    Have a design idea or a project in mind?
+    Tell us what you need and let's get started.
+  </p>
+
+  <a href="contact.html" class="main-btn">
+    Request Your Project ↗
+  </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    VIKAS <span>GRAPHEO.</span>
+  </div>
+
+  <p>Independent Creative Design Studio</p>
+
+  <p>
+    Branding | Posters | Digital Graphics | Creative Design
+  </p>
+
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="services.html">Services</a> |
+    <a href="portfolio.html">Portfolio</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+
+  <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/91YOURNUMBER"
+   target="_blank"
+   rel="noopener">
+   WhatsApp ↗
+</a>
+
+<script>
+function toggleMenu() {
+  document
+    .getElementById("navigation")
+    .classList.toggle("active");
+}
+</script>
+
 </body>
 </html>
