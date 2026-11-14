@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vikas Grapheo | Creative Design Studio</title>
-<meta name="description" content="Vikas Grapheo - Creative graphic design, branding, posters and digital design services.">
+<meta name="description" content="Vikas Grapheo - Professional graphic design, branding, posters and digital creative services.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
@@ -225,49 +225,6 @@ nav a:hover {
   color: var(--gold);
 }
 
-/* FEATURED PORTFOLIO */
-
-.portfolio {
-  background: #101010;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.work-card {
-  background: var(--card);
-  border: 1px solid #292929;
-  overflow: hidden;
-}
-
-.work-card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  transition: .4s;
-}
-
-.work-card:hover img {
-  transform: scale(1.04);
-}
-
-.work-info {
-  padding: 20px;
-}
-
-.work-info h3 {
-  margin-bottom: 7px;
-}
-
-.work-info p {
-  color: var(--gold);
-  font-size: 13px;
-}
-
 /* ABOUT */
 
 .about-box {
@@ -361,12 +318,6 @@ footer a:hover {
   z-index: 99;
 }
 
-/* IMAGE FALLBACK */
-
-.work-card img {
-  background: #222;
-}
-
 /* MOBILE */
 
 @media(max-width: 750px) {
@@ -404,10 +355,6 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
   .about-box {
     grid-template-columns: 1fr;
   }
@@ -432,6 +379,8 @@ footer a:hover {
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
   <a href="index.html" class="logo">
@@ -472,6 +421,7 @@ footer a:hover {
     </p>
 
     <div class="hero-links">
+
       <a href="portfolio.html" class="main-btn">
         Explore My Work ↗
       </a>
@@ -479,8 +429,8 @@ footer a:hover {
       <a href="contact.html" class="outline-btn">
         Start a Project ↗
       </a>
-    </div>
 
+    </div>
   </div>
 </section>
 
@@ -539,76 +489,6 @@ footer a:hover {
     </div>
 
   </div>
-</section>
-
-<!-- FEATURED PORTFOLIO -->
-
-<section class="section portfolio">
-
-  <div class="section-heading">
-    <small>SELECTED WORK</small>
-    <h2>Featured Portfolio</h2>
-    <p>A glimpse of creative possibilities.</p>
-  </div>
-
-  <div class="portfolio-grid">
-
-    <div class="work-card">
-      <img src="images/logo.jpg" alt="Brand identity design">
-      <div class="work-info">
-        <h3>Brand Identity</h3>
-        <p>Branding & Logo Design</p>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <img src="images/poster.png" alt="Poster design">
-      <div class="work-info">
-        <h3>Creative Poster</h3>
-        <p>Poster Design</p>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <img src="images/banner.jpg" alt="Business banner">
-      <div class="work-info">
-        <h3>Business Banner</h3>
-        <p>Banner Design</p>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <img src="images/thumbnail.png" alt="YouTube thumbnail">
-      <div class="work-info">
-        <h3>YouTube Thumbnail</h3>
-        <p>Digital Graphics</p>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <img src="images/social.jpg" alt="Social media design">
-      <div class="work-info">
-        <h3>Social Media</h3>
-        <p>Social Media Graphics</p>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <img src="images/creative.png" alt="Creative artwork">
-      <div class="work-info">
-        <h3>Creative Artwork</h3>
-        <p>Custom Design</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:40px">
-    <a href="portfolio.html" class="main-btn">
-      View Full Portfolio ↗
-    </a>
-  </div>
-
 </section>
 
 <!-- ABOUT SECTION -->
@@ -706,5 +586,5 @@ function toggleMenu() {
 </script>
 
 </body>
-  </html>
-  
+      </html>
+      
