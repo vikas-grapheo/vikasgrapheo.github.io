@@ -3,72 +3,757 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | Vikas Grapheo</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090909;
+  --card: #151515;
+  --gold: #d6ad65;
+  --white: #f7f5f0;
+  --muted: #aaa49a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  width: 100%;
+  min-height: 80px;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,9,0.96);
+  border-bottom: 1px solid rgba(214,173,101,0.15);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--gold);
+}
+
+.nav-cta {
+  background: var(--gold);
+  color: #090909 !important;
+  padding: 11px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.nav-cta:hover {
+  background: #f0cb85;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 29px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 390px;
+  padding: 100px 8% 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top, rgba(120,75,25,0.24), transparent 65%),
+    var(--bg);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 7vw, 75px);
+  line-height: 1.1;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 550px;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* PORTFOLIO SECTION */
+
+.section {
+  padding: 55px 8% 100px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 span {
+  color: var(--gold);
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* FILTER BUTTONS */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 45px;
+}
+
+.filter-btn {
+  padding: 11px 21px;
+  border: 1px solid rgba(214,173,101,0.35);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--gold);
+  color: #090909;
+  border-color: var(--gold);
+}
+
+/* PROJECT GRID */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.project {
+  background: var(--card);
+  border: 1px solid rgba(214,173,101,0.13);
+  border-radius: 9px;
+  overflow: hidden;
+  transition: 0.35s;
+  animation: fadeIn 0.5s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.project-image {
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+  background: #202020;
+  cursor: zoom-in;
+}
+
+.project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.project:hover img {
+  transform: scale(1.07);
+}
+
+.zoom-label {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.project:hover .zoom-label {
+  opacity: 1;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info small {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.project-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  margin-top: 8px;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.project.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA SECTION */
+
+.cta {
+  margin: 0 8% 90px;
+  padding: 65px 25px;
+  text-align: center;
+  border: 1px solid rgba(214,173,101,0.3);
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at center, rgba(120,75,25,0.2), transparent 70%),
+    #111;
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 45px);
+  margin-bottom: 15px;
+}
+
+.cta h2 span {
+  color: var(--gold);
+}
+
+.cta p {
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #090909;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #f0cb85;
+  transform: translateY(-3px);
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid rgba(214,173,101,0.4);
+  border-radius: 5px;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 42px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 28px 15px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid rgba(214,173,101,0.15);
+}
+
+footer span {
+  color: var(--gold);
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  z-index: 90;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    padding: 18px 5%;
+  }
+}
+
+@media (max-width: 650px) {
+  header {
+    min-height: 70px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #101010;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 5% 20px;
+    border-bottom: 1px solid rgba(214,173,101,0.2);
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    padding: 13px 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-cta {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .hero {
+    min-height: 330px;
+    padding: 75px 6%;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .section {
+    padding: 45px 5% 70px;
+  }
+
+  .section-heading h2 {
+    font-size: 31px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .project-image {
+    height: 250px;
+  }
+
+  .cta {
+    margin: 0 5% 65px;
+    padding: 50px 20px;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+  }
+}
+</style>
 </head>
+
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
-  <nav>
+  <a class="logo" href="index.html">VIKAS <span>GRAPHEO.</span></a>
+
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+    ☰
+  </button>
+
+  <nav id="navigation">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a class="active" href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Let's Talk</a>
   </nav>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
   <div class="eyebrow">SELECTED CREATIVE PROJECTS</div>
+
   <h1>My Creative <span>Universe.</span></h1>
-  <p>Explore my design work. Click any image to view it in full size.</p>
+
+  <p>
+    Every design tells a story. Explore my creative work,
+    discover unique ideas and see how imagination becomes design.
+  </p>
 </section>
 
+<!-- PORTFOLIO -->
+
 <section class="section">
+
+  <div class="section-heading">
+    <h2>Explore My <span>Work</span></h2>
+    <p>A collection of creative designs made with passion.</p>
+  </div>
+
+  <!-- FILTERS -->
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All Designs</button>
+    <button class="filter-btn" data-filter="logo">Logo</button>
+    <button class="filter-btn" data-filter="poster">Poster</button>
+    <button class="filter-btn" data-filter="banner">Banner</button>
+    <button class="filter-btn" data-filter="thumbnail">Thumbnail</button>
+    <button class="filter-btn" data-filter="social">Social Media</button>
+    <button class="filter-btn" data-filter="creative">Creative</button>
+  </div>
+
+  <!-- PROJECT GRID -->
+
   <div class="grid">
 
-    <div class="project">
-      <img src="images/logo.jpg" alt="Logo Design">
-      <h3>Logo Design</h3>
+    <div class="project" data-category="logo">
+      <div class="project-image">
+        <img src="images/logo.jpg" alt="Logo Design">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>Brand Identity</small>
+        <h3>Logo Design</h3>
+        <p>Creative logo concepts for building memorable brands.</p>
+      </div>
     </div>
 
-    <div class="project">
-      <img src="images/poster.png" alt="Poster Design">
-      <h3>Poster Design</h3>
+    <div class="project" data-category="poster">
+      <div class="project-image">
+        <img src="images/poster.png" alt="Poster Design">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>Visual Communication</small>
+        <h3>Poster Design</h3>
+        <p>Eye-catching posters designed to communicate ideas.</p>
+      </div>
     </div>
 
-    <div class="project">
-      <img src="images/banner.jpg" alt="Banner Design">
-      <h3>Banner Design</h3>
+    <div class="project" data-category="banner">
+      <div class="project-image">
+        <img src="images/banner.jpg" alt="Banner Design">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>Digital Graphics</small>
+        <h3>Banner Design</h3>
+        <p>Professional banners for brands and online platforms.</p>
+      </div>
     </div>
 
-    <div class="project">
-      <img src="images/thumbnail.png" alt="YouTube Thumbnail">
-      <h3>YouTube Thumbnail</h3>
+    <div class="project" data-category="thumbnail">
+      <div class="project-image">
+        <img src="images/thumbnail.png" alt="YouTube Thumbnail Design">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>YouTube Graphics</small>
+        <h3>YouTube Thumbnail</h3>
+        <p>Bold thumbnails created to make videos stand out.</p>
+      </div>
     </div>
 
-    <div class="project">
-      <img src="images/social.jpg" alt="Social Media Design">
-      <h3>Social Media Design</h3>
+    <div class="project" data-category="social">
+      <div class="project-image">
+        <img src="images/social.jpg" alt="Social Media Design">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>Social Media</small>
+        <h3>Social Media Design</h3>
+        <p>Modern graphics for social media content and promotions.</p>
+      </div>
     </div>
 
-    <div class="project">
-      <img src="images/creative.png" alt="Creative Artwork">
-      <h3>Creative Artwork</h3>
+    <div class="project" data-category="creative">
+      <div class="project-image">
+        <img src="images/creative.png" alt="Creative Artwork">
+        <div class="zoom-label">VIEW DESIGN ↗</div>
+      </div>
+      <div class="project-info">
+        <small>Creative Studio</small>
+        <h3>Creative Artwork</h3>
+        <p>Unique visual concepts created with imagination.</p>
+      </div>
     </div>
 
   </div>
 </section>
 
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+  <h2>Have a Project <span>in Mind?</span></h2>
+  <p>
+    Let's create something meaningful together.
+    Share your idea and let's bring it to life.
+  </p>
+  <a href="contact.html" class="cta-btn">Start a Project ↗</a>
+</section>
+
+<!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox">
-  <button id="closeLightbox" aria-label="Close">&times;</button>
+  <button class="close-lightbox" id="closeLightbox" aria-label="Close image">
+    &times;
+  </button>
   <img id="zoomImage" src="" alt="Full size design">
 </div>
 
-<script src="script.js"></script>
+<!-- WHATSAPP -->
 
-<footer>© 2026 Vikas Grapheo. All Rights Reserved.</footer>
+<a class="whatsapp"
+   href="https://wa.me/91YOURNUMBER"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat on WhatsApp">✆</a>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 <span>Vikas Grapheo.</span> All Rights Reserved.
+</footer>
+
+<script>
+/* MOBILE MENU */
+
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("active");
+}
+
+/* CLOSE MOBILE MENU AFTER CLICK */
+
+document.querySelectorAll("#navigation a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("navigation").classList.remove("active");
+  });
+});
+
+/* PORTFOLIO FILTER */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
+
+filterButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+
+    filterButtons.forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const selectedCategory = button.dataset.filter;
+
+    projects.forEach(function(project) {
+      if (
+        selectedCategory === "all" ||
+        project.dataset.category === selectedCategory
+      ) {
+        project.classList.remove("hidden");
+      } else {
+        project.classList.add("hidden");
+      }
+    });
+
+  });
+});
+
+/* IMAGE LIGHTBOX */
+
+const lightbox = document.getElementById("lightbox");
+const zoomImage = document.getElementById("zoomImage");
+const closeLightbox = document.getElementById("closeLightbox");
+
+document.querySelectorAll(".project-image img").forEach(function(image) {
+  image.addEventListener("click", function() {
+    zoomImage.src = image.src;
+    zoomImage.alt = image.alt;
+    lightbox.classList.add("show");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeImage() {
+  lightbox.classList.remove("show");
+  zoomImage.src = "";
+  document.body.style.overflow = "";
+}
+
+closeLightbox.addEventListener("click", closeImage);
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) {
+    closeImage();
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeImage();
+  }
+});
+</script>
+
 </body>
 </html>
