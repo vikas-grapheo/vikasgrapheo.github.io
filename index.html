@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vikas Grapheo | Creative Design Studio</title>
 
 <style>
@@ -11,29 +11,28 @@
 
 :root{
   --gold:#d6ad55;
-  --green:#3caa50;
-  --dark:#080808;
+  --green:#48bd58;
 }
 
 body{
-  background:var(--dark);
+  background:#080808;
   color:white;
   font-family:Arial,sans-serif;
   overflow-x:hidden;
 }
 
-/* INTRO */
+/* INTRO SCREEN */
 #intro{
   position:fixed;
   inset:0;
-  background:radial-gradient(ellipse at center,#102014,#020402 75%);
   z-index:9999;
+  background:radial-gradient(ellipse at center,#102619,#020402 75%);
   display:flex;
-  align-items:center;
-  justify-content:center;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
   overflow:hidden;
-  transition:opacity 1s,visibility 1s;
+  transition:opacity .8s,visibility .8s;
 }
 
 #intro.hide{
@@ -41,84 +40,211 @@ body{
   visibility:hidden;
 }
 
-.snake-scene{
-  width:min(440px,95vw);
-  height:390px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* SNAKE */
+.snake-stage{
+  width:300px;
+  height:340px;
+  position:relative;
+  perspective:700px;
+  animation:snakeEnter 2.8s ease-in-out forwards;
 }
 
-.cobra{
-  width:100%;
-  height:100%;
-  overflow:visible;
-  filter:drop-shadow(0 0 16px #1c9d43);
-  animation:cobraEntrance 3s ease-in-out forwards;
-  transform-origin:50% 80%;
+@keyframes snakeEnter{
+  0%{transform:translateY(180px) scale(.5);opacity:0}
+  35%{transform:translateY(0) scale(1);opacity:1}
+  65%{transform:translateY(-8px) scale(1)}
+  78%{transform:translateY(-35px) scale(1.2)}
+  88%{transform:translateY(10px) scale(.95)}
+  100%{transform:translateY(0) scale(1)}
 }
 
-@keyframes cobraEntrance{
-  0%{
-    transform:translateY(150px) scale(.55);
-    opacity:0;
-  }
-  25%{
-    transform:translateY(0) scale(.9);
-    opacity:1;
-  }
-  55%{
-    transform:translateY(-15px) scale(1);
-  }
-  72%{
-    transform:translateY(-10px) scale(1);
-  }
-  82%{
-    transform:translate(0,-45px) scale(1.25);
-  }
-  90%{
-    transform:translate(0,10px) scale(1.05);
-  }
-  100%{
-    transform:translateY(0) scale(1);
-  }
+/* BODY COIL */
+.coil{
+  position:absolute;
+  width:210px;
+  height:90px;
+  bottom:8px;
+  left:45px;
+  border:24px solid #14572b;
+  border-top-color:#60c96a;
+  border-left-color:#2c9b45;
+  border-radius:50%;
+  transform:rotate(-12deg);
+  box-shadow:
+    inset 0 5px 8px #a0e78b,
+    0 0 15px #1c7d39;
 }
 
-.snake-title{
-  font-size:clamp(22px,6vw,36px);
-  letter-spacing:7px;
-  color:var(--gold);
-  text-shadow:0 0 20px #d6ad55;
-  opacity:0;
-  animation:reveal 1s ease 2.8s forwards;
+.coil:after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border:5px solid rgba(160,235,135,.35);
+  border-radius:50%;
 }
 
-.snake-subtitle{
-  color:#aaa;
-  font-size:10px;
-  letter-spacing:5px;
-  margin-top:12px;
-  opacity:0;
-  animation:reveal 1s ease 3s forwards;
+/* NECK */
+.neck{
+  position:absolute;
+  width:95px;
+  height:185px;
+  left:105px;
+  bottom:52px;
+  border-radius:50% 50% 35% 35%;
+  background:linear-gradient(90deg,
+    #0c4822,#2b963f,#75d46a,#238b39,#0a421e);
+  box-shadow:
+    inset 12px 0 14px rgba(0,0,0,.35),
+    inset -9px 0 12px rgba(0,0,0,.25),
+    0 0 16px rgba(38,175,67,.3);
+  transform:rotate(-5deg);
 }
 
-@keyframes reveal{
-  to{opacity:1;transform:translateY(0)}
-  from{opacity:0;transform:translateY(20px)}
+/* HOOD */
+.hood{
+  position:absolute;
+  top:10px;
+  left:38px;
+  width:225px;
+  height:150px;
+  background:linear-gradient(145deg,
+    #7ddc65,#329a43 45%,#0b451e);
+  border-radius:50% 50% 42% 42%;
+  clip-path:polygon(0 10%,30% 25%,50% 0,
+    70% 25%,100% 10%,88% 85%,
+    50% 100%,12% 85%);
+  filter:drop-shadow(0 0 12px #269d45);
 }
 
-.flash{
+.hood:after{
+  content:"";
+  position:absolute;
+  inset:15px 25px;
+  border:2px solid rgba(190,255,160,.45);
+  border-radius:45%;
+  background:radial-gradient(ellipse at center,
+    rgba(10,62,27,.2),transparent 65%);
+}
+
+/* HEAD */
+.head{
+  position:absolute;
+  top:95px;
+  left:105px;
+  width:95px;
+  height:75px;
+  z-index:3;
+  border-radius:48% 48% 40% 40%;
+  background:linear-gradient(110deg,
+    #17652b,#68cb5d 45%,#1d7130);
+  box-shadow:
+    inset 0 5px 8px rgba(255,255,255,.3),
+    inset 0 -8px 12px rgba(0,0,0,.4),
+    0 0 15px rgba(58,190,77,.5);
+}
+
+/* EYES */
+.eye{
+  position:absolute;
+  top:24px;
+  width:17px;
+  height:13px;
+  background:#111;
+  border-radius:50%;
+  box-shadow:0 0 9px #d7ff6c;
+}
+
+.eye:after{
+  content:"";
+  position:absolute;
+  width:5px;
+  height:9px;
+  background:#d8d66b;
+  left:6px;
+  top:2px;
+  border-radius:50%;
+}
+
+.eye.left{left:15px}
+.eye.right{right:15px}
+
+/* FACE */
+.snout{
+  position:absolute;
+  bottom:8px;
+  left:21px;
+  width:53px;
+  height:22px;
+  background:linear-gradient(#52ae4d,#155b29);
+  border-radius:40%;
+  box-shadow:inset 0 -4px 5px rgba(0,0,0,.4);
+}
+
+.snout:after{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:8px;
+  width:5px;
+  height:3px;
+  background:#111;
+  border-radius:50%;
+}
+
+/* SCALE DETAILS */
+.scale-lines{
+  position:absolute;
+  inset:0;
+  background:
+  repeating-linear-gradient(
+    120deg,
+    transparent 0px,
+    transparent 9px,
+    rgba(210,255,185,.12) 10px,
+    transparent 12px
+  );
+  border-radius:inherit;
+  pointer-events:none;
+}
+
+/* BITE FLASH */
+.bite-flash{
   position:absolute;
   inset:0;
   background:white;
   opacity:0;
   pointer-events:none;
-  animation:flash 0.3s ease 2.65s;
+  animation:flash .3s ease 2.5s;
 }
 
 @keyframes flash{
   0%,100%{opacity:0}
-  40%{opacity:.7}
+  40%{opacity:.6}
+}
+
+/* LOGO */
+.intro-logo{
+  margin-top:15px;
+  color:var(--gold);
+  font-size:clamp(23px,6vw,35px);
+  letter-spacing:6px;
+  text-shadow:0 0 20px #d6ad55;
+  opacity:0;
+  animation:logoShow .8s ease 2.8s forwards;
+}
+
+.intro-sub{
+  margin-top:12px;
+  color:#aaa;
+  font-size:10px;
+  letter-spacing:5px;
+  opacity:0;
+  animation:logoShow .8s ease 3s forwards;
+}
+
+@keyframes logoShow{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 /* HEADER */
@@ -144,16 +270,15 @@ nav a{
   color:#ddd;
   text-decoration:none;
   font-size:14px;
-  transition:.3s;
 }
 
 nav a:hover{color:var(--gold)}
 
 .menu-btn{
   display:none;
-  color:var(--gold);
   background:none;
   border:0;
+  color:var(--gold);
   font-size:27px;
 }
 
@@ -335,6 +460,7 @@ footer span{color:var(--gold)}
   font-size:13px;
 }
 
+/* MOBILE */
 @media(max-width:768px){
   header{padding:20px 6%}
   nav{
@@ -355,149 +481,43 @@ footer span{color:var(--gold)}
   .services{grid-template-columns:1fr}
   .section,.about,.cta{padding:70px 7%}
   .section-heading h2,.about h2,.cta h2{font-size:30px}
+  .snake-stage{transform:scale(.85)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- REALISTIC STYLISED GREEN COBRA INTRO -->
+<!-- SNAKE INTRO -->
 <div id="intro">
 
-<div class="snake-scene">
+  <div class="snake-stage">
 
-<svg class="cobra" viewBox="0 0 400 400"
-xmlns="http://www.w3.org/2000/svg">
+    <div class="coil"></div>
 
-<defs>
-  <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#a1df61"/>
-    <stop offset="35%" stop-color="#3d9d36"/>
-    <stop offset="70%" stop-color="#17602c"/>
-    <stop offset="100%" stop-color="#092e19"/>
-  </linearGradient>
+    <div class="neck">
+      <div class="scale-lines"></div>
+    </div>
 
-  <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#b1e76a"/>
-    <stop offset="50%" stop-color="#348e39"/>
-    <stop offset="100%" stop-color="#0b3d20"/>
-  </linearGradient>
+    <div class="hood"></div>
 
-  <radialGradient id="eye">
-    <stop offset="0%" stop-color="#fff6a0"/>
-    <stop offset="50%" stop-color="#d4a52d"/>
-    <stop offset="100%" stop-color="#7d3c00"/>
-  </radialGradient>
+    <div class="head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="snout"></div>
+      <div class="scale-lines"></div>
+    </div>
 
-  <pattern id="scales" width="16" height="12"
-  patternUnits="userSpaceOnUse">
-    <path d="M0 6 Q8 -2 16 6 Q8 14 0 6"
-    fill="none" stroke="#b2e777" stroke-width="1"
-    opacity=".45"/>
-  </pattern>
-</defs>
+  </div>
 
-<!-- Coiled body -->
-<path d="M75 370
-C35 340 70 295 145 310
-C230 330 300 305 280 265
-C260 230 205 250 185 220"
-fill="none" stroke="#0b321b" stroke-width="58"
-stroke-linecap="round"/>
+  <div class="bite-flash"></div>
 
-<path d="M75 370
-C35 340 70 295 145 310
-C230 330 300 305 280 265
-C260 230 205 250 185 220"
-fill="none" stroke="url(#skin)" stroke-width="45"
-stroke-linecap="round"/>
-
-<path d="M75 370
-C35 340 70 295 145 310
-C230 330 300 305 280 265
-C260 230 205 250 185 220"
-fill="none" stroke="url(#scales)" stroke-width="42"
-stroke-linecap="round"/>
-
-<!-- Neck -->
-<path d="M185 235
-C155 195 155 150 165 115
-L235 115
-C250 160 240 205 215 245Z"
-fill="url(#skin)" stroke="#0b321b" stroke-width="5"/>
-
-<!-- Cobra hood -->
-<path d="M165 145
-C95 135 65 80 105 45
-C135 18 170 45 200 60
-C230 35 265 20 295 48
-C330 85 295 135 235 145
-L225 190
-L175 190Z"
-fill="url(#hood)" stroke="#0a341a" stroke-width="7"/>
-
-<!-- Hood scale pattern -->
-<path d="M165 145
-C95 135 65 80 105 45
-C135 18 170 45 200 60
-C230 35 265 20 295 48
-C330 85 295 135 235 145"
-fill="none" stroke="url(#scales)" stroke-width="35"/>
-
-<!-- Hood markings -->
-<path d="M125 68 Q160 45 190 85
-Q165 110 135 100Z"
-fill="#123c20" opacity=".8"/>
-
-<path d="M275 68 Q240 45 210 85
-Q235 110 265 100Z"
-fill="#123c20" opacity=".8"/>
-
-<!-- Head -->
-<path d="M160 115
-Q165 80 200 78
-Q235 80 240 115
-L260 140
-Q200 175 140 140Z"
-fill="url(#skin)" stroke="#0a341a" stroke-width="5"/>
-
-<!-- Face scales -->
-<path d="M160 115 Q200 100 240 115"
-fill="none" stroke="#c1e88a" stroke-width="3" opacity=".5"/>
-
-<!-- Eyes -->
-<ellipse cx="174" cy="119" rx="12" ry="9" fill="#102b13"/>
-<ellipse cx="226" cy="119" rx="12" ry="9" fill="#102b13"/>
-
-<ellipse cx="174" cy="119" rx="7" ry="7" fill="url(#eye)"/>
-<ellipse cx="226" cy="119" rx="7" ry="7" fill="url(#eye)"/>
-
-<ellipse cx="174" cy="119" rx="2" ry="6" fill="#080808"/>
-<ellipse cx="226" cy="119" rx="2" ry="6" fill="#080808"/>
-
-<!-- Nose -->
-<path d="M191 139 L200 144 L209 139"
-fill="none" stroke="#0a341a" stroke-width="3"/>
-
-<!-- Mouth -->
-<path d="M169 151 Q200 165 231 151"
-fill="none" stroke="#102c17" stroke-width="3"/>
-
-<!-- Fangs -->
-<path d="M177 153 L183 168 L188 155
-M212 155 L217 168 L223 153"
-fill="#e7e6d3" stroke="#fff" stroke-width="1"/>
-
-</svg>
-</div>
-
-<div class="flash"></div>
-
-<h1 class="snake-title">VIKAS GRAPHEO</h1>
-<p class="snake-subtitle">CREATIVE DESIGN STUDIO</p>
+  <h1 class="intro-logo">VIKAS GRAPHEO</h1>
+  <p class="intro-sub">CREATIVE DESIGN STUDIO</p>
 
 </div>
 
+<!-- HEADER -->
 <header>
 <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -511,6 +531,7 @@ fill="#e7e6d3" stroke="#fff" stroke-width="1"/>
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <div class="hero-content">
 <p class="tag">WELCOME TO VIKAS GRAPHEO</p>
@@ -528,6 +549,7 @@ and creative designs that help brands stand out.
 </div>
 </section>
 
+<!-- SERVICES -->
 <section class="section">
 <div class="section-heading">
 <p>WHAT WE CREATE</p>
@@ -535,7 +557,6 @@ and creative designs that help brands stand out.
 </div>
 
 <div class="services">
-
 <div class="service-card">
 <div class="number">01</div>
 <h3>Logo Design</h3>
@@ -545,19 +566,19 @@ and creative designs that help brands stand out.
 <div class="service-card">
 <div class="number">02</div>
 <h3>Poster Design</h3>
-<p>Attractive posters for events, promotions and businesses.</p>
+<p>Attractive posters for events and businesses.</p>
 </div>
 
 <div class="service-card">
 <div class="number">03</div>
 <h3>Social Media Design</h3>
-<p>Creative posts and designs for your social platforms.</p>
+<p>Creative posts for your social platforms.</p>
 </div>
 
 <div class="service-card">
 <div class="number">04</div>
 <h3>YouTube Thumbnails</h3>
-<p>Eye-catching thumbnails that make content stand out.</p>
+<p>Eye-catching thumbnails for content creators.</p>
 </div>
 
 <div class="service-card">
@@ -569,12 +590,12 @@ and creative designs that help brands stand out.
 <div class="service-card">
 <div class="number">06</div>
 <h3>Brand Identity</h3>
-<p>Consistent visual styles that give brands their identity.</p>
+<p>Consistent visual styles for your brand.</p>
 </div>
-
 </div>
 </section>
 
+<!-- ABOUT -->
 <section class="about">
 <h2>About <span>Our Studio</span></h2>
 <p>
@@ -584,6 +605,7 @@ designs. Our goal is to turn creative ideas into reality.
 </p>
 </section>
 
+<!-- CTA -->
 <section class="cta">
 <h2>Have a Project in Mind?</h2>
 <p>Let's create something amazing together.</p>
