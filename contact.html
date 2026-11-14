@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Inquiry | Vikas Grapheo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a class="active" href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">LET'S CREATE SOMETHING GREAT</div>
+  <h1>Start Your <span>Project.</span></h1>
+  <p>
+    Have a design idea? Share your requirements.
+    I'll receive your inquiry directly on WhatsApp.
+  </p>
+</section>
+
+<section class="section">
+
+  <div style="text-align:center">
+    <div class="eyebrow">PROJECT INQUIRY FORM</div>
+    <h2 class="heading">Tell Me About Your <span class="gold">Project.</span></h2>
+    <p class="subtext">Fill in the details below to send your inquiry.</p>
+  </div>
+
+  <form id="inquiryForm">
+
+    <label for="clientName">Your Name *</label>
+    <input
+      type="text"
+      id="clientName"
+      placeholder="Enter your name"
+      required
+    >
+
+    <label for="clientPhone">Your Mobile Number *</label>
+    <input
+      type="tel"
+      id="clientPhone"
+      placeholder="Enter your mobile number"
+      pattern="[0-9+\s()-]{10,16}"
+      required
+    >
+
+    <label for="service">Select Your Service *</label>
+    <select id="service" required>
+      <option value="">Choose a service</option>
+      <option>Logo Design</option>
+      <option>Poster Design</option>
+      <option>Banner Design</option>
+      <option>YouTube Thumbnail</option>
+      <option>Social Media Design</option>
+      <option>Custom Design</option>
+    </select>
+
+    <label for="budget">Your Budget</label>
+    <select id="budget">
+      <option value="Not specified">Select your budget</option>
+      <option>Under ₹500</option>
+      <option>₹500 - ₹1,000</option>
+      <option>₹1,000 - ₹3,000</option>
+      <option>₹3,000 - ₹5,000</option>
+      <option>₹5,000+</option>
+      <option>Let's discuss</option>
+    </select>
+
+    <label for="deadline">Project Deadline</label>
+    <input
+      type="date"
+      id="deadline"
+    >
+
+    <label for="details">Project Details *</label>
+    <textarea
+      id="details"
+      placeholder="Describe your design requirements..."
+      required
+    ></textarea>
+
+    <button type="submit" class="btn" style="width:100%">
+      Send Inquiry on WhatsApp ↗
+    </button>
+
+    <p class="subtext" style="margin-top:15px;font-size:12px">
+      Your WhatsApp app will open with your project details.
+      Review the message and press Send.
+    </p>
+
+  </form>
+
+  <div class="contact-info">
+    <p>Mobile: <a href="tel:7834905783">7834905783</a></p>
+    <p>Email: <a href="mailto:vvikas67001@gmail.com">vvikas67001@gmail.com</a></p>
+  </div>
+
+</section>
+
+<footer>© 2026 Vikas Grapheo. All Rights Reserved.</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
