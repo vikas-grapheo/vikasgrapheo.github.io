@@ -7,38 +7,33 @@
 <title>Vikas Grapheo | Creative Design Studio</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --gold:#d6ad55;
+  --green:#3caa50;
+  --dark:#080808;
 }
 
-html{scroll-behavior:smooth;}
-
 body{
-  background:#080808;
-  color:#fff;
+  background:var(--dark);
+  color:white;
   font-family:Arial,sans-serif;
   overflow-x:hidden;
 }
 
-:root{
-  --gold:#d6ad55;
-  --black:#080808;
-}
-
-/* INTRO SCREEN */
+/* INTRO */
 #intro{
   position:fixed;
   inset:0;
+  background:radial-gradient(ellipse at center,#102014,#020402 75%);
   z-index:9999;
-  background:#050505;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   flex-direction:column;
   overflow:hidden;
-  transition:opacity .8s ease,visibility .8s ease;
+  transition:opacity 1s,visibility 1s;
 }
 
 #intro.hide{
@@ -46,55 +41,93 @@ body{
   visibility:hidden;
 }
 
-.snake{
-  width:180px;
-  height:180px;
-  animation:snakeMove 1.5s ease-in-out forwards;
-  filter:drop-shadow(0 0 12px #d6ad55);
+.snake-scene{
+  width:min(440px,95vw);
+  height:390px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-@keyframes snakeMove{
-  0%{transform:translateX(-180px) rotate(-20deg) scale(.7);}
-  45%{transform:translateX(0) rotate(10deg) scale(1);}
-  65%{transform:translateX(0) rotate(-8deg) scale(1.12);}
-  75%{transform:translateX(12px) rotate(15deg) scale(.9);}
-  100%{transform:translateX(0) rotate(0) scale(1);}
+.cobra{
+  width:100%;
+  height:100%;
+  overflow:visible;
+  filter:drop-shadow(0 0 16px #1c9d43);
+  animation:cobraEntrance 3s ease-in-out forwards;
+  transform-origin:50% 80%;
 }
 
-.intro-title{
-  color:var(--gold);
-  font-size:32px;
+@keyframes cobraEntrance{
+  0%{
+    transform:translateY(150px) scale(.55);
+    opacity:0;
+  }
+  25%{
+    transform:translateY(0) scale(.9);
+    opacity:1;
+  }
+  55%{
+    transform:translateY(-15px) scale(1);
+  }
+  72%{
+    transform:translateY(-10px) scale(1);
+  }
+  82%{
+    transform:translate(0,-45px) scale(1.25);
+  }
+  90%{
+    transform:translate(0,10px) scale(1.05);
+  }
+  100%{
+    transform:translateY(0) scale(1);
+  }
+}
+
+.snake-title{
+  font-size:clamp(22px,6vw,36px);
   letter-spacing:7px;
-  margin-top:25px;
+  color:var(--gold);
+  text-shadow:0 0 20px #d6ad55;
   opacity:0;
-  animation:titleShow .8s ease 1.6s forwards;
-  text-shadow:0 0 18px #d6ad55;
+  animation:reveal 1s ease 2.8s forwards;
 }
 
-.intro-subtitle{
+.snake-subtitle{
   color:#aaa;
-  letter-spacing:4px;
   font-size:10px;
+  letter-spacing:5px;
   margin-top:12px;
   opacity:0;
-  animation:titleShow .8s ease 2s forwards;
+  animation:reveal 1s ease 3s forwards;
 }
 
-@keyframes titleShow{
-  from{opacity:0;transform:translateY(15px);}
-  to{opacity:1;transform:translateY(0);}
+@keyframes reveal{
+  to{opacity:1;transform:translateY(0)}
+  from{opacity:0;transform:translateY(20px)}
+}
+
+.flash{
+  position:absolute;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  animation:flash 0.3s ease 2.65s;
+}
+
+@keyframes flash{
+  0%,100%{opacity:0}
+  40%{opacity:.7}
 }
 
 /* HEADER */
 header{
-  width:100%;
-  padding:24px 8%;
+  padding:23px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   border-bottom:1px solid #242424;
-  position:relative;
-  z-index:10;
 }
 
 .logo{
@@ -105,10 +138,7 @@ header{
   letter-spacing:2px;
 }
 
-nav{
-  display:flex;
-  gap:27px;
-}
+nav{display:flex;gap:27px}
 
 nav a{
   color:#ddd;
@@ -117,14 +147,14 @@ nav a{
   transition:.3s;
 }
 
-nav a:hover{color:var(--gold);}
+nav a:hover{color:var(--gold)}
 
 .menu-btn{
   display:none;
   color:var(--gold);
-  font-size:27px;
   background:none;
   border:0;
+  font-size:27px;
 }
 
 /* HERO */
@@ -134,11 +164,11 @@ nav a:hover{color:var(--gold);}
   display:flex;
   align-items:center;
   background:
-  radial-gradient(circle at 80% 40%,#342713 0%,transparent 35%),
-  #080808;
+    radial-gradient(circle at 80% 40%,#342713,transparent 35%),
+    #080808;
 }
 
-.hero-content{max-width:750px;}
+.hero-content{max-width:750px}
 
 .tag{
   color:var(--gold);
@@ -153,7 +183,7 @@ nav a:hover{color:var(--gold);}
   margin-bottom:25px;
 }
 
-.hero h1 span{color:var(--gold);}
+.hero h1 span{color:var(--gold)}
 
 .hero p{
   color:#aaa;
@@ -189,12 +219,10 @@ nav a:hover{color:var(--gold);}
   color:var(--gold);
 }
 
-.btn:hover{transform:translateY(-4px);}
+.btn:hover{transform:translateY(-4px)}
 
 /* SERVICES */
-.section{
-  padding:90px 8%;
-}
+.section{padding:90px 8%}
 
 .section-heading{
   text-align:center;
@@ -208,9 +236,7 @@ nav a:hover{color:var(--gold);}
   margin-bottom:15px;
 }
 
-.section-heading h2{
-  font-size:38px;
-}
+.section-heading h2{font-size:38px}
 
 .services{
   display:grid;
@@ -230,7 +256,7 @@ nav a:hover{color:var(--gold);}
   transform:translateY(-7px);
 }
 
-.service-card .number{
+.number{
   color:var(--gold);
   font-size:30px;
   margin-bottom:20px;
@@ -259,7 +285,7 @@ nav a:hover{color:var(--gold);}
   margin-bottom:25px;
 }
 
-.about h2 span{color:var(--gold);}
+.about h2 span{color:var(--gold)}
 
 .about p{
   max-width:750px;
@@ -293,9 +319,8 @@ footer{
   font-size:13px;
 }
 
-footer span{color:var(--gold);}
+footer span{color:var(--gold)}
 
-/* WHATSAPP */
 .whatsapp{
   position:fixed;
   right:22px;
@@ -310,9 +335,8 @@ footer span{color:var(--gold);}
   font-size:13px;
 }
 
-/* MOBILE */
 @media(max-width:768px){
-  header{padding:20px 6%;}
+  header{padding:20px 6%}
   nav{
     display:none;
     position:absolute;
@@ -323,179 +347,268 @@ footer span{color:var(--gold);}
     flex-direction:column;
     padding:25px;
     gap:22px;
+    z-index:20;
   }
-  nav.active{display:flex;}
-  .menu-btn{display:block;}
-  .hero{padding:90px 7%;min-height:75vh;}
-  .services{grid-template-columns:1fr;}
-  .section,.about,.cta{padding:70px 7%;}
-  .section-heading h2,.about h2,.cta h2{font-size:30px;}
-  .intro-title{font-size:23px;letter-spacing:4px;}
+  nav.active{display:flex}
+  .menu-btn{display:block}
+  .hero{padding:90px 7%;min-height:75vh}
+  .services{grid-template-columns:1fr}
+  .section,.about,.cta{padding:70px 7%}
+  .section-heading h2,.about h2,.cta h2{font-size:30px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- SNAKE INTRO -->
+<!-- REALISTIC STYLISED GREEN COBRA INTRO -->
 <div id="intro">
 
-  <svg class="snake" viewBox="0 0 200 200" fill="none"
-       xmlns="http://www.w3.org/2000/svg">
+<div class="snake-scene">
 
-    <path d="M35 145
-    C10 120 45 95 75 110
-    C110 128 135 115 120 85
-    C105 55 145 25 165 50
-    C180 70 155 90 140 75"
-    stroke="#D6AD55"
-    stroke-width="13"
-    stroke-linecap="round"/>
+<svg class="cobra" viewBox="0 0 400 400"
+xmlns="http://www.w3.org/2000/svg">
 
-    <path d="M140 75
-    C150 55 165 40 180 48
-    C195 55 188 75 175 82
-    L158 91"
-    stroke="#D6AD55"
-    stroke-width="12"
-    stroke-linecap="round"/>
+<defs>
+  <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#a1df61"/>
+    <stop offset="35%" stop-color="#3d9d36"/>
+    <stop offset="70%" stop-color="#17602c"/>
+    <stop offset="100%" stop-color="#092e19"/>
+  </linearGradient>
 
-    <circle cx="177" cy="58" r="3.5" fill="#080808"/>
-    <path d="M180 80 L193 86 M180 80 L193 76"
-    stroke="#D6AD55"
-    stroke-width="2"
-    stroke-linecap="round"/>
+  <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#b1e76a"/>
+    <stop offset="50%" stop-color="#348e39"/>
+    <stop offset="100%" stop-color="#0b3d20"/>
+  </linearGradient>
 
-  </svg>
+  <radialGradient id="eye">
+    <stop offset="0%" stop-color="#fff6a0"/>
+    <stop offset="50%" stop-color="#d4a52d"/>
+    <stop offset="100%" stop-color="#7d3c00"/>
+  </radialGradient>
 
-  <h1 class="intro-title">VIKAS GRAPHEO</h1>
-  <p class="intro-subtitle">CREATIVE DESIGN STUDIO</p>
+  <pattern id="scales" width="16" height="12"
+  patternUnits="userSpaceOnUse">
+    <path d="M0 6 Q8 -2 16 6 Q8 14 0 6"
+    fill="none" stroke="#b2e777" stroke-width="1"
+    opacity=".45"/>
+  </pattern>
+</defs>
+
+<!-- Coiled body -->
+<path d="M75 370
+C35 340 70 295 145 310
+C230 330 300 305 280 265
+C260 230 205 250 185 220"
+fill="none" stroke="#0b321b" stroke-width="58"
+stroke-linecap="round"/>
+
+<path d="M75 370
+C35 340 70 295 145 310
+C230 330 300 305 280 265
+C260 230 205 250 185 220"
+fill="none" stroke="url(#skin)" stroke-width="45"
+stroke-linecap="round"/>
+
+<path d="M75 370
+C35 340 70 295 145 310
+C230 330 300 305 280 265
+C260 230 205 250 185 220"
+fill="none" stroke="url(#scales)" stroke-width="42"
+stroke-linecap="round"/>
+
+<!-- Neck -->
+<path d="M185 235
+C155 195 155 150 165 115
+L235 115
+C250 160 240 205 215 245Z"
+fill="url(#skin)" stroke="#0b321b" stroke-width="5"/>
+
+<!-- Cobra hood -->
+<path d="M165 145
+C95 135 65 80 105 45
+C135 18 170 45 200 60
+C230 35 265 20 295 48
+C330 85 295 135 235 145
+L225 190
+L175 190Z"
+fill="url(#hood)" stroke="#0a341a" stroke-width="7"/>
+
+<!-- Hood scale pattern -->
+<path d="M165 145
+C95 135 65 80 105 45
+C135 18 170 45 200 60
+C230 35 265 20 295 48
+C330 85 295 135 235 145"
+fill="none" stroke="url(#scales)" stroke-width="35"/>
+
+<!-- Hood markings -->
+<path d="M125 68 Q160 45 190 85
+Q165 110 135 100Z"
+fill="#123c20" opacity=".8"/>
+
+<path d="M275 68 Q240 45 210 85
+Q235 110 265 100Z"
+fill="#123c20" opacity=".8"/>
+
+<!-- Head -->
+<path d="M160 115
+Q165 80 200 78
+Q235 80 240 115
+L260 140
+Q200 175 140 140Z"
+fill="url(#skin)" stroke="#0a341a" stroke-width="5"/>
+
+<!-- Face scales -->
+<path d="M160 115 Q200 100 240 115"
+fill="none" stroke="#c1e88a" stroke-width="3" opacity=".5"/>
+
+<!-- Eyes -->
+<ellipse cx="174" cy="119" rx="12" ry="9" fill="#102b13"/>
+<ellipse cx="226" cy="119" rx="12" ry="9" fill="#102b13"/>
+
+<ellipse cx="174" cy="119" rx="7" ry="7" fill="url(#eye)"/>
+<ellipse cx="226" cy="119" rx="7" ry="7" fill="url(#eye)"/>
+
+<ellipse cx="174" cy="119" rx="2" ry="6" fill="#080808"/>
+<ellipse cx="226" cy="119" rx="2" ry="6" fill="#080808"/>
+
+<!-- Nose -->
+<path d="M191 139 L200 144 L209 139"
+fill="none" stroke="#0a341a" stroke-width="3"/>
+
+<!-- Mouth -->
+<path d="M169 151 Q200 165 231 151"
+fill="none" stroke="#102c17" stroke-width="3"/>
+
+<!-- Fangs -->
+<path d="M177 153 L183 168 L188 155
+M212 155 L217 168 L223 153"
+fill="#e7e6d3" stroke="#fff" stroke-width="1"/>
+
+</svg>
+</div>
+
+<div class="flash"></div>
+
+<h1 class="snake-title">VIKAS GRAPHEO</h1>
+<p class="snake-subtitle">CREATIVE DESIGN STUDIO</p>
 
 </div>
 
-<!-- HEADER -->
 <header>
-  <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
+<a href="index.html" class="logo">VIKAS GRAPHEO.</a>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-  <nav id="nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <p class="tag">WELCOME TO VIKAS GRAPHEO</p>
+<div class="hero-content">
+<p class="tag">WELCOME TO VIKAS GRAPHEO</p>
+<h1>Design That <span>Speaks.</span><br>
+Creativity That Wins.</h1>
+<p>
+We create powerful visual identities, stunning graphics
+and creative designs that help brands stand out.
+</p>
 
-    <h1>Design That <span>Speaks.</span><br>
-    Creativity That Wins.</h1>
-
-    <p>
-      We create powerful visual identities, stunning graphics
-      and creative designs that help brands stand out.
-    </p>
-
-    <div class="buttons">
-      <a href="portfolio.html" class="btn btn-gold">EXPLORE WORK</a>
-      <a href="contact.html" class="btn btn-outline">START A PROJECT</a>
-    </div>
-  </div>
+<div class="buttons">
+<a href="portfolio.html" class="btn btn-gold">EXPLORE WORK</a>
+<a href="contact.html" class="btn btn-outline">START A PROJECT</a>
+</div>
+</div>
 </section>
 
-<!-- SERVICES -->
 <section class="section">
-  <div class="section-heading">
-    <p>WHAT WE CREATE</p>
-    <h2>Creative Solutions</h2>
-  </div>
+<div class="section-heading">
+<p>WHAT WE CREATE</p>
+<h2>Creative Solutions</h2>
+</div>
 
-  <div class="services">
+<div class="services">
 
-    <div class="service-card">
-      <div class="number">01</div>
-      <h3>Logo Design</h3>
-      <p>Unique and memorable logos for modern brands.</p>
-    </div>
+<div class="service-card">
+<div class="number">01</div>
+<h3>Logo Design</h3>
+<p>Unique and memorable logos for modern brands.</p>
+</div>
 
-    <div class="service-card">
-      <div class="number">02</div>
-      <h3>Poster Design</h3>
-      <p>Attractive posters for events, promotions and businesses.</p>
-    </div>
+<div class="service-card">
+<div class="number">02</div>
+<h3>Poster Design</h3>
+<p>Attractive posters for events, promotions and businesses.</p>
+</div>
 
-    <div class="service-card">
-      <div class="number">03</div>
-      <h3>Social Media Design</h3>
-      <p>Creative posts and designs for your social platforms.</p>
-    </div>
+<div class="service-card">
+<div class="number">03</div>
+<h3>Social Media Design</h3>
+<p>Creative posts and designs for your social platforms.</p>
+</div>
 
-    <div class="service-card">
-      <div class="number">04</div>
-      <h3>YouTube Thumbnails</h3>
-      <p>Eye-catching thumbnails that make content stand out.</p>
-    </div>
+<div class="service-card">
+<div class="number">04</div>
+<h3>YouTube Thumbnails</h3>
+<p>Eye-catching thumbnails that make content stand out.</p>
+</div>
 
-    <div class="service-card">
-      <div class="number">05</div>
-      <h3>Banner Design</h3>
-      <p>Professional banners for brands and campaigns.</p>
-    </div>
+<div class="service-card">
+<div class="number">05</div>
+<h3>Banner Design</h3>
+<p>Professional banners for brands and campaigns.</p>
+</div>
 
-    <div class="service-card">
-      <div class="number">06</div>
-      <h3>Brand Identity</h3>
-      <p>Consistent visual styles that give brands their identity.</p>
-    </div>
+<div class="service-card">
+<div class="number">06</div>
+<h3>Brand Identity</h3>
+<p>Consistent visual styles that give brands their identity.</p>
+</div>
 
-  </div>
+</div>
 </section>
 
-<!-- ABOUT -->
 <section class="about">
-  <h2>About <span>Our Studio</span></h2>
-  <p>
-    Vikas Grapheo is a creative design studio focused on
-    delivering modern, attractive and professional visual
-    designs. Our goal is to turn creative ideas into reality.
-  </p>
+<h2>About <span>Our Studio</span></h2>
+<p>
+Vikas Grapheo is a creative design studio focused on
+delivering modern, attractive and professional visual
+designs. Our goal is to turn creative ideas into reality.
+</p>
 </section>
 
-<!-- CTA -->
 <section class="cta">
-  <h2>Have a Project in Mind?</h2>
-  <p>Let's create something amazing together.</p>
-  <a href="contact.html" class="btn btn-gold">LET'S TALK</a>
+<h2>Have a Project in Mind?</h2>
+<p>Let's create something amazing together.</p>
+<a href="contact.html" class="btn btn-gold">LET'S TALK</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2026 <span>Vikas Grapheo</span>. All Rights Reserved.
+© 2026 <span>Vikas Grapheo</span>. All Rights Reserved.
 </footer>
 
 <a class="whatsapp"
-   href="https://wa.me/917834905783"
-   target="_blank">WhatsApp</a>
+href="https://wa.me/917834905783"
+target="_blank">WhatsApp</a>
 
 <script>
-/* INTRO ANIMATION */
-window.addEventListener("load", function(){
+window.addEventListener("load",function(){
   setTimeout(function(){
     document.getElementById("intro").classList.add("hide");
-  }, 3200);
+  },4000);
 });
 
-/* MOBILE MENU */
 function toggleMenu(){
   document.getElementById("nav").classList.toggle("active");
 }
 </script>
 
 </body>
-  </html>
-  
+</html>
