@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vikas Grapheo | Creative Design Studio</title>
-<meta name="description" content="Vikas Grapheo - Professional graphic design, branding, posters and digital creative services.">
+<meta name="description" content="Vikas Grapheo - Creative graphic design, branding, posters and digital design services.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
@@ -25,7 +25,9 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
@@ -37,6 +39,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/* HEADER */
 
 header {
   padding: 20px 7%;
@@ -56,7 +60,10 @@ header {
   font-weight: 800;
 }
 
-.logo span { color: var(--gold); }
+.logo span,
+.footer-logo span {
+  color: var(--gold);
+}
 
 nav {
   display: flex;
@@ -70,9 +77,12 @@ nav a {
   transition: .3s;
 }
 
-nav a:hover { color: var(--gold); }
+nav a:hover {
+  color: var(--gold);
+}
 
-.nav-btn, .main-btn {
+.nav-btn,
+.main-btn {
   background: var(--gold);
   color: #111;
   padding: 13px 22px;
@@ -87,7 +97,10 @@ nav a:hover { color: var(--gold); }
   border: 0;
   color: white;
   font-size: 28px;
+  cursor: pointer;
 }
+
+/* HERO */
 
 .hero {
   min-height: 650px;
@@ -99,7 +112,9 @@ nav a:hover { color: var(--gold); }
     #090909;
 }
 
-.hero-content { max-width: 750px; }
+.hero-content {
+  max-width: 750px;
+}
 
 .tag {
   color: var(--gold);
@@ -116,7 +131,9 @@ nav a:hover { color: var(--gold); }
   margin-bottom: 25px;
 }
 
-.hero h1 span { color: var(--gold); }
+.hero h1 span {
+  color: var(--gold);
+}
 
 .hero p {
   color: var(--muted);
@@ -138,14 +155,21 @@ nav a:hover { color: var(--gold); }
   color: var(--gold);
 }
 
-.section { padding: 90px 8%; }
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 90px 8%;
+}
 
 .section-heading {
   text-align: center;
   margin-bottom: 50px;
 }
 
-.section-heading small { color: var(--gold); letter-spacing: 4px; }
+.section-heading small {
+  color: var(--gold);
+  letter-spacing: 4px;
+}
 
 .section-heading h2 {
   font-family: 'Playfair Display', serif;
@@ -157,6 +181,8 @@ nav a:hover { color: var(--gold); }
   color: var(--muted);
   margin-top: 15px;
 }
+
+/* SERVICES */
 
 .services {
   display: grid;
@@ -182,7 +208,10 @@ nav a:hover { color: var(--gold); }
   font-family: 'Playfair Display', serif;
 }
 
-.service-card h3 { font-size: 21px; margin: 20px 0 12px; }
+.service-card h3 {
+  font-size: 21px;
+  margin: 20px 0 12px;
+}
 
 .service-card p {
   color: var(--muted);
@@ -196,7 +225,11 @@ nav a:hover { color: var(--gold); }
   color: var(--gold);
 }
 
-.portfolio { background: #101010; }
+/* FEATURED PORTFOLIO */
+
+.portfolio {
+  background: #101010;
+}
 
 .portfolio-grid {
   display: grid;
@@ -218,11 +251,24 @@ nav a:hover { color: var(--gold); }
   transition: .4s;
 }
 
-.work-card:hover img { transform: scale(1.04); }
+.work-card:hover img {
+  transform: scale(1.04);
+}
 
-.work-info { padding: 20px; }
-.work-info h3 { margin-bottom: 7px; }
-.work-info p { color: var(--gold); font-size: 13px; }
+.work-info {
+  padding: 20px;
+}
+
+.work-info h3 {
+  margin-bottom: 7px;
+}
+
+.work-info p {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* ABOUT */
 
 .about-box {
   display: grid;
@@ -256,6 +302,8 @@ nav a:hover { color: var(--gold); }
   margin-bottom: 25px;
 }
 
+/* CTA */
+
 .cta {
   margin: 30px 8% 90px;
   padding: 65px 25px;
@@ -275,6 +323,8 @@ nav a:hover { color: var(--gold); }
   margin-bottom: 30px;
 }
 
+/* FOOTER */
+
 footer {
   border-top: 1px solid #292929;
   padding: 35px 8%;
@@ -287,13 +337,17 @@ footer {
   margin-bottom: 15px;
 }
 
-.footer-logo span { color: var(--gold); }
-
 footer p {
   color: var(--muted);
   font-size: 13px;
   line-height: 2;
 }
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* WHATSAPP */
 
 .whatsapp {
   position: fixed;
@@ -307,10 +361,23 @@ footer p {
   z-index: 99;
 }
 
-@media(max-width: 750px) {
-  header { padding: 18px 5%; }
+/* IMAGE FALLBACK */
 
-  .menu-btn { display: block; }
+.work-card img {
+  background: #222;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+
+  header {
+    padding: 18px 5%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
 
   nav {
     display: none;
@@ -324,23 +391,42 @@ footer p {
     align-items: flex-start;
   }
 
-  nav.active { display: flex; }
+  nav.active {
+    display: flex;
+  }
 
-  .hero { min-height: 570px; padding: 85px 6%; }
+  .hero {
+    min-height: 570px;
+    padding: 85px 6%;
+  }
 
-  .services { grid-template-columns: 1fr; }
+  .services {
+    grid-template-columns: 1fr;
+  }
 
-  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .about-box { grid-template-columns: 1fr; }
+  .about-box {
+    grid-template-columns: 1fr;
+  }
 
-  .section { padding: 70px 6%; }
+  .section {
+    padding: 70px 6%;
+  }
 
-  .cta { margin: 20px 5% 70px; }
+  .cta {
+    margin: 20px 5% 70px;
+  }
 
-  .cta h2 { font-size: 30px; }
+  .cta h2 {
+    font-size: 30px;
+  }
 
-  .about-text h2 { font-size: 34px; }
+  .about-text h2 {
+    font-size: 34px;
+  }
 }
 </style>
 </head>
@@ -348,7 +434,9 @@ footer p {
 <body>
 
 <header>
-  <a href="index.html" class="logo">VIKAS <span>GRAPHEO.</span></a>
+  <a href="index.html" class="logo">
+    VIKAS <span>GRAPHEO.</span>
+  </a>
 
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
@@ -364,11 +452,18 @@ footer p {
 
 <main>
 
+<!-- HERO SECTION -->
+
 <section class="hero">
   <div class="hero-content">
-    <div class="tag">INDEPENDENT CREATIVE DESIGN STUDIO</div>
 
-    <h1>Ideas Into <span>Visual</span> Experiences.</h1>
+    <div class="tag">
+      INDEPENDENT CREATIVE DESIGN STUDIO
+    </div>
+
+    <h1>
+      Ideas Into <span>Visual</span> Experiences.
+    </h1>
 
     <p>
       Welcome to Vikas Grapheo. We transform creative ideas
@@ -377,13 +472,22 @@ footer p {
     </p>
 
     <div class="hero-links">
-      <a href="portfolio.html" class="main-btn">Explore My Work ↗</a>
-      <a href="contact.html" class="outline-btn">Start a Project ↗</a>
+      <a href="portfolio.html" class="main-btn">
+        Explore My Work ↗
+      </a>
+
+      <a href="contact.html" class="outline-btn">
+        Start a Project ↗
+      </a>
     </div>
+
   </div>
 </section>
 
+<!-- SERVICES SECTION -->
+
 <section class="section">
+
   <div class="section-heading">
     <small>WHAT WE DO</small>
     <h2>Creative Solutions</h2>
@@ -437,7 +541,10 @@ footer p {
   </div>
 </section>
 
+<!-- FEATURED PORTFOLIO -->
+
 <section class="section portfolio">
+
   <div class="section-heading">
     <small>SELECTED WORK</small>
     <h2>Featured Portfolio</h2>
@@ -447,7 +554,7 @@ footer p {
   <div class="portfolio-grid">
 
     <div class="work-card">
-      <img src="images/project-1.jpg" alt="Brand identity design">
+      <img src="images/logo.jpg" alt="Brand identity design">
       <div class="work-info">
         <h3>Brand Identity</h3>
         <p>Branding & Logo Design</p>
@@ -455,7 +562,7 @@ footer p {
     </div>
 
     <div class="work-card">
-      <img src="images/project-2.jpg" alt="Poster design">
+      <img src="images/poster.png" alt="Poster design">
       <div class="work-info">
         <h3>Creative Poster</h3>
         <p>Poster Design</p>
@@ -463,29 +570,51 @@ footer p {
     </div>
 
     <div class="work-card">
-      <img src="images/project-3.jpg" alt="Social media design">
+      <img src="images/banner.jpg" alt="Business banner">
       <div class="work-info">
-        <h3>Social Media</h3>
+        <h3>Business Banner</h3>
+        <p>Banner Design</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <img src="images/thumbnail.png" alt="YouTube thumbnail">
+      <div class="work-info">
+        <h3>YouTube Thumbnail</h3>
         <p>Digital Graphics</p>
       </div>
     </div>
 
     <div class="work-card">
-      <img src="images/project-4.jpg" alt="Business graphics">
+      <img src="images/social.jpg" alt="Social media design">
       <div class="work-info">
-        <h3>Business Graphics</h3>
-        <p>Creative Design</p>
+        <h3>Social Media</h3>
+        <p>Social Media Graphics</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <img src="images/creative.png" alt="Creative artwork">
+      <div class="work-info">
+        <h3>Creative Artwork</h3>
+        <p>Custom Design</p>
       </div>
     </div>
 
   </div>
 
   <div style="text-align:center;margin-top:40px">
-    <a href="portfolio.html" class="main-btn">View Full Portfolio ↗</a>
+    <a href="portfolio.html" class="main-btn">
+      View Full Portfolio ↗
+    </a>
   </div>
+
 </section>
 
+<!-- ABOUT SECTION -->
+
 <section class="section">
+
   <div class="about-box">
 
     <div class="about-art">
@@ -493,9 +622,12 @@ footer p {
     </div>
 
     <div class="about-text">
+
       <div class="tag">ABOUT THE STUDIO</div>
 
-      <h2>Design With Purpose. Create With Passion.</h2>
+      <h2>
+        Design With Purpose. Create With Passion.
+      </h2>
 
       <p>
         Vikas Grapheo is a creative graphic design studio
@@ -504,29 +636,47 @@ footer p {
         is created with creativity and attention to detail.
       </p>
 
-      <a href="about.html" class="main-btn">Discover More ↗</a>
+      <a href="about.html" class="main-btn">
+        Discover More ↗
+      </a>
+
     </div>
 
   </div>
+
 </section>
 
+<!-- CTA SECTION -->
+
 <section class="cta">
+
   <div class="tag">LET'S CREATE SOMETHING GREAT</div>
 
   <h2>Have a Project in Mind?</h2>
 
   <p>Let's turn your ideas into something unforgettable.</p>
 
-  <a href="contact.html" class="main-btn">Let's Talk ↗</a>
+  <a href="contact.html" class="main-btn">
+    Let's Talk ↗
+  </a>
+
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-  <div class="footer-logo">VIKAS <span>GRAPHEO.</span></div>
+
+  <div class="footer-logo">
+    VIKAS <span>GRAPHEO.</span>
+  </div>
 
   <p>Independent Creative Design Studio</p>
-  <p>Branding | Posters | Digital Graphics | Creative Design</p>
+
+  <p>
+    Branding | Posters | Digital Graphics | Creative Design
+  </p>
 
   <p>
     <a href="index.html">Home</a> |
@@ -537,11 +687,15 @@ footer p {
   </p>
 
   <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+
 </footer>
 
+<!-- WHATSAPP BUTTON -->
+
 <a class="whatsapp"
-   href="https://wa.me/91YOURNUMBER"
-   target="_blank">
+   href="https://wa.me/917834905783"
+   target="_blank"
+   rel="noopener">
    WhatsApp ↗
 </a>
 
@@ -552,4 +706,5 @@ function toggleMenu() {
 </script>
 
 </body>
-</html>
+  </html>
+  
