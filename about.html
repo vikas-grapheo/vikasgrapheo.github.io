@@ -3,56 +3,903 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About | Vikas Grapheo</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Vikas Grapheo</title>
+<meta name="description" content="Discover Vikas Grapheo, an independent creative design studio focused on branding, graphic design and visual experiences.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090909;
+  --card: #151515;
+  --gold: #d6ad65;
+  --white: #f7f5f0;
+  --muted: #aaa49a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292929;
+  background: #090909;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo span,
+.footer-logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  font-size: 14px;
+  color: #ddd;
+  transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--gold);
+}
+
+.nav-btn,
+.main-btn {
+  background: var(--gold);
+  color: #111;
+  padding: 13px 22px;
+  border-radius: 3px;
+  font-weight: 700;
+  display: inline-block;
+  transition: .3s;
+}
+
+.main-btn:hover,
+.nav-btn:hover {
+  background: #f0cc8a;
+  transform: translateY(-3px);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 490px;
+  padding: 100px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 50%, #302516 0%, transparent 55%),
+    #090909;
+  border-bottom: 1px solid #292929;
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 78px);
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 650px;
+  margin: auto;
+}
+
+.hero-links {
+  margin-top: 35px;
+}
+
+/* COMMON SECTION */
+
+.section {
+  padding: 90px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading small {
+  color: var(--gold);
+  letter-spacing: 4px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-top: 15px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 15px;
+  line-height: 1.8;
+}
+
+/* STORY */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.story-art {
+  min-height: 430px;
+  border: 1px solid #604a2a;
+  background:
+    radial-gradient(circle, #49371e, #17130d 55%, #090909);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-art::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid #a77d42;
+  border-radius: 50%;
+  opacity: .5;
+}
+
+.story-art::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid #a77d42;
+  border-radius: 50%;
+  opacity: .4;
+}
+
+.story-art h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 43px;
+  position: relative;
+  z-index: 2;
+}
+
+.story-text .tag {
+  margin-bottom: 20px;
+}
+
+.story-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.story-text p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+/* MISSION VISION */
+
+.mission-section {
+  background: #101010;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.mission-card {
+  padding: 45px 35px;
+  background: var(--card);
+  border: 1px solid #292929;
+  transition: .3s;
+}
+
+.mission-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+}
+
+.mission-number {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+}
+
+.mission-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  margin: 20px 0 15px;
+}
+
+.mission-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* VALUES */
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.value-card {
+  background: var(--card);
+  border: 1px solid #292929;
+  padding: 35px 28px;
+  transition: .3s;
+}
+
+.value-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-7px);
+}
+
+.value-icon {
+  font-size: 32px;
+  color: var(--gold);
+}
+
+.value-card h3 {
+  font-size: 21px;
+  margin: 20px 0 12px;
+}
+
+.value-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* PROCESS */
+
+.process-section {
+  background: #101010;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.process-card {
+  padding: 30px 20px;
+  background: #151515;
+  border: 1px solid #292929;
+}
+
+.process-card span {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.process-card h3 {
+  margin: 18px 0 12px;
+  font-size: 19px;
+}
+
+.process-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* QUOTE */
+
+.quote {
+  padding: 85px 8%;
+  text-align: center;
+}
+
+.quote h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.3;
+}
+
+.quote h2 span {
+  color: var(--gold);
+}
+
+.quote p {
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+/* CTA */
+
+.cta {
+  margin: 20px 8% 90px;
+  padding: 70px 25px;
+  text-align: center;
+  border: 1px solid #4b3c25;
+  background: linear-gradient(135deg, #17130d, #111);
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #292929;
+  padding: 35px 8%;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #25d366;
+  color: white;
+  padding: 14px 19px;
+  border-radius: 40px;
+  font-weight: 700;
+  z-index: 99;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.story-text,
+.story-art {
+  animation: fadeUp .9s ease both;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 850px) {
+  nav {
+    gap: 15px;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 750px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #111;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 440px;
+    padding: 80px 6%;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .story-art {
+    min-height: 300px;
+  }
+
+  .story-text h2 {
+    font-size: 34px;
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta {
+    margin: 20px 5% 70px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+  }
+}
+
+@media(max-width: 400px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+}
+</style>
 </head>
+
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
-  <nav>
+  <a href="index.html" class="logo">
+    VIKAS <span>GRAPHEO.</span>
+  </a>
+
+  <button class="menu-btn"
+  onclick="toggleMenu()">☰</button>
+
+  <nav id="navigation">
     <a href="index.html">Home</a>
-    <a class="active" href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-btn">Start a Project ↗</a>
   </nav>
 </header>
 
+<main>
+
+<!-- HERO -->
+
 <section class="hero">
-  <div class="eyebrow">GET TO KNOW THE DESIGNER</div>
-  <h1>Behind the <span>Creativity.</span></h1>
-  <p>
-    I'm Vikas, the creative mind behind Vikas Grapheo.
-    I believe great design is more than appearance:
-    it's about communicating an idea.
-  </p>
+  <div class="hero-content">
+
+    <div class="tag">GET TO KNOW US</div>
+
+    <h1>
+      Creativity Has <span>A Story.</span>
+    </h1>
+
+    <p>
+      We believe every great design starts with an idea.
+      At Vikas Grapheo, we turn those ideas into meaningful
+      visual experiences through creativity, imagination
+      and thoughtful design.
+    </p>
+
+    <div class="hero-links">
+      <a href="portfolio.html" class="main-btn">
+        Explore Our Work ↗
+      </a>
+    </div>
+
+  </div>
 </section>
+
+<!-- OUR STORY -->
 
 <section class="section">
-  <div class="eyebrow">MY STORY</div>
-  <h2 class="heading">Creativity meets <span class="gold">purpose.</span></h2>
-  <p class="subtext">
-    I enjoy creating logos, posters, banners and digital
-    graphics. My goal is to turn every project into
-    a clear and memorable visual experience.
-  </p>
+  <div class="story-grid">
 
-  <div class="grid">
-    <div class="card">
-      <h3>My Approach</h3>
-      <p>Original ideas, thoughtful layouts and attention to detail.</p>
+    <div class="story-art">
+      <h2>VIKAS<br>GRAPHEO.</h2>
     </div>
-    <div class="card">
-      <h3>My Focus</h3>
-      <p>Creating designs that communicate clearly and look professional.</p>
+
+    <div class="story-text">
+
+      <div class="tag">OUR STORY</div>
+
+      <h2>
+        Turning Ideas Into Visual Identity.
+      </h2>
+
+      <p>
+        Vikas Grapheo is an independent creative design
+        studio built around the power of visual storytelling.
+      </p>
+
+      <p>
+        We believe design is more than just colours,
+        shapes and typography. It is a way to communicate
+        ideas, express identities and create memorable
+        experiences.
+      </p>
+
+      <p>
+        From logos and branding to posters and digital
+        graphics, our focus is on creating designs that
+        communicate clearly and leave a lasting impression.
+      </p>
+
+      <a href="services.html" class="main-btn">
+        Discover Our Services ↗
+      </a>
+
     </div>
+
   </div>
-
-  <a href="contact.html" class="btn">Work With Me ↗</a>
 </section>
 
-<footer>© 2026 Vikas Grapheo. All Rights Reserved.</footer>
+<!-- MISSION AND VISION -->
+
+<section class="section mission-section">
+
+  <div class="section-heading">
+    <small>OUR PURPOSE</small>
+    <h2>Mission & Vision</h2>
+    <p>What inspires us and where we want to go.</p>
+  </div>
+
+  <div class="mission-grid">
+
+    <div class="mission-card">
+      <div class="mission-number">01</div>
+
+      <h3>Our Mission</h3>
+
+      <p>
+        Our mission is to transform ideas into impactful
+        visual designs that help individuals, creators
+        and businesses communicate their identity
+        with creativity and clarity.
+      </p>
+    </div>
+
+    <div class="mission-card">
+      <div class="mission-number">02</div>
+
+      <h3>Our Vision</h3>
+
+      <p>
+        Our vision is to build a creative design studio
+        known for originality, thoughtful visual
+        communication and meaningful creative experiences.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OUR VALUES -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <small>WHAT DEFINES US</small>
+    <h2>Our Creative Values</h2>
+    <p>The principles behind every creative idea.</p>
+  </div>
+
+  <div class="values-grid">
+
+    <div class="value-card">
+      <div class="value-icon">✦</div>
+      <h3>Creativity</h3>
+      <p>
+        We explore fresh ideas and creative approaches
+        to make every design visually meaningful.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon">◇</div>
+      <h3>Quality</h3>
+      <p>
+        We pay attention to details, consistency
+        and presentation in every creative project.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon">✧</div>
+      <h3>Originality</h3>
+      <p>
+        We value unique concepts and designs
+        that reflect the personality of each idea.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon">◎</div>
+      <h3>Communication</h3>
+      <p>
+        We believe understanding an idea is the
+        first step towards creating great design.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon">✺</div>
+      <h3>Passion</h3>
+      <p>
+        Every creative project is an opportunity
+        to learn, experiment and create something special.
+      </p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <h3>Purpose</h3>
+      <p>
+        We create designs with a clear purpose,
+        message and visual direction.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OUR PROCESS -->
+
+<section class="section process-section">
+
+  <div class="section-heading">
+    <small>HOW WE WORK</small>
+    <h2>Our Creative Process</h2>
+    <p>From the first idea to the final design.</p>
+  </div>
+
+  <div class="process-grid">
+
+    <div class="process-card">
+      <span>01</span>
+      <h3>Discover</h3>
+      <p>
+        We understand your requirements,
+        ideas and creative goals.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>02</span>
+      <h3>Imagine</h3>
+      <p>
+        We explore concepts, inspiration
+        and visual directions.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>03</span>
+      <h3>Create</h3>
+      <p>
+        We transform selected ideas
+        into creative designs.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span>04</span>
+      <h3>Deliver</h3>
+      <p>
+        We present the final design
+        according to the project requirements.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+  <div class="tag">OUR BELIEF</div>
+
+  <h2>
+    Good Design Gets Attention.<br>
+    <span>Great Design Creates Identity.</span>
+  </h2>
+
+  <p>
+    Every idea deserves a creative expression.
+  </p>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="tag">LET'S CREATE SOMETHING GREAT</div>
+
+  <h2>Have an Idea? Let's Make It Real.</h2>
+
+  <p>
+    Let's work together and transform your creative
+    vision into something meaningful.
+  </p>
+
+  <a href="contact.html" class="main-btn">
+    Start Your Project ↗
+  </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    VIKAS <span>GRAPHEO.</span>
+  </div>
+
+  <p>Independent Creative Design Studio</p>
+
+  <p>
+    Branding | Posters | Digital Graphics | Creative Design
+  </p>
+
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="services.html">Services</a> |
+    <a href="portfolio.html">Portfolio</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+
+  <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/91YOURNUMBER"
+   target="_blank"
+   rel="noopener">
+   WhatsApp ↗
+</a>
+
+<script>
+function toggleMenu() {
+  document
+    .getElementById("navigation")
+    .classList.toggle("active");
+}
+</script>
+
 </body>
 </html>
