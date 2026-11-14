@@ -33,7 +33,10 @@ body {
   font-family:'DM Sans',sans-serif;
 }
 
-a { text-decoration:none;color:inherit; }
+a {
+  text-decoration:none;
+  color:inherit;
+}
 
 /* HEADER */
 
@@ -73,7 +76,10 @@ nav a {
   transition:.3s;
 }
 
-nav a:hover,nav a.active { color:var(--gold); }
+nav a:hover,
+nav a.active {
+  color:var(--gold);
+}
 
 .nav-cta {
   background:var(--gold);
@@ -81,6 +87,10 @@ nav a:hover,nav a.active { color:var(--gold); }
   padding:11px 20px;
   border-radius:4px;
   font-weight:700;
+}
+
+.nav-cta:hover {
+  background:#f0cb85;
 }
 
 .menu-btn {
@@ -103,8 +113,8 @@ nav a:hover,nav a.active { color:var(--gold); }
   align-items:center;
   justify-content:center;
   background:
-  radial-gradient(ellipse at top,rgba(120,75,25,.24),transparent 65%),
-  var(--bg);
+    radial-gradient(ellipse at top,rgba(120,75,25,.24),transparent 65%),
+    var(--bg);
 }
 
 .eyebrow {
@@ -133,7 +143,9 @@ nav a:hover,nav a.active { color:var(--gold); }
 
 /* PORTFOLIO */
 
-.section { padding:55px 8% 100px; }
+.section {
+  padding:55px 8% 100px;
+}
 
 .section-heading {
   text-align:center;
@@ -153,7 +165,7 @@ nav a:hover,nav a.active { color:var(--gold); }
   font-size:14px;
 }
 
-/* FILTERS */
+/* FILTER BUTTONS */
 
 .filters {
   display:flex;
@@ -175,7 +187,8 @@ nav a:hover,nav a.active { color:var(--gold); }
   transition:.3s;
 }
 
-.filter-btn:hover,.filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
   background:var(--gold);
   color:#090909;
   border-color:var(--gold);
@@ -220,7 +233,9 @@ nav a:hover,nav a.active { color:var(--gold); }
   transition:transform .5s;
 }
 
-.project:hover img { transform:scale(1.07); }
+.project:hover img {
+  transform:scale(1.07);
+}
 
 .zoom-label {
   position:absolute;
@@ -236,7 +251,9 @@ nav a:hover,nav a.active { color:var(--gold); }
   font-weight:700;
 }
 
-.project:hover .zoom-label { opacity:1; }
+.project:hover .zoom-label {
+  opacity:1;
+}
 
 .project-info { padding:20px; }
 
@@ -263,8 +280,14 @@ nav a:hover,nav a.active { color:var(--gold); }
 .project.hidden { display:none; }
 
 @keyframes fadeIn {
-  from { opacity:0;transform:translateY(12px); }
-  to { opacity:1;transform:translateY(0); }
+  from {
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 /* CTA */
@@ -276,8 +299,8 @@ nav a:hover,nav a.active { color:var(--gold); }
   border:1px solid rgba(214,173,101,.3);
   border-radius:10px;
   background:
-  radial-gradient(ellipse at center,rgba(120,75,25,.2),transparent 70%),
-  #111;
+    radial-gradient(ellipse at center,rgba(120,75,25,.2),transparent 70%),
+    #111;
 }
 
 .cta h2 {
@@ -377,12 +400,16 @@ footer span { color:var(--gold); }
 /* RESPONSIVE */
 
 @media(max-width:900px) {
-  .grid { grid-template-columns:repeat(2,1fr); }
+  .grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
   header { padding:18px 5%; }
 }
 
 @media(max-width:650px) {
   header { min-height:70px; }
+
   .logo { font-size:21px; }
 
   .menu-btn { display:block; }
@@ -445,6 +472,8 @@ footer span { color:var(--gold); }
 
 <body>
 
+<!-- HEADER -->
+
 <header>
   <a class="logo" href="index.html">VIKAS <span>GRAPHEO.</span></a>
 
@@ -461,6 +490,8 @@ footer span { color:var(--gold); }
   </nav>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
   <div class="eyebrow">SELECTED CREATIVE PROJECTS</div>
 
@@ -472,6 +503,8 @@ footer span { color:var(--gold); }
   </p>
 </section>
 
+<!-- PORTFOLIO -->
+
 <section class="section">
 
   <div class="section-heading">
@@ -479,7 +512,7 @@ footer span { color:var(--gold); }
     <p>A collection of creative designs made with passion.</p>
   </div>
 
-  <!-- FILTERS -->
+  <!-- FILTER BUTTONS -->
 
   <div class="filters">
     <button class="filter-btn active" data-filter="all">All Designs</button>
@@ -490,16 +523,21 @@ footer span { color:var(--gold); }
     <button class="filter-btn" data-filter="creative">Creative</button>
   </div>
 
-  <!-- FIVE ORIGINAL GITHUB IMAGES -->
+  <!-- PROJECT GRID -->
 
   <div class="grid">
 
+    <!-- IMAGE 1 -->
+
     <div class="project" data-category="food">
       <div class="project-image">
-        <img src="images/Create Eye-Catching Burger Graphics That Will Wow Your Social Media Followers.jpeg"
-        alt="Burger Graphics Design" loading="lazy">
+        <img
+        src="images/Create Eye-Catching Burger Graphics That Will Wow Your Social Media Followers.jpeg"
+        alt="Burger Graphics Design"
+        loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
+
       <div class="project-info">
         <small>Food Graphics</small>
         <h3>Burger Graphics</h3>
@@ -507,12 +545,17 @@ footer span { color:var(--gold); }
       </div>
     </div>
 
+    <!-- IMAGE 2 - CORRECTED FILENAME -->
+
     <div class="project" data-category="typography">
       <div class="project-image">
-        <img src="images/Design Is Thinking Made Visual_ Minimal Graphic Design Quote & Typography Inspiration.jpeg"
-        alt="Minimal Typography Design" loading="lazy">
+        <img
+        src="images/Design Is Thinking Made Visual _ Minimal Graphic Design Quote & Typography Inspiration.jpeg"
+        alt="Minimal Typography Design"
+        loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
+
       <div class="project-info">
         <small>Typography</small>
         <h3>Minimal Design</h3>
@@ -520,12 +563,17 @@ footer span { color:var(--gold); }
       </div>
     </div>
 
+    <!-- IMAGE 3 -->
+
     <div class="project" data-category="premium">
       <div class="project-image">
-        <img src="images/PREMIUM.jpg"
-        alt="Premium Graphic Design" loading="lazy">
+        <img
+        src="images/PREMIUM.jpg"
+        alt="Premium Graphic Design"
+        loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
+
       <div class="project-info">
         <small>Premium Graphics</small>
         <h3>Premium Design</h3>
@@ -533,12 +581,17 @@ footer span { color:var(--gold); }
       </div>
     </div>
 
+    <!-- IMAGE 4 -->
+
     <div class="project" data-category="social">
       <div class="project-image">
-        <img src="images/SUBSCRIPION.jpg"
-        alt="Subscription Graphic Design" loading="lazy">
+        <img
+        src="images/SUBSCRIPION.jpg"
+        alt="Subscription Graphic Design"
+        loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
+
       <div class="project-info">
         <small>Social Media</small>
         <h3>Subscription Design</h3>
@@ -546,12 +599,17 @@ footer span { color:var(--gold); }
       </div>
     </div>
 
+    <!-- IMAGE 5 -->
+
     <div class="project" data-category="creative">
       <div class="project-image">
-        <img src="images/graphic-design-template_23-2150868707.jpg"
-        alt="Creative Graphic Design Template" loading="lazy">
+        <img
+        src="images/graphic-design-template_23-2150868707.jpg"
+        alt="Creative Graphic Design Template"
+        loading="lazy">
         <div class="zoom-label">VIEW DESIGN ↗</div>
       </div>
+
       <div class="project-info">
         <small>Creative Studio</small>
         <h3>Creative Artwork</h3>
@@ -562,27 +620,40 @@ footer span { color:var(--gold); }
   </div>
 </section>
 
+<!-- CTA -->
+
 <section class="cta">
   <h2>Have a Project <span>in Mind?</span></h2>
+
   <p>
     Let's create something meaningful together.
     Share your idea and let's bring it to life.
   </p>
-  <a href="contact.html" class="cta-btn">Start a Project ↗</a>
+
+  <a href="contact.html" class="cta-btn">
+    Start a Project ↗
+  </a>
 </section>
+
+<!-- LIGHTBOX -->
 
 <div class="lightbox" id="lightbox">
   <button class="close-lightbox" id="closeLightbox" aria-label="Close image">
     &times;
   </button>
+
   <img id="zoomImage" src="" alt="Full size design">
 </div>
+
+<!-- WHATSAPP -->
 
 <a class="whatsapp"
 href="https://wa.me/91YOURNUMBER"
 target="_blank"
 rel="noopener"
 aria-label="Chat on WhatsApp">✆</a>
+
+<!-- FOOTER -->
 
 <footer>
   © 2026 <span>Vikas Grapheo.</span> All Rights Reserved.
@@ -595,6 +666,8 @@ aria-label="Chat on WhatsApp">✆</a>
 function toggleMenu() {
   document.getElementById("navigation").classList.toggle("active");
 }
+
+/* CLOSE MENU */
 
 document.querySelectorAll("#navigation a").forEach(function(link) {
   link.addEventListener("click",function() {
@@ -619,6 +692,7 @@ filterButtons.forEach(function(button) {
     const selectedCategory = button.dataset.filter;
 
     projects.forEach(function(project) {
+
       if (
         selectedCategory === "all" ||
         project.dataset.category === selectedCategory
@@ -627,6 +701,7 @@ filterButtons.forEach(function(button) {
       } else {
         project.classList.add("hidden");
       }
+
     });
 
   });
@@ -639,12 +714,17 @@ const zoomImage = document.getElementById("zoomImage");
 const closeLightbox = document.getElementById("closeLightbox");
 
 document.querySelectorAll(".project-image img").forEach(function(image) {
+
   image.addEventListener("click",function() {
+
     zoomImage.src = image.src;
     zoomImage.alt = image.alt;
+
     lightbox.classList.add("show");
     document.body.style.overflow = "hidden";
+
   });
+
 });
 
 function closeImage() {
