@@ -6,11 +6,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Project Inquiry | Vikas Grapheo</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.contact-page {
+  padding: 60px 7%;
+  background: #080808;
+  color: #fff;
+}
+
+.contact-hero {
+  text-align: center;
+  padding: 65px 20px 45px;
+}
+
+.eyebrow {
+  color: #d6ad55;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.contact-hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  margin: 18px 0;
+}
+
+.contact-hero h1 span,
+.gold {
+  color: #d6ad55;
+}
+
+.contact-hero p,
+.form-heading p {
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.inquiry-wrapper {
+  max-width: 750px;
+  margin: auto;
+  padding: 38px;
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0,0,0,.35);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.form-heading h2 {
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.inquiry-form label {
+  display: block;
+  margin: 19px 0 8px;
+  color: #eee;
+  font-size: 14px;
+}
+
+.inquiry-form input,
+.inquiry-form select,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #191919;
+  color: #fff;
+  font: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: .3s;
+}
+
+.inquiry-form input:focus,
+.inquiry-form select:focus,
+.inquiry-form textarea:focus {
+  border-color: #d6ad55;
+  box-shadow: 0 0 0 2px rgba(214,173,85,.12);
+}
+
+.inquiry-form textarea {
+  min-height: 135px;
+  resize: vertical;
+}
+
+.inquiry-form input::placeholder,
+.inquiry-form textarea::placeholder {
+  color: #777;
+}
+
+.inquiry-form input[type="date"] {
+  color-scheme: dark;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #d6ad55;
+  color: #111;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.submit-btn:hover {
+  background: #f0c96f;
+  transform: translateY(-2px);
+}
+
+.form-note {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.contact-info a {
+  color: #d6ad55;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width:600px) {
+  .contact-page {
+    padding: 35px 5%;
+  }
+
+  .inquiry-wrapper {
+    padding: 23px 17px;
+  }
+
+  .form-heading h2 {
+    font-size: 25px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -20,98 +187,142 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="contact-hero">
   <div class="eyebrow">LET'S CREATE SOMETHING GREAT</div>
+
   <h1>Start Your <span>Project.</span></h1>
+
   <p>
-    Have a design idea? Share your requirements.
-    I'll receive your inquiry directly on WhatsApp.
+    Have a creative idea? Tell me about your project.
+    Let's turn your vision into something amazing.
   </p>
 </section>
 
-<section class="section">
+<section class="contact-page">
 
-  <div style="text-align:center">
-    <div class="eyebrow">PROJECT INQUIRY FORM</div>
-    <h2 class="heading">Tell Me About Your <span class="gold">Project.</span></h2>
-    <p class="subtext">Fill in the details below to send your inquiry.</p>
+  <div class="inquiry-wrapper">
+
+    <div class="form-heading">
+      <div class="eyebrow">PROJECT INQUIRY FORM</div>
+
+      <h2>Tell Me About Your <span class="gold">Project.</span></h2>
+
+      <p>Fill in the details and send your inquiry directly through WhatsApp.</p>
+    </div>
+
+    <form class="inquiry-form" id="inquiryForm">
+
+      <label for="clientName">Your Name *</label>
+      <input
+        type="text"
+        id="clientName"
+        placeholder="Enter your full name"
+        required
+      >
+
+      <label for="clientPhone">Your Mobile Number *</label>
+      <input
+        type="tel"
+        id="clientPhone"
+        placeholder="Enter your mobile number"
+        pattern="[0-9+\s()-]{10,16}"
+        required
+      >
+
+      <label for="service">Select Your Service *</label>
+      <select id="service" required>
+        <option value="">Choose a service</option>
+        <option>Logo Design</option>
+        <option>Poster Design</option>
+        <option>Banner Design</option>
+        <option>YouTube Thumbnail</option>
+        <option>Social Media Design</option>
+        <option>Custom Design</option>
+      </select>
+
+      <label for="budget">Your Budget</label>
+      <select id="budget">
+        <option value="Not specified">Select your budget</option>
+        <option>Under ₹500</option>
+        <option>₹500 - ₹1,000</option>
+        <option>₹1,000 - ₹3,000</option>
+        <option>₹3,000 - ₹5,000</option>
+        <option>₹5,000+</option>
+        <option>Let's discuss</option>
+      </select>
+
+      <label for="deadline">Project Deadline</label>
+      <input type="date" id="deadline">
+
+      <label for="details">Project Details *</label>
+      <textarea
+        id="details"
+        placeholder="Describe your project, design idea, requirements..."
+        required
+      ></textarea>
+
+      <button type="submit" class="submit-btn">
+        Send Inquiry on WhatsApp ↗
+      </button>
+
+      <p class="form-note">
+        WhatsApp will open with your inquiry message.
+        Please review the details and press Send.
+      </p>
+
+    </form>
+
   </div>
 
-  <form id="inquiryForm">
-
-    <label for="clientName">Your Name *</label>
-    <input
-      type="text"
-      id="clientName"
-      placeholder="Enter your name"
-      required
-    >
-
-    <label for="clientPhone">Your Mobile Number *</label>
-    <input
-      type="tel"
-      id="clientPhone"
-      placeholder="Enter your mobile number"
-      pattern="[0-9+\s()-]{10,16}"
-      required
-    >
-
-    <label for="service">Select Your Service *</label>
-    <select id="service" required>
-      <option value="">Choose a service</option>
-      <option>Logo Design</option>
-      <option>Poster Design</option>
-      <option>Banner Design</option>
-      <option>YouTube Thumbnail</option>
-      <option>Social Media Design</option>
-      <option>Custom Design</option>
-    </select>
-
-    <label for="budget">Your Budget</label>
-    <select id="budget">
-      <option value="Not specified">Select your budget</option>
-      <option>Under ₹500</option>
-      <option>₹500 - ₹1,000</option>
-      <option>₹1,000 - ₹3,000</option>
-      <option>₹3,000 - ₹5,000</option>
-      <option>₹5,000+</option>
-      <option>Let's discuss</option>
-    </select>
-
-    <label for="deadline">Project Deadline</label>
-    <input
-      type="date"
-      id="deadline"
-    >
-
-    <label for="details">Project Details *</label>
-    <textarea
-      id="details"
-      placeholder="Describe your design requirements..."
-      required
-    ></textarea>
-
-    <button type="submit" class="btn" style="width:100%">
-      Send Inquiry on WhatsApp ↗
-    </button>
-
-    <p class="subtext" style="margin-top:15px;font-size:12px">
-      Your WhatsApp app will open with your project details.
-      Review the message and press Send.
-    </p>
-
-  </form>
-
   <div class="contact-info">
-    <p>Mobile: <a href="tel:7834905783">7834905783</a></p>
+    <p>Mobile: <a href="tel:+917834905783">+91 78349 05783</a></p>
     <p>Email: <a href="mailto:vvikas67001@gmail.com">vvikas67001@gmail.com</a></p>
   </div>
 
 </section>
 
-<footer>© 2026 Vikas Grapheo. All Rights Reserved.</footer>
+<footer>
+  © 2026 Vikas Grapheo. All Rights Reserved.
+</footer>
 
-<script src="script.js"></script>
+<script>
+document.getElementById("inquiryForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("clientName").value.trim();
+  const phone = document.getElementById("clientPhone").value.trim();
+  const service = document.getElementById("service").value;
+  const budget = document.getElementById("budget").value;
+  const deadline = document.getElementById("deadline").value || "Not specified";
+  const details = document.getElementById("details").value.trim();
+
+  if (!name || !phone || !service || !details) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const message =
+`Hello Vikas Grapheo!
+
+I want to inquire about a design project.
+
+Name: ${name}
+Mobile: ${phone}
+Service: ${service}
+Budget: ${budget}
+Deadline: ${deadline}
+
+Project Details:
+${details}
+
+Please contact me regarding this project.`;
+
+  const whatsappNumber = "917834905783";
+  const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+});
+</script>
 
 </body>
 </html>
