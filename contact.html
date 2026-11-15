@@ -32,6 +32,8 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 
+/* HEADER */
+
 header {
   width: 100%;
   padding: 22px 8%;
@@ -70,6 +72,8 @@ nav a.active {
   color: var(--gold);
 }
 
+/* MOBILE MENU */
+
 .menu-toggle {
   display: none;
 }
@@ -86,6 +90,8 @@ nav a.active {
   background: var(--gold);
   margin: 6px 0;
 }
+
+/* HERO */
 
 .hero {
   text-align: center;
@@ -114,6 +120,8 @@ nav a.active {
   margin: auto;
   line-height: 1.8;
 }
+
+/* CONTACT SECTION */
 
 .contact-section {
   max-width: 1100px;
@@ -162,6 +170,8 @@ nav a.active {
   text-decoration: none;
   font-size: 14px;
 }
+
+/* FORM */
 
 .form-group {
   margin-bottom: 18px;
@@ -229,6 +239,103 @@ nav a.active {
   line-height: 1.6;
 }
 
+/* THANK YOU CARD */
+
+.thankyou-card {
+  margin-top: 28px;
+  padding: 3px;
+  background: linear-gradient(
+    135deg,
+    #8c642e,
+    #f5d58c,
+    #9a7138,
+    #e8c47e
+  );
+  border-radius: 12px;
+  box-shadow: 0 8px 25px #0008;
+  overflow: hidden;
+}
+
+.thankyou-content {
+  background:
+    radial-gradient(ellipse at top, #292016 0%, #090909 65%);
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px 18px;
+}
+
+.thankyou-star {
+  color: #e6c17b;
+  font-size: 27px;
+}
+
+.thankyou-small {
+  color: #c7a66b;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 12px;
+}
+
+.thankyou-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #fff;
+  margin: 12px 0;
+}
+
+.thankyou-content h2 span {
+  color: #e3bd76;
+}
+
+.thankyou-message {
+  color: #c6c0b5;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 310px;
+  margin: 0 auto;
+}
+
+.thankyou-divider {
+  color: #e6c17b;
+  margin: 20px 0;
+  font-size: 23px;
+}
+
+.thankyou-regards {
+  color: #b99a60;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 9px;
+}
+
+.thankyou-signature {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #edcd8b;
+  text-shadow: 0 0 12px #c99d4d55;
+}
+
+.thankyou-tagline {
+  color: #8c806c;
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
+.thankyou-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e7c47f,
+    transparent
+  );
+}
+
+/* FOOTER */
+
 footer {
   border-top: 1px solid #292929;
   text-align: center;
@@ -240,6 +347,8 @@ footer {
 footer span {
   color: var(--gold);
 }
+
+/* WHATSAPP FLOATING BUTTON */
 
 .whatsapp-float {
   position: fixed;
@@ -259,7 +368,10 @@ footer span {
   box-shadow: 0 4px 15px #0008;
 }
 
+/* RESPONSIVE */
+
 @media(max-width: 768px) {
+
   header {
     padding: 18px 6%;
   }
@@ -307,14 +419,28 @@ footer span {
   .hero {
     padding-top: 55px;
   }
+
+  .thankyou-content {
+    padding: 25px 12px;
+  }
+
+  .thankyou-signature {
+    font-size: 20px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
+
+  <a href="index.html" class="logo">
+    VIKAS GRAPHEO.
+  </a>
 
   <input type="checkbox" id="menuToggle" class="menu-toggle">
 
@@ -331,20 +457,33 @@ footer span {
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
+
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
+
   <small>LET'S WORK TOGETHER</small>
+
   <h1>Get In <span>Touch.</span></h1>
+
   <p>
-    Have a creative project in mind? Tell us about your ideas.
+    Have a creative project in mind?
+    Tell us about your ideas.
     Let's create something extraordinary together.
   </p>
+
 </section>
+
+<!-- CONTACT SECTION -->
 
 <section class="contact-section">
 
+  <!-- CONTACT INFORMATION -->
+
   <div class="contact-info">
+
     <h2>Let's Connect</h2>
 
     <p>
@@ -354,7 +493,10 @@ footer span {
 
     <div class="info-item">
       <h3>OUR STUDIO</h3>
-      <p>Vikas Grapheo<br>Creative Design Studio</p>
+      <p>
+        Vikas Grapheo<br>
+        Creative Design Studio
+      </p>
     </div>
 
     <div class="info-item">
@@ -366,31 +508,46 @@ footer span {
 
     <div class="info-item">
       <h3>WORKING HOURS</h3>
-      <p>Monday – Saturday<br>10:00 AM – 7:00 PM</p>
+      <p>
+        Monday – Saturday<br>
+        10:00 AM – 7:00 PM
+      </p>
     </div>
+
   </div>
 
+  <!-- PROJECT INQUIRY FORM -->
+
   <div class="contact-form">
+
     <h2>Project Inquiry</h2>
 
     <form id="inquiryForm">
 
       <div class="form-group">
         <label for="clientName">Your Name *</label>
-        <input type="text" id="clientName"
-        placeholder="Enter your name" required>
+        <input
+          type="text"
+          id="clientName"
+          placeholder="Enter your name"
+          required>
       </div>
 
       <div class="form-group">
         <label for="clientPhone">Phone Number *</label>
-        <input type="tel" id="clientPhone"
-        placeholder="Enter your phone number" required>
+        <input
+          type="tel"
+          id="clientPhone"
+          placeholder="Enter your phone number"
+          required>
       </div>
 
       <div class="form-group">
         <label for="clientEmail">Email Address</label>
-        <input type="email" id="clientEmail"
-        placeholder="Enter your email">
+        <input
+          type="email"
+          id="clientEmail"
+          placeholder="Enter your email">
       </div>
 
       <div class="form-group">
@@ -427,10 +584,13 @@ footer span {
 
       <div class="form-group">
         <label for="details">Project Details *</label>
-        <textarea id="details"
-        placeholder="Tell us about your project..."
-        required></textarea>
+        <textarea
+          id="details"
+          placeholder="Tell us about your project..."
+          required></textarea>
       </div>
+
+      <!-- WHATSAPP BUTTON -->
 
       <button type="submit" class="submit-btn">
         SEND INQUIRY ON WHATSAPP
@@ -442,31 +602,103 @@ footer span {
       </p>
 
     </form>
+
+    <!-- THANK YOU CARD -->
+
+    <div class="thankyou-card">
+
+      <div class="thankyou-line"></div>
+
+      <div class="thankyou-content">
+
+        <span class="thankyou-star">✦</span>
+
+        <p class="thankyou-small">
+          A NOTE FROM OUR STUDIO
+        </p>
+
+        <h2>
+          Thank <span>You!</span>
+        </h2>
+
+        <p class="thankyou-message">
+          Thank you for choosing us.
+          Your trust inspires our creativity.
+          We look forward to creating something
+          extraordinary with you.
+        </p>
+
+        <div class="thankyou-divider">
+          ✧
+        </div>
+
+        <p class="thankyou-regards">
+          WITH GRATITUDE
+        </p>
+
+        <div class="thankyou-signature">
+          VIKAS GRAPHEO
+        </div>
+
+        <p class="thankyou-tagline">
+          CREATIVITY • QUALITY • PASSION
+        </p>
+
+      </div>
+
+      <div class="thankyou-line"></div>
+
+    </div>
+
   </div>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
   © 2026 <span>Vikas Grapheo.</span> All Rights Reserved.
 </footer>
 
-<a class="whatsapp-float"
-href="https://wa.me/917834905783"
-target="_blank"
-aria-label="Chat on WhatsApp">☏</a>
+<!-- WHATSAPP FLOATING BUTTON -->
+
+<a
+  class="whatsapp-float"
+  href="https://wa.me/917834905783"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp">
+  ☏
+</a>
+
+<!-- WHATSAPP FORM SCRIPT -->
 
 <script>
+
 document.getElementById("inquiryForm").addEventListener("submit", function(e) {
 
   e.preventDefault();
 
-  const name = document.getElementById("clientName").value.trim();
-  const phone = document.getElementById("clientPhone").value.trim();
-  const email = document.getElementById("clientEmail").value.trim();
-  const service = document.getElementById("service").value;
-  const budget = document.getElementById("budget").value || "Not specified";
-  const deadline = document.getElementById("deadline").value || "Not specified";
-  const details = document.getElementById("details").value.trim();
+  const name =
+    document.getElementById("clientName").value.trim();
+
+  const phone =
+    document.getElementById("clientPhone").value.trim();
+
+  const email =
+    document.getElementById("clientEmail").value.trim();
+
+  const service =
+    document.getElementById("service").value;
+
+  const budget =
+    document.getElementById("budget").value || "Not specified";
+
+  const deadline =
+    document.getElementById("deadline").value || "Not specified";
+
+  const details =
+    document.getElementById("details").value.trim();
 
   const message =
 `Hello Vikas Grapheo! 👋
@@ -493,6 +725,7 @@ Thank you for choosing Vikas Grapheo!`;
   window.open(whatsappURL, "_blank");
 
 });
+
 </script>
 
 </body>
