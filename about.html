@@ -8,13 +8,12 @@
 <title>About Us | Vikas Grapheo</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg:#090909;
-  --card:#111111;
+  --card:#111;
   --gold:#d6ad65;
   --white:#f5f2eb;
   --muted:#a5a19a;
@@ -38,14 +37,13 @@ body {
 }
 
 a {
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
 /* HEADER */
 
 header {
-  width:100%;
   min-height:78px;
   padding:18px 7%;
   display:flex;
@@ -149,18 +147,90 @@ h1,h2,h3 {
 .story-art {
   min-height:420px;
   background:
-    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 60%),
+    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 65%),
     #111;
   border:1px solid rgba(214,173,101,.25);
   border-radius:12px;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   overflow:hidden;
   position:relative;
-  padding:20px;
 }
+
+/* 2D ROTATING WHEEL LOGO */
+
+.logo-stage {
+  width:100%;
+  height:360px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.wheel {
+  width:290px;
+  height:290px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  animation:wheelRotate 8s linear infinite;
+  opacity:.9;
+}
+
+.wheel svg {
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+
+@keyframes wheelRotate {
+  from {
+    transform:translate(-50%,-50%) rotate(0deg);
+  }
+  to {
+    transform:translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+/* BRAND TEXT ABOVE WHEEL */
+
+.logo-brand {
+  position:relative;
+  z-index:5;
+  text-align:center;
+  padding:15px 10px;
+  width:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(9,9,9,.88),
+    transparent
+  );
+}
+
+.logo-brand h2 {
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(22px,4vw,34px);
+  font-weight:700;
+  letter-spacing:4px;
+  color:#f0cf91;
+  text-shadow:
+    0 0 8px rgba(214,173,101,.65),
+    0 0 22px rgba(214,173,101,.25);
+}
+
+.logo-brand p {
+  font-size:10px;
+  color:#e2c28c;
+  letter-spacing:5px;
+  margin-top:12px;
+}
+
+/* STORY TEXT */
 
 .story-text h2 {
   font-size:42px;
@@ -171,47 +241,6 @@ h1,h2,h3 {
   color:var(--muted);
   line-height:1.9;
   margin-bottom:18px;
-}
-
-/* 3D ADVERTISEMENT */
-
-#wheelScene {
-  width:100%;
-  height:315px;
-  position:relative;
-  z-index:2;
-}
-
-.ad-brand {
-  text-align:center;
-  position:relative;
-  z-index:3;
-  font-size:clamp(22px,4vw,32px);
-  font-weight:700;
-  letter-spacing:5px;
-  color:var(--gold);
-  opacity:0;
-  transform:translateY(20px);
-  text-shadow:0 0 20px rgba(214,173,101,.5);
-  transition:opacity 1s, transform 1s;
-}
-
-.ad-brand.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-.ad-tagline {
-  color:#aaa;
-  font-size:10px;
-  letter-spacing:4px;
-  margin-top:9px;
-  opacity:0;
-  transition:opacity 1s;
-}
-
-.ad-tagline.show {
-  opacity:1;
 }
 
 /* MISSION VISION */
@@ -407,7 +436,6 @@ footer p {
   align-items:center;
   justify-content:center;
   font-size:26px;
-  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
 /* MOBILE */
@@ -456,6 +484,15 @@ footer p {
     min-height:360px;
   }
 
+  .logo-stage {
+    height:330px;
+  }
+
+  .wheel {
+    width:260px;
+    height:260px;
+  }
+
   .values-grid {
     grid-template-columns:1fr;
   }
@@ -478,22 +515,30 @@ footer p {
 }
 
 @media(max-width:450px) {
+
   .process-grid {
     grid-template-columns:1fr;
   }
 
-  #wheelScene {
-    height:270px;
+  .wheel {
+    width:230px;
+    height:230px;
   }
 
-  .ad-brand {
+  .logo-brand h2 {
+    font-size:22px;
+    letter-spacing:3px;
+  }
+
+  .logo-brand p {
+    font-size:9px;
     letter-spacing:3px;
   }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior:auto;
+  .wheel {
+    animation:none;
   }
 }
 </style>
@@ -519,7 +564,9 @@ footer p {
 
 <section class="hero">
   <div class="section-label">ABOUT VIKAS GRAPHEO</div>
+
   <h1>Creativity Has <span class="gold">A Story.</span></h1>
+
   <p>
     We believe every great design begins with an idea.
     Our mission is to transform ideas into meaningful
@@ -533,19 +580,127 @@ footer p {
 
   <div class="story-art">
 
-    <div id="wheelScene"></div>
+    <div class="logo-stage">
 
-    <div class="ad-brand" id="adBrand">
-      VIKAS GRAPHEO
+      <!-- ROTATING 2D ALLOY WHEEL -->
+
+      <div class="wheel">
+
+        <svg viewBox="0 0 300 300"
+             xmlns="http://www.w3.org/2000/svg">
+
+          <defs>
+            <linearGradient id="rimGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff0c5"/>
+              <stop offset="35%" stop-color="#d6ad65"/>
+              <stop offset="65%" stop-color="#8f632c"/>
+              <stop offset="100%" stop-color="#f2d69d"/>
+            </linearGradient>
+
+            <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="40%" stop-color="#777777"/>
+              <stop offset="70%" stop-color="#242424"/>
+              <stop offset="100%" stop-color="#d4d4d4"/>
+            </linearGradient>
+          </defs>
+
+          <!-- TYRE -->
+
+          <circle cx="150" cy="150" r="139"
+                  fill="#080808"
+                  stroke="#292929"
+                  stroke-width="9"/>
+
+          <circle cx="150" cy="150" r="128"
+                  fill="none"
+                  stroke="#777"
+                  stroke-width="2"/>
+
+          <!-- OUTER GOLD RING -->
+
+          <circle cx="150" cy="150" r="113"
+                  fill="none"
+                  stroke="url(#rimGold)"
+                  stroke-width="7"/>
+
+          <!-- INNER RING -->
+
+          <circle cx="150" cy="150" r="91"
+                  fill="#151515"
+                  stroke="url(#metal)"
+                  stroke-width="5"/>
+
+          <!-- SPOKES -->
+
+          <g fill="url(#metal)"
+             stroke="#d6ad65"
+             stroke-width="1.2">
+
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(36 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(72 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(108 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(144 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(180 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(216 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(252 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(288 150 150)"/>
+            <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(324 150 150)"/>
+
+          </g>
+
+          <!-- HUB -->
+
+          <circle cx="150" cy="150" r="37"
+                  fill="#111"
+                  stroke="url(#rimGold)"
+                  stroke-width="6"/>
+
+          <circle cx="150" cy="150" r="25"
+                  fill="url(#metal)"
+                  stroke="#d6ad65"
+                  stroke-width="2"/>
+
+          <circle cx="150" cy="150" r="16"
+                  fill="#111"/>
+
+          <!-- GOLD CENTER MARK -->
+
+          <text x="150" y="156"
+                text-anchor="middle"
+                font-size="17"
+                font-weight="bold"
+                fill="#d6ad65"
+                font-family="Arial">
+            VG
+          </text>
+
+          <!-- BOLTS -->
+
+          <g fill="#d6ad65">
+            <circle cx="150" cy="105" r="4"/>
+            <circle cx="193" cy="136" r="4"/>
+            <circle cx="176" cy="186" r="4"/>
+            <circle cx="124" cy="186" r="4"/>
+            <circle cx="107" cy="136" r="4"/>
+          </g>
+
+        </svg>
+      </div>
+
+      <!-- BRAND NAME IN FRONT OF WHEEL -->
+
+      <div class="logo-brand">
+        <h2>VIKAS GRAPHEO</h2>
+        <p>DESIGN YOUR VISION</p>
+      </div>
+
     </div>
-
-    <div class="ad-tagline" id="adTagline">
-      DESIGN YOUR VISION
-    </div>
-
   </div>
 
   <div class="story-text">
+
     <div class="section-label">OUR STORY</div>
 
     <h2>Turning Ideas Into <span class="gold">Visual Reality.</span></h2>
@@ -568,6 +723,7 @@ footer p {
       express their ideas through powerful and
       professional designs.
     </p>
+
   </div>
 
 </section>
@@ -684,6 +840,7 @@ footer p {
 <!-- CTA -->
 
 <section class="cta">
+
   <div class="section-label">LET'S CREATE SOMETHING</div>
 
   <h2>Have An Idea? <span class="gold">Let's Talk.</span></h2>
@@ -692,20 +849,22 @@ footer p {
     Let's turn your vision into something extraordinary.
   </p>
 
-  <a class="cta-btn"
-     href="contact.html">
+  <a class="cta-btn" href="contact.html">
     Start A Project
   </a>
+
 </section>
 
 <!-- FOOTER -->
 
 <footer>
+
   <div class="footer-logo">VIKAS GRAPHEO.</div>
 
   <p>Creative Design Studio</p>
 
   <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+
 </footer>
 
 <!-- WHATSAPP -->
@@ -718,416 +877,16 @@ footer p {
   ✆
 </a>
 
-<!-- THREE.JS CDN -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+<!-- MOBILE MENU -->
 
 <script>
-/* MOBILE MENU */
-
 const menuBtn = document.getElementById("menuBtn");
 const mainNav = document.getElementById("mainNav");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.addEventListener("click", function() {
   mainNav.classList.toggle("open");
 });
+</script>
 
-/* 3D WHEEL ADVERTISEMENT */
-
-(function () {
-
-  const sceneBox = document.getElementById("wheelScene");
-  const brand = document.getElementById("adBrand");
-  const tagline = document.getElementById("adTagline");
-
-  if (!sceneBox || !window.THREE) {
-    sceneBox.innerHTML =
-      '<p style="color:#d6ad65;text-align:center;padding:100px 10px;">3D animation could not load. Please check your internet connection.</p>';
-    return;
-  }
-
-  const THREE = window.THREE;
-
-  let scene, camera, renderer;
-  let wheel;
-  let smokeParticles = [];
-  let particles;
-  let animationStart = performance.now();
-  let lastWidth = 0;
-  let lastHeight = 0;
-
-  scene = new THREE.Scene();
-
-  camera = new THREE.PerspectiveCamera(
-    38,
-    sceneBox.clientWidth / sceneBox.clientHeight,
-    0.1,
-    100
-  );
-
-  camera.position.set(0, 0, 8);
-
-  renderer = new THREE.WebGLRenderer({
-    antialias:true,
-    alpha:true
-  });
-
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(sceneBox.clientWidth, sceneBox.clientHeight);
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-  sceneBox.appendChild(renderer.domElement);
-
-  /* LIGHTS */
-
-  const ambient = new THREE.AmbientLight(0xffffff, 1.4);
-  scene.add(ambient);
-
-  const goldLight = new THREE.PointLight(0xd6ad65, 55, 20);
-  goldLight.position.set(3, 3, 5);
-  scene.add(goldLight);
-
-  const whiteLight = new THREE.PointLight(0xffffff, 40, 20);
-  whiteLight.position.set(-4, 2, 4);
-  scene.add(whiteLight);
-
-  const backLight = new THREE.PointLight(0x9b6b2d, 35, 20);
-  backLight.position.set(0, -3, -3);
-  scene.add(backLight);
-
-  /* WHEEL GROUP */
-
-  wheel = new THREE.Group();
-  scene.add(wheel);
-
-  const rubber = new THREE.MeshStandardMaterial({
-    color:0x090909,
-    metalness:0.2,
-    roughness:0.85
-  });
-
-  const chrome = new THREE.MeshStandardMaterial({
-    color:0xbfc3c5,
-    metalness:0.95,
-    roughness:0.18
-  });
-
-  const darkMetal = new THREE.MeshStandardMaterial({
-    color:0x25282b,
-    metalness:0.9,
-    roughness:0.3
-  });
-
-  const goldMetal = new THREE.MeshStandardMaterial({
-    color:0xd6ad65,
-    metalness:0.9,
-    roughness:0.22
-  });
-
-  /* TYRE */
-
-  const tyre = new THREE.Mesh(
-    new THREE.TorusGeometry(1.65, 0.24, 20, 100),
-    rubber
-  );
-
-  wheel.add(tyre);
-
-  /* OUTER RIM */
-
-  const outerRim = new THREE.Mesh(
-    new THREE.TorusGeometry(1.39, 0.105, 16, 100),
-    chrome
-  );
-
-  wheel.add(outerRim);
-
-  /* INNER RIM */
-
-  const innerRim = new THREE.Mesh(
-    new THREE.TorusGeometry(1.19, 0.055, 12, 100),
-    darkMetal
-  );
-
-  wheel.add(innerRim);
-
-  /* SPOKES */
-
-  for (let i = 0; i < 10; i++) {
-
-    const angle = (Math.PI * 2 / 10) * i;
-
-    const spokeGroup = new THREE.Group();
-
-    const spoke = new THREE.Mesh(
-      new THREE.BoxGeometry(0.23, 1.02, 0.15),
-      i % 2 === 0 ? chrome : darkMetal
-    );
-
-    spoke.position.y = 0.75;
-    spoke.rotation.z = -0.12;
-
-    spokeGroup.add(spoke);
-    spokeGroup.rotation.z = angle;
-
-    wheel.add(spokeGroup);
-
-    const goldLine = new THREE.Mesh(
-      new THREE.BoxGeometry(0.035, 0.82, 0.17),
-      goldMetal
-    );
-
-    goldLine.position.set(0.04, 0.76, 0.09);
-    goldLine.rotation.z = -0.12;
-
-    spokeGroup.add(goldLine);
-  }
-
-  /* HUB */
-
-  const hub = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.36, 0.36, 0.22, 48),
-    chrome
-  );
-
-  hub.rotation.x = Math.PI / 2;
-  wheel.add(hub);
-
-  const hubCenter = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.23, 0.23, 0.24, 48),
-    goldMetal
-  );
-
-  hubCenter.rotation.x = Math.PI / 2;
-  wheel.add(hubCenter);
-
-  const centerBlack = new THREE.Mesh(
-    new THREE.CircleGeometry(0.16, 48),
-    darkMetal
-  );
-
-  centerBlack.position.z = 0.13;
-  wheel.add(centerBlack);
-
-  /* BOLTS */
-
-  for (let i = 0; i < 5; i++) {
-
-    const angle = (Math.PI * 2 / 5) * i;
-
-    const bolt = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.055, 0.055, 0.12, 16),
-      goldMetal
-    );
-
-    bolt.rotation.x = Math.PI / 2;
-
-    bolt.position.set(
-      Math.cos(angle) * 0.29,
-      Math.sin(angle) * 0.29,
-      0.15
-    );
-
-    wheel.add(bolt);
-  }
-
-  /* GOLD OUTER DETAIL */
-
-  const detailRing = new THREE.Mesh(
-    new THREE.TorusGeometry(1.52, 0.025, 8, 100),
-    goldMetal
-  );
-
-  wheel.add(detailRing);
-
-  /* SMOKE TEXTURE */
-
-  function createSmokeTexture() {
-
-    const canvas = document.createElement("canvas");
-    canvas.width = 128;
-    canvas.height = 128;
-
-    const ctx = canvas.getContext("2d");
-
-    const gradient = ctx.createRadialGradient(
-      64,64,5,
-      64,64,62
-    );
-
-    gradient.addColorStop(0,"rgba(220,220,220,0.30)");
-    gradient.addColorStop(0.35,"rgba(180,180,180,0.17)");
-    gradient.addColorStop(1,"rgba(120,120,120,0)");
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0,0,128,128);
-
-    const texture = new THREE.CanvasTexture(canvas);
-
-    return texture;
-  }
-
-  const smokeTexture = createSmokeTexture();
-
-  /* SMOKE PARTICLES */
-
-  for (let i = 0; i < 24; i++) {
-
-    const smokeMaterial = new THREE.SpriteMaterial({
-      map:smokeTexture,
-      transparent:true,
-      opacity:0,
-      depthWrite:false
-    });
-
-    const smoke = new THREE.Sprite(smokeMaterial);
-
-    smoke.position.set(
-      (Math.random() - 0.5) * 3.5,
-      -1.5,
-      0.4
-    );
-
-    smoke.scale.set(0.8,0.8,1);
-
-    scene.add(smoke);
-
-    smokeParticles.push({
-      sprite:smoke,
-      offset:Math.random() * 2,
-      speed:0.4 + Math.random() * 0.6
-    });
-  }
-
-  /* GOLD PARTICLES */
-
-  const particleCount = 180;
-
-  const particlePositions = new Float32Array(particleCount * 3);
-
-  for (let i = 0; i < particleCount; i++) {
-
-    particlePositions[i * 3] = (Math.random() - 0.5) * 6;
-    particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 5;
-    particlePositions[i * 3 + 2] = Math.random() * 2;
-  }
-
-  const particleGeometry = new THREE.BufferGeometry();
-
-  particleGeometry.setAttribute(
-    "position",
-    new THREE.BufferAttribute(particlePositions, 3)
-  );
-
-  const particleMaterial = new THREE.PointsMaterial({
-    color:0xd6ad65,
-    size:0.025,
-    transparent:true,
-    opacity:0
-  });
-
-  particles = new THREE.Points(
-    particleGeometry,
-    particleMaterial
-  );
-
-  scene.add(particles);
-
-  /* RESIZE */
-
-  function resizeScene() {
-
-    const width = sceneBox.clientWidth;
-    const height = sceneBox.clientHeight;
-
-    if (!width || !height) return;
-
-    if (width === lastWidth && height === lastHeight) return;
-
-    lastWidth = width;
-    lastHeight = height;
-
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(width,height);
-  }
-
-  window.addEventListener("resize",resizeScene);
-
-  /* ANIMATION */
-
-  function animate(now) {
-
-    requestAnimationFrame(animate);
-
-    resizeScene();
-
-    const elapsed = ((now - animationStart) / 1000) % 10;
-
-    /* WHEEL SPIN */
-
-    wheel.rotation.z = -elapsed * 3.2;
-
-    /* WHEEL INTRO */
-
-    if (elapsed < 2) {
-
-      wheel.visible = true;
-
-      const scale = Math.min(1, elapsed / 1.2);
-
-      wheel.scale.setScalar(scale);
-
-      wheel.position.y = -0.15 + (1 - scale) * 0.7;
-
-      wheel.rotation.x = 0.05;
-    }
-
-    /* WHEEL MAIN DISPLAY */
-
-    if (elapsed >= 2 && elapsed < 5) {
-
-      wheel.visible = true;
-      wheel.scale.setScalar(1);
-      wheel.position.y = -0.15;
-    }
-
-    /* SMOKE REVEAL */
-
-    if (elapsed >= 5 && elapsed < 8) {
-
-      wheel.visible = true;
-
-      const smokeProgress = (elapsed - 5) / 3;
-
-      smokeParticles.forEach((item) => {
-
-        const sprite = item.sprite;
-
-        sprite.visible = true;
-
-        const rise = (smokeProgress * item.speed + item.offset) % 1.4;
-
-        sprite.position.y = -1.6 + rise * 2.5;
-
-        sprite.position.x =
-          Math.sin(elapsed * 2 + item.offset) * 1.6;
-
-        sprite.material.opacity =
-          Math.max(0, Math.sin(rise * Math.PI)) * 0.55;
-
-        const size = 0.5 + rise * 1.2;
-
-        sprite.scale.set(size,size,1);
-      });
-
-    } else {
-
-      smokeParticles.forEach((item) => {
-        item.sprite.material.opacity = 0;
-      });
-
-    }
-
-    /* BRAND R
+</body>
+</html>
