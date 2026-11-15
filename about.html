@@ -195,46 +195,89 @@ nav a.active {
   align-items: center;
 }
 
+/* 3D ADVERTISEMENT BOX */
+
 .story-art {
   min-height: 430px;
   border: 1px solid #604a2a;
   background:
-    radial-gradient(circle, #49371e, #17130d 55%, #090909);
+    radial-gradient(ellipse at center, #332416 0%, #17130d 48%, #090909 100%);
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
+  flex-direction: column;
+  isolation: isolate;
 }
 
 .story-art::before {
   content: "";
   position: absolute;
-  width: 280px;
-  height: 280px;
-  border: 1px solid #a77d42;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(214,173,101,.25);
   border-radius: 50%;
-  opacity: .5;
+  z-index: -1;
+  animation: orbit 12s linear infinite;
 }
 
 .story-art::after {
   content: "";
   position: absolute;
-  width: 220px;
-  height: 220px;
-  border: 1px solid #a77d42;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(214,173,101,.15);
   border-radius: 50%;
-  opacity: .4;
+  z-index: -1;
+  animation: orbit 8s linear infinite reverse;
 }
 
-.story-art h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold);
-  font-size: 43px;
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#wheelScene {
+  width: 100%;
+  height: 315px;
   position: relative;
   z-index: 2;
+}
+
+.ad-brand {
+  position: absolute;
+  z-index: 4;
+  bottom: 28px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px) scale(.9);
+  transition: opacity .8s ease, transform .8s ease;
+  pointer-events: none;
+}
+
+.ad-brand.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ad-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #f0cc8a;
+  text-shadow:
+    0 0 8px rgba(214,173,101,.8),
+    0 0 22px rgba(214,173,101,.45);
+}
+
+.ad-brand p {
+  color: #d9c19a;
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin-top: 7px;
 }
 
 .story-text .tag {
@@ -522,7 +565,11 @@ footer a:hover {
   }
 
   .story-art {
-    min-height: 300px;
+    min-height: 360px;
+  }
+
+  #wheelScene {
+    height: 270px;
   }
 
   .story-text h2 {
@@ -559,6 +606,13 @@ footer a:hover {
     font-size: 21px;
   }
 }
+
+@media(prefers-reduced-motion: reduce) {
+  .story-art::before,
+  .story-art::after {
+    animation: none;
+  }
+}
 </style>
 </head>
 
@@ -572,7 +626,7 @@ footer a:hover {
   </a>
 
   <button class="menu-btn"
-  onclick="toggleMenu()">☰</button>
+  onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
   <nav id="navigation">
     <a href="index.html">Home</a>
@@ -618,8 +672,17 @@ footer a:hover {
 <section class="section">
   <div class="story-grid">
 
+    <!-- 3D ADVERTISEMENT -->
+
     <div class="story-art">
-      <h2>VIKAS<br>GRAPHEO.</h2>
+
+      <div id="wheelScene"></div>
+
+      <div class="ad-brand" id="adBrand">
+        <h2>VIKAS GRAPHEO.</h2>
+        <p>CREATIVE DESIGN STUDIO</p>
+      </div>
+
     </div>
 
     <div class="story-text">
@@ -901,5 +964,184 @@ function toggleMenu() {
 }
 </script>
 
-</body>
-</html>
+<!-- 3D WHEEL ADVERTISEMENT -->
+
+<script type="module">
+import * as THREE from
+'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+
+const container = document.getElementById('wheelScene');
+const brand = document.getElementById('adBrand');
+
+let renderer;
+let scene;
+let camera;
+let wheel;
+let smokeParticles = [];
+let lightRays = [];
+let animationFrame;
+let startTime = performance.now();
+
+try {
+
+  scene = new THREE.Scene();
+
+  camera = new THREE.PerspectiveCamera(
+    38,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    100
+  );
+
+  camera.position.set(0, 0, 7.5);
+
+  renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true
+  });
+
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, 2)
+  );
+
+  renderer.setSize(
+    container.clientWidth,
+    container.clientHeight
+  );
+
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.25;
+
+  container.appendChild(renderer.domElement);
+
+  // LIGHTING
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.1));
+
+  const goldLight = new THREE.PointLight(
+    0xffc56d, 65, 15
+  );
+  goldLight.position.set(3, 3, 4);
+  scene.add(goldLight);
+
+  const whiteLight = new THREE.PointLight(
+    0xffffff, 35, 12
+  );
+  whiteLight.position.set(-3, 1, 3);
+  scene.add(whiteLight);
+
+  const backLight = new THREE.PointLight(
+    0xffa32c, 55, 12
+  );
+  backLight.position.set(0, -3, -2);
+  scene.add(backLight);
+
+  // WHEEL GROUP
+
+  wheel = new THREE.Group();
+  scene.add(wheel);
+
+  const tireMaterial = new THREE.MeshStandardMaterial({
+    color: 0x101010,
+    roughness: 0.42,
+    metalness: 0.15
+  });
+
+  const goldMaterial = new THREE.MeshStandardMaterial({
+    color: 0xd6ad65,
+    metalness: 0.95,
+    roughness: 0.2
+  });
+
+  const chromeMaterial = new THREE.MeshStandardMaterial({
+    color: 0xd9d9d9,
+    metalness: 1,
+    roughness: 0.15
+  });
+
+  const darkMaterial = new THREE.MeshStandardMaterial({
+    color: 0x242424,
+    metalness: 0.85,
+    roughness: 0.28
+  });
+
+  // Main tire
+
+  const tire = new THREE.Mesh(
+    new THREE.TorusGeometry(1.35, 0.23, 24, 100),
+    tireMaterial
+  );
+  wheel.add(tire);
+
+  // Tire inner golden side ring
+
+  const sideRing = new THREE.Mesh(
+    new THREE.TorusGeometry(1.13, 0.035, 12, 100),
+    goldMaterial
+  );
+  sideRing.position.z = 0.08;
+  wheel.add(sideRing);
+
+  // Outer alloy rim
+
+  const outerRim = new THREE.Mesh(
+    new THREE.TorusGeometry(1.02, 0.085, 16, 100),
+    chromeMaterial
+  );
+  outerRim.position.z = 0.13;
+  wheel.add(outerRim);
+
+  // Inner rim
+
+  const innerRim = new THREE.Mesh(
+    new THREE.TorusGeometry(0.83, 0.045, 12, 100),
+    goldMaterial
+  );
+  innerRim.position.z = 0.15;
+  wheel.add(innerRim);
+
+  // Spokes
+
+  const spokeCount = 10;
+
+  for (let i = 0; i < spokeCount; i++) {
+
+    const angle =
+      (Math.PI * 2 / spokeCount) * i;
+
+    const spokeGroup = new THREE.Group();
+
+    const spoke = new THREE.Mesh(
+      new THREE.BoxGeometry(0.13, 0.82, 0.12),
+      goldMaterial
+    );
+
+    spoke.position.y = 0.48;
+    spoke.rotation.z = -0.12;
+
+    spokeGroup.add(spoke);
+
+    const spokeHighlight = new THREE.Mesh(
+      new THREE.BoxGeometry(0.035, 0.72, 0.035),
+      chromeMaterial
+    );
+
+    spokeHighlight.position.set(
+      -0.035, 0.48, 0.075
+    );
+
+    spokeHighlight.rotation.z = -0.12;
+
+    spokeGroup.add(spokeHighlight);
+
+    spokeGroup.rotation.z = angle;
+
+    wheel.add(spokeGroup);
+  }
+
+  // Central hub
+
+  const hub = new THREE.Mesh(
+    new THREE.CylinderGeom
