@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikas Grapheo | Creative Design Studio</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#080808;color:white;font-family:Arial,sans-serif;overflow-x:hidden}
+:root{--gold:#d6ad55}
+
+/* LUXURY VG INTRO */
+#intro{
+    position:fixed;inset:0;z-index:9999;background:#030303;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    transition:opacity 1s ease,visibility 1s ease;
+}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+#threeCanvas{position:absolute;inset:0;width:100%;height:100%}
+.intro-content{
+    position:relative;z-index:2;text-align:center;pointer-events:none;
+    opacity:0;transform:translateY(18px) scale(.96);
+    animation:introReveal 1.15s cubic-bezier(.2,.8,.2,1) 1.25s forwards;
+}
+.vg-mark{
+    position:relative;display:inline-block;padding:5px 25px 12px;
+    font-family:Georgia,serif;font-weight:bold;font-size:clamp(92px,22vw,180px);
+    line-height:1;letter-spacing:-12px;
+    background:linear-gradient(145deg,#fff4c8 4%,#f4d47f 20%,#b47a24 42%,#fff0ad 56%,#9a641b 76%,#ffe8a0 92%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:1px rgba(255,222,145,.35);
+    filter:drop-shadow(0 5px 2px #4b2c08) drop-shadow(0 0 24px rgba(220,164,61,.5));
+    transform:perspective(500px) rotateX(7deg);
+}
+.vg-mark:after{
+    content:"";position:absolute;left:12%;right:0;bottom:0;height:2px;
+    background:linear-gradient(90deg,transparent,#ffe8a0,#a56d1e,transparent);
+    box-shadow:0 0 15px rgba(255,205,105,.8);
+}
+.intro-name{
+    margin-top:24px;color:#f2d58e;font-size:clamp(17px,4vw,28px);
+    letter-spacing:clamp(4px,1.2vw,9px);font-weight:600;
+    text-shadow:0 0 18px rgba(226,177,83,.35);
+}
+.intro-tagline{margin-top:12px;color:#aaa;font-size:10px;letter-spacing:5px}
+.intro-rule{
+    width:0;height:1px;margin:20px auto 0;
+    background:linear-gradient(90deg,transparent,#f5d58b,transparent);
+    animation:ruleReveal .9s ease 2s forwards;
+}
+@keyframes introReveal{to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ruleReveal{to{width:82%}}
+
+/* HEADER */
+header{min-height:85px;display:flex;align-items:center;justify-content:space-between;padding:20px 7%;border-bottom:1px solid #242424;position:relative;z-index:100;background:#080808}
+.logo{color:var(--gold);font-size:23px;font-weight:bold;letter-spacing:2px;padding-right:55px}
+.desktop-nav{display:flex;gap:30px}
+.desktop-nav a{font-size:13px;color:#ddd;transition:.3s}
+.desktop-nav a:hover{color:var(--gold)}
+.menu-btn{position:absolute;right:25px;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--gold);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;z-index:300}
+.menu-btn span{width:21px;height:2px;background:var(--gold);transition:.3s}
+.menu-btn.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn.active span:nth-child(2){opacity:0}
+.menu-btn.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:150;opacity:0;visibility:hidden;transition:.3s}
+.menu-overlay.show{opacity:1;visibility:visible}
+.side-menu{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:#111;border-left:1px solid var(--gold);z-index:200;padding:100px 35px 30px;transition:.4s ease}
+.side-menu.open{right:0}
+.side-menu h2{color:var(--gold);letter-spacing:3px;margin-bottom:35px}
+.side-menu a{display:block;color:#eee;padding:16px 0;border-bottom:1px solid #292929;transition:.3s}
+.side-menu a:hover{color:var(--gold);padding-left:10px}
+
+/* HERO */
+.hero{min-height:570px;padding:110px 8%;display:flex;align-items:center;background:radial-gradient(circle at 80% 40%,#29200e 0%,transparent 35%),#080808}
+.hero-content{max-width:750px}
+.small-heading{color:var(--gold);letter-spacing:5px;font-size:12px;margin-bottom:25px}
+.hero h1{font-size:clamp(40px,7vw,78px);line-height:1.1;margin-bottom:25px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#aaa;line-height:1.8;max-width:550px;font-size:15px}
+.gold-btn{display:inline-block;background:var(--gold);color:#080808;padding:15px 28px;margin-top:30px;font-size:13px;font-weight:bold;letter-spacing:1px;transition:.3s}
+.gold-btn:hover{background:#fff;transform:translateY(-3px)}
+
+/* SERVICES */
+.services{padding:90px 8%;background:#0d0d0d}
+.section-heading{text-align:center;margin-bottom:55px}
+.section-heading small{color:var(--gold);letter-spacing:4px}
+.section-heading h2{font-size:36px;margin-top:15px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.service-card{background:#151515;padding:35px 25px;border:1px solid #292929;transition:.3s}
+.service-card:hover{border-color:var(--gold);transform:translateY(-7px)}
+.service-card .number{color:var(--gold);font-size:30px;margin-bottom:25px}
+.service-card h3{margin-bottom:15px;font-size:20px}
+.service-card p{color:#999;font-size:14px;line-height:1.8}
+
+/* ABOUT */
+.about{padding:100px 8%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-box{min-height:300px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#171717,#080808)}
+.about-box h2{color:var(--gold);font-size:40px;letter-spacing:5px}
+.about-text small{color:var(--gold);letter-spacing:4px}
+.about-text h2{font-size:36px;margin:20px 0}
+.about-text p{color:#aaa;line-height:1.9;font-size:15px}
+
+/* CTA */
+.cta{padding:85px 8%;background:#17130a;text-align:center}
+.cta h2{font-size:clamp(28px,5vw,42px);margin-bottom:15px}
+.cta p{color:#aaa}
+
+/* FOOTER */
+footer{padding:35px 8%;background:#050505;border-top:1px solid #292929;text-align:center}
+.footer-logo{color:var(--gold);font-size:22px;font-weight:bold;letter-spacing:3px}
+footer p{color:#777;margin-top:15px;font-size:12px}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;bottom:22px;right:22px;background:#25d366;color:#fff;padding:14px 19px;border-radius:30px;font-weight:bold;font-size:13px;z-index:90}
+
+/* MOBILE */
+@media(max-width:768px){
+    header{padding:20px 5%}
+    .logo{font-size:19px}
+    .desktop-nav{display:none}
+    .menu-btn{right:18px}
+    .hero{min-height:500px;padding:90px 7%}
+    .service-grid{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;gap:35px;padding:75px 7%}
+    .section-heading h2{font-size:29px}
+    .services{padding:75px 7%}
+    .intro-tagline{letter-spacing:3px}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- LUXURY GOLDEN VG INTRO -->
+<div id="intro">
+    <canvas id="threeCanvas"></canvas>
+    <div class="intro-content">
+        <div class="vg-mark">VG</div>
+        <div class="intro-name">VIKAS GRAPHEO</div>
+        <div class="intro-tagline">CREATIVE DESIGN STUDIO</div>
+        <div class="intro-rule"></div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
+    <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- SIDE MENU -->
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<nav class="side-menu" id="sideMenu">
+    <h2>MENU</h2>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="small-heading">WELCOME TO VIKAS GRAPHEO</div>
+        <h1>We Create<br><span>Visual Stories.</span></h1>
+        <p>We transform ideas into powerful visual experiences. From creative graphic designs to professional digital branding, we help your brand stand out.</p>
+        <a href="portfolio.html" class="gold-btn">EXPLORE OUR WORK</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+    <div class="section-heading">
+        <small>WHAT WE DO</small>
+        <h2>Creative Solutions</h2>
+    </div>
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="number">01</div>
+            <h3>Graphic Design</h3>
+            <p>Creative and professional designs that communicate your brand identity.</p>
+        </div>
+        <div class="service-card">
+            <div class="number">02</div>
+            <h3>Social Media Design</h3>
+            <p>Attractive social media creatives to make your online presence stronger.</p>
+        </div>
+        <div class="service-card">
+            <div class="number">03</div>
+            <h3>Brand Identity</h3>
+            <p>Unique logos and branding elements that make your business memorable.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <div class="about-box"><h2>VG.</h2></div>
+    <div class="about-text">
+        <small>ABOUT THE STUDIO</small>
+        <h2>Design With A Purpose.</h2>
+        <p>Vikas Grapheo is a creative design studio focused on modern, unique and meaningful visual design. Our goal is to turn simple ideas into creative experiences that leave a lasting impression.</p>
+        <a href="about.html" class="gold-btn">MORE ABOUT US</a>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Have A Project In Mind?</h2>
+    <p>Let's create something amazing together.</p>
+    <a href="contact.html" class="gold-btn">START A PROJECT</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">VIKAS GRAPHEO.</div>
+    <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/917834905783" target="_blank" rel="noopener">WhatsApp</a>
+
+<!-- MENU SCRIPT -->
+<script>
+function toggleMenu(){
+    document.getElementById("sideMenu").classList.toggle("open");
+    document.getElementById("menuBtn").classList.toggle("active");
+    document.getElementById("menuOverlay").classList.toggle("show");
+}
+</script>
+
+<!-- THREE.JS GOLD PARTICLE + RING INTRO -->
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+
+const canvas=document.getElementById("threeCanvas");
+const intro=document.getElementById("intro");
+let renderer,scene,camera,animationFrame;
+const startTime=performance.now();
+
+function finishIntro(){
+    intro.classList.add("hide");
+    if(animationFrame) cancelAnimationFrame(animationFrame);
+}
+
+function init3D(){
+    scene=new THREE.Scene();
+    scene.background=new THREE.Color(0x030303);
+    camera=new THREE.PerspectiveCamera(42,window.innerWidth/window.innerHeight,.1,100);
+    camera.position.set(0,0,13);
+
+    renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.outputColorSpace=THREE.SRGBColorSpace;
+    renderer.toneMapping=THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure=1.2;
+
+    scene.add(new THREE.AmbientLight(0xffffff,.65));
+
+    const goldLight=new THREE.PointLight(0xffc45c,95,30);
+    goldLight.position.set(0,2,5);
+    scene.add(goldLight);
+
+    const sideLight=new THREE.PointLight(0xffa52e,55,25);
+    sideLight.position.set(-5,-2,2);
+    scene.add(sideLight);
+
+    const rimLight=new THREE.PointLight(0xffe4a0,70,25);
+    rimLight.position.set(5,3,-3);
+    scene.add(rimLight);
+
+    const gold=new THREE.MeshStandardMaterial({
+        color:0xd6a33f,metalness:.95,roughness:.2,
+        emissive:0x4b2c08,emissiveIntensity:.22
+    });
+
+    const paleGold=new THREE.MeshStandardMaterial({
+        color:0xffdf91,metalness:.9,roughness:.16,
+        emissive:0x6d4510,emissiveIntensity:.18
+    });
+
+    // Fine orbit rings around the central VG monogram
+    const ringGroup=new THREE.Group();
+    scene.add(ringGroup);
+
+    const ringSpecs=[
+        {radius:3.35,tube:.018,rotation:[.35,.2,.1],material:gold},
+        {radius:3.75,tube:.012,rotation:[1.05,.35,.55],material:paleGold},
+        {radius:2.95,tube:.012,rotation:[.8,1.1,.2],material:gold}
+    ];
+
+    ringSpecs.forEach(spec=>{
+        const geometry=new THREE.TorusGeometry(spec.radius,.012,8,180);
+        const ring=new THREE.Mesh(geometry,spec.material);
+        ring.rotation.set(...spec.rotation);
+        ringGroup.add(ring);
+    });
+
+    // Small glowing points moving around the rings
+    const particleCount=260;
+    const positions=new Float32Array(particleCount*3);
+    const speeds=new Float32Array(particleCount);
+    const phases=new Float32Array(particleCount);
+
+    for(let i=0;i<particleCount;i++){
+        const angle=Math.random()*Math.PI*2;
+        const radius=2.1+Math.random()*3.5;
+        positions[i*3]=Math.cos(angle)*radius;
+        positions[i*3+1]=(Math.random()-.5)*6.5;
+        positions[i*3+2]=(Math.random()-.5)*3.5;
+        speeds[i]=.15+Math.random()*.5;
+        phases[i]=angle;
+    }
+
+    const particleGeometry=new THREE.BufferGeometry();
+    particleGeometry.setAttribute("position",new THREE.BufferAttribute(positions,3));
+    const particleMaterial=new THREE.PointsMaterial({
+        color:0xffd47a,size:.035,transparent:true,opacity:.8,
+        blending:THREE.AdditiveBlending,depthWrite:false
+    });
+    const particles=new THREE.Points(particleGeometry,particleMaterial);
+    scene.add(particles);
+
+    // Soft golden halo behind the logo
+    const haloMaterial=new THREE.MeshBasicMaterial({
+        color:0x9b641d,transparent:true,opacity:.12,
+        side:THREE.DoubleSide,depthWrite:false
+    });
+    const halo=new THREE.Mesh(new THREE.CircleGeometry(2.3,64),haloMaterial);
+    halo.position.z=-1.8;
+    scene.add(halo);
+
+    function animate(){
+        animationFrame=requestAnimationFrame(animate);
+        const elapsed=(performance.now()-startTime)/1000;
+
+        ringGroup.rotation.y=elapsed*.12;
+        ringGroup.rotation.x=Math.sin(elapsed*.35)*.08;
+        ringGroup.rotation.z=Math.sin(elapsed*.22)*.05;
+
+        const array=particleGeometry.attributes.position.array;
+        for(let i=0;i<particleCount;i++){
+            const angle=phases[i]+elapsed*speeds[i]*.22;
+            const radius=2.1+(i%17)/17*3.5;
+            array[i*3]=Math.cos(angle)*radius;
+            array[i*3+1]=Math.sin(angle*.8+i)*2.7;
+            array[i*3+2]=Math.sin(angle*1.4)*1.5;
+        }
+        particleGeometry.attributes.position.needsUpdate=true;
+        particles.rotation.y=elapsed*.025;
+        haloMaterial.opacity=.09+Math.sin(elapsed*1.5)*.025;
+
+        camera.position.x=Math.sin(elapsed*.22)*.12;
+        camera.position.y=Math.sin(elapsed*.3)*.08;
+        camera.lookAt(0,0,0);
+
+        renderer.render(scene,camera);
+
+        if(elapsed>5.2) finishIntro();
+    }
+    animate();
+
+    window.addEventListener("resize",()=>{
+        camera.aspect=window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+    });
+}
+
+try{
+    init3D();
+    // Fallback: do not leave the page covered if WebGL/module startup is delayed.
+    window.setTimeout(finishIntro,6500);
+}catch(error){
+    console.error("3D intro could not start:",error);
+    finishIntro();
+}
+</script>
+</body>
+</html>
