@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vikas Grapheo | Creative Design Studio</title>
 
 <style>
@@ -18,16 +17,14 @@ html { scroll-behavior: smooth; }
 
 body {
     background: #080808;
-    color: #fff;
+    color: white;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
-:root {
-    --gold: #d6ad55;
-}
+:root { --gold: #d6ad55; }
 
-/* GOLDEN WAVE INTRO */
+/* ACTUAL 3D INTRO */
 
 #intro {
     position: fixed;
@@ -38,140 +35,55 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    animation: introExit 1s ease 5.5s forwards;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
-.wave-stage {
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#threeCanvas {
     position: absolute;
-    width: 120%;
-    height: 65%;
-    top: 12%;
-    left: -10%;
-    perspective: 900px;
-}
-
-.wave-svg {
+    inset: 0;
     width: 100%;
     height: 100%;
-    overflow: visible;
 }
-
-.wave-one {
-    fill: none;
-    stroke: #f4ca72;
-    stroke-width: 3;
-    stroke-linecap: round;
-    filter: drop-shadow(0 0 10px #c58b2a);
-    animation: waveMove 4s ease-in-out infinite;
-}
-
-.wave-two {
-    fill: none;
-    stroke: #9d6b1c;
-    stroke-width: 8;
-    stroke-linecap: round;
-    opacity: .7;
-    filter: drop-shadow(0 0 12px #d6ad55);
-    animation: waveMoveTwo 5s ease-in-out infinite;
-}
-
-.wave-three {
-    fill: none;
-    stroke: #fff0b4;
-    stroke-width: 1.5;
-    opacity: .8;
-    animation: waveMoveThree 3.5s ease-in-out infinite;
-}
-
-.wave-four {
-    fill: none;
-    stroke: #b88636;
-    stroke-width: 15;
-    opacity: .3;
-    filter: blur(5px);
-    animation: waveMove 6s ease-in-out infinite reverse;
-}
-
-@keyframes waveMove {
-    0%, 100% { transform: translateY(0) scaleY(1); }
-    50% { transform: translateY(-35px) scaleY(1.25); }
-}
-
-@keyframes waveMoveTwo {
-    0%, 100% { transform: translateY(20px) scaleY(1); }
-    50% { transform: translateY(-25px) scaleY(.8); }
-}
-
-@keyframes waveMoveThree {
-    0%, 100% { transform: translateY(-10px); }
-    50% { transform: translateY(35px); }
-}
-
-/* PARTICLES */
-
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #f8d98d;
-    box-shadow: 0 0 12px 3px #d6ad55;
-    animation: particleFloat 4s ease-in-out infinite;
-}
-
-.p1 { left: 12%; top: 25%; }
-.p2 { left: 25%; top: 65%; animation-delay: .7s; }
-.p3 { left: 40%; top: 18%; animation-delay: 1.2s; }
-.p4 { left: 62%; top: 70%; animation-delay: .4s; }
-.p5 { left: 80%; top: 30%; animation-delay: 1.5s; }
-.p6 { left: 90%; top: 60%; animation-delay: .9s; }
-.p7 { left: 52%; top: 85%; animation-delay: 2s; }
-
-@keyframes particleFloat {
-    0%, 100% {
-        transform: translateY(0) scale(.6);
-        opacity: .3;
-    }
-    50% {
-        transform: translateY(-35px) scale(1.5);
-        opacity: 1;
-    }
-}
-
-/* INTRO LOGO */
 
 .intro-logo {
     position: relative;
-    z-index: 5;
+    z-index: 2;
     text-align: center;
     opacity: 0;
     transform: translateY(25px);
-    animation: logoReveal 1.3s ease 2.5s forwards;
+    animation: revealLogo 1.2s ease 2.8s forwards;
+    pointer-events: none;
 }
 
 .intro-logo h1 {
-    color: #f1ca78;
-    font-size: clamp(27px, 6vw, 58px);
-    letter-spacing: 7px;
-    text-shadow: 0 0 25px rgba(214,173,85,.5);
+    color: #f5d58b;
+    font-size: clamp(25px, 6vw, 55px);
+    letter-spacing: 6px;
+    text-shadow: 0 0 25px rgba(214,173,85,.7);
 }
 
 .intro-logo p {
-    color: #bbb;
+    color: #ccc;
+    letter-spacing: 5px;
     font-size: 11px;
-    letter-spacing: 6px;
-    margin-top: 15px;
+    margin-top: 14px;
 }
 
 .intro-line {
-    width: 0;
     height: 1px;
+    width: 0;
     margin: 18px auto 0;
-    background: linear-gradient(90deg, transparent, #f1ca78, transparent);
-    animation: lineReveal 1s ease 3s forwards;
+    background: linear-gradient(90deg, transparent, #f5d58b, transparent);
+    animation: lineReveal 1s ease 3.2s forwards;
 }
 
-@keyframes logoReveal {
+@keyframes revealLogo {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -180,14 +92,6 @@ body {
 
 @keyframes lineReveal {
     to { width: 85%; }
-}
-
-@keyframes introExit {
-    to {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
 }
 
 /* HEADER */
@@ -225,7 +129,7 @@ header {
 
 .desktop-nav a:hover { color: var(--gold); }
 
-/* RIGHT SIDE MENU BUTTON */
+/* RIGHT SIDE HAMBURGER */
 
 .menu-btn {
     position: absolute;
@@ -543,77 +447,27 @@ footer p {
     .section-heading h2 { font-size: 29px; }
 
     .services { padding: 75px 7%; }
-
-    .wave-stage {
-        width: 150%;
-        left: -25%;
-    }
-
-    .intro-logo h1 { letter-spacing: 4px; }
-}
-
-@media(prefers-reduced-motion: reduce) {
-    .wave-one,
-    .wave-two,
-    .wave-three,
-    .wave-four,
-    .particle {
-        animation-duration: 8s;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- GOLDEN 3D WAVE INTRO -->
+<!-- 3D GOLDEN INTRO -->
 
 <div id="intro">
-
-    <div class="wave-stage">
-
-        <svg class="wave-svg" viewBox="0 0 1200 500"
-        preserveAspectRatio="none">
-
-            <path class="wave-four"
-            d="M-100 250 C150 20 300 480 550 250 S950 20 1300 250"/>
-
-            <path class="wave-two"
-            d="M-100 270 C150 50 300 490 550 260 S950 50 1300 270"/>
-
-            <path class="wave-one"
-            d="M-100 220 C150 450 300 0 550 220 S950 450 1300 220"/>
-
-            <path class="wave-three"
-            d="M-100 300 C150 70 300 500 550 280 S950 70 1300 300"/>
-
-            <path class="wave-one"
-            d="M-100 180 C150 400 300 20 550 180 S950 400 1300 180"/>
-
-        </svg>
-
-    </div>
-
-    <div class="particle p1"></div>
-    <div class="particle p2"></div>
-    <div class="particle p3"></div>
-    <div class="particle p4"></div>
-    <div class="particle p5"></div>
-    <div class="particle p6"></div>
-    <div class="particle p7"></div>
+    <canvas id="threeCanvas"></canvas>
 
     <div class="intro-logo">
         <h1>VIKAS GRAPHEO</h1>
         <p>CREATIVE DESIGN STUDIO</p>
         <div class="intro-line"></div>
     </div>
-
 </div>
 
 <!-- HEADER -->
 
 <header>
-
     <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
 
     <nav class="desktop-nav">
@@ -630,7 +484,6 @@ footer p {
         <span></span>
         <span></span>
     </button>
-
 </header>
 
 <!-- SIDE MENU -->
@@ -639,23 +492,18 @@ footer p {
 onclick="toggleMenu()"></div>
 
 <nav class="side-menu" id="sideMenu">
-
     <h2>MENU</h2>
-
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html">Contact</a>
-
 </nav>
 
 <!-- HERO -->
 
 <section class="hero">
-
     <div class="hero-content">
-
         <div class="small-heading">
             WELCOME TO VIKAS GRAPHEO
         </div>
@@ -674,22 +522,18 @@ onclick="toggleMenu()"></div>
         <a href="portfolio.html" class="gold-btn">
             EXPLORE OUR WORK
         </a>
-
     </div>
-
 </section>
 
 <!-- SERVICES -->
 
 <section class="services">
-
     <div class="section-heading">
         <small>WHAT WE DO</small>
         <h2>Creative Solutions</h2>
     </div>
 
     <div class="service-grid">
-
         <div class="service-card">
             <div class="number">01</div>
             <h3>Graphic Design</h3>
@@ -716,25 +560,19 @@ onclick="toggleMenu()"></div>
                 that make your business memorable.
             </p>
         </div>
-
     </div>
-
 </section>
 
 <!-- ABOUT -->
 
 <section class="about">
-
     <div class="about-box">
         <h2>VG.</h2>
     </div>
 
     <div class="about-text">
-
         <small>ABOUT THE STUDIO</small>
-
         <h2>Design With A Purpose.</h2>
-
         <p>
             Vikas Grapheo is a creative design studio focused
             on modern, unique and meaningful visual design.
@@ -745,59 +583,297 @@ onclick="toggleMenu()"></div>
         <a href="about.html" class="gold-btn">
             MORE ABOUT US
         </a>
-
     </div>
-
 </section>
 
 <!-- CTA -->
 
 <section class="cta">
-
     <h2>Have A Project In Mind?</h2>
-
     <p>Let's create something amazing together.</p>
 
     <a href="contact.html" class="gold-btn">
         START A PROJECT
     </a>
-
 </section>
 
 <!-- FOOTER -->
 
 <footer>
-
     <div class="footer-logo">VIKAS GRAPHEO.</div>
-
     <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
-
 </footer>
 
 <!-- WHATSAPP -->
 
 <a class="whatsapp"
 href="https://wa.me/917834905783"
-target="_blank">
+target="_blank" rel="noopener">
     WhatsApp
 </a>
 
-<!-- JAVASCRIPT -->
+<!-- MENU SCRIPT -->
 
 <script>
-
 function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("open");
+    document.getElementById("menuBtn").classList.toggle("active");
+    document.getElementById("menuOverlay").classList.toggle("show");
+}
+</script>
 
-    const menu = document.getElementById("sideMenu");
-    const button = document.getElementById("menuBtn");
-    const overlay = document.getElementById("menuOverlay");
+<!-- THREE.JS 3D ENGINE -->
 
-    menu.classList.toggle("open");
-    button.classList.toggle("active");
-    overlay.classList.toggle("show");
+<script type="module">
+import * as THREE from
+'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
 
+const canvas = document.getElementById("threeCanvas");
+const intro = document.getElementById("intro");
+
+let scene, camera, renderer;
+let waveGroup;
+let animationFrame;
+let startTime = performance.now();
+
+function init3D() {
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x030303);
+
+    camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        100
+    );
+
+    camera.position.set(0, 0, 12);
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: false
+    });
+
+    renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, 1.7)
+    );
+
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.35;
+
+    /* LIGHTS */
+
+    const ambient = new THREE.AmbientLight(
+        0xffffff, 0.8
+    );
+
+    scene.add(ambient);
+
+    const goldLight = new THREE.PointLight(
+        0xffc65c, 180, 30
+    );
+
+    goldLight.position.set(2, 4, 5);
+    scene.add(goldLight);
+
+    const warmLight = new THREE.PointLight(
+        0xffa928, 100, 25
+    );
+
+    warmLight.position.set(-5, -2, 3);
+    scene.add(warmLight);
+
+    const whiteLight = new THREE.DirectionalLight(
+        0xffffff, 2
+    );
+
+    whiteLight.position.set(0, 5, 8);
+    scene.add(whiteLight);
+
+    /* GOLD MATERIAL */
+
+    const goldMaterial = new THREE.MeshStandardMaterial({
+        color: 0xd6a33f,
+        metalness: 0.95,
+        roughness: 0.19
+    });
+
+    const brightGold = new THREE.MeshStandardMaterial({
+        color: 0xffd982,
+        metalness: 0.95,
+        roughness: 0.12
+    });
+
+    const darkGold = new THREE.MeshStandardMaterial({
+        color: 0x805319,
+        metalness: 0.98,
+        roughness: 0.24
+    });
+
+    /* 3D RIBBON GROUP */
+
+    waveGroup = new THREE.Group();
+    scene.add(waveGroup);
+
+    function createRibbon(offset, scale, material, thickness) {
+
+        const points = [];
+
+        for (let i = 0; i <= 100; i++) {
+
+            const t = i / 100;
+            const x = (t - 0.5) * 15;
+
+            const y =
+                Math.sin(t * Math.PI * 3 + offset) * scale;
+
+            const z =
+                Math.cos(t * Math.PI * 4 + offset) * 1.5;
+
+            points.push(
+                new THREE.Vector3(x, y, z)
+            );
+        }
+
+        const curve = new THREE.CatmullRomCurve3(points);
+
+        const geometry = new THREE.TubeGeometry(
+            curve,
+            220,
+            thickness,
+            12,
+            false
+        );
+
+        const mesh = new THREE.Mesh(
+            geometry,
+            material
+        );
+
+        waveGroup.add(mesh);
+    }
+
+    createRibbon(0, 1.5, goldMaterial, 0.15);
+    createRibbon(1.4, 2.0, brightGold, 0.085);
+    createRibbon(2.8, 1.0, darkGold, 0.21);
+    createRibbon(4.2, 1.8, brightGold, 0.055);
+    createRibbon(5.2, 1.25, goldMaterial, 0.10);
+
+    /* PARTICLES */
+
+    const particleCount = 350;
+    const particlePositions = new Float32Array(
+        particleCount * 3
+    );
+
+    for (let i = 0; i < particleCount; i++) {
+        particlePositions[i * 3] =
+            (Math.random() - 0.5) * 17;
+
+        particlePositions[i * 3 + 1] =
+            (Math.random() - 0.5) * 9;
+
+        particlePositions[i * 3 + 2] =
+            (Math.random() - 0.5) * 7;
+    }
+
+    const particleGeometry = new THREE.BufferGeometry();
+
+    particleGeometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(particlePositions, 3)
+    );
+
+    const particleMaterial = new THREE.PointsMaterial({
+        color: 0xffd77a,
+        size: 0.035,
+        transparent: true,
+        opacity: 0.85,
+        sizeAttenuation: true
+    });
+
+    const particles = new THREE.Points(
+        particleGeometry,
+        particleMaterial
+    );
+
+    scene.add(particles);
+
+    /* ANIMATION */
+
+    function animate() {
+
+        animationFrame = requestAnimationFrame(animate);
+
+        const elapsed =
+            (performance.now() - startTime) / 1000;
+
+        waveGroup.rotation.y =
+            Math.sin(elapsed * 0.45) * 0.3;
+
+        waveGroup.rotation.x =
+            Math.sin(elapsed * 0.65) * 0.15;
+
+        waveGroup.rotation.z =
+            Math.sin(elapsed * 0.35) * 0.08;
+
+        waveGroup.position.y =
+            Math.sin(elapsed * 0.8) * 0.25;
+
+        particles.rotation.y = elapsed * 0.035;
+        particles.rotation.x = Math.sin(elapsed * 0.2) * 0.08;
+
+        camera.position.x =
+            Math.sin(elapsed * 0.3) * 0.3;
+
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+
+        if (elapsed > 6.5) {
+            cancelAnimationFrame(animationFrame);
+            intro.classList.add("hide");
+        }
+    }
+
+    animate();
+
+    /* RESIZE */
+
+    window.addEventListener("resize", () => {
+
+        camera.aspect =
+            window.innerWidth / window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+        renderer.setPixelRatio(
+            Math.min(window.devicePixelRatio, 1.7)
+        );
+
+    });
 }
 
+try {
+    init3D();
+} catch (error) {
+    console.error("3D intro could not start:", error);
+    intro.classList.add("hide");
+}
 </script>
 
 </body>
