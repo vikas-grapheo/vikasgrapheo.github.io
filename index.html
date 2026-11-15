@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vikas Grapheo | Creative Design Studio</title>
 
 <style>
@@ -14,9 +13,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background: #080808;
@@ -24,118 +21,167 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* GOLDEN EYE INTRO */
+/* =========================
+   SPORTS CAR INTRO
+========================= */
 
-#eyeIntro {
+#carIntro {
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: #030303;
+    background:
+        radial-gradient(ellipse at 50% 65%, #282016 0%, #090909 48%, #000 100%);
+    overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    animation: introDisappear 1s ease 4.5s forwards;
+    animation: introExit 1s ease 5.5s forwards;
 }
 
-.eye-scene {
-    width: 260px;
-    height: 260px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: sceneZoom 4s ease forwards;
-}
-
-.eye-triangle {
+.intro-light {
     position: absolute;
-    width: 220px;
-    height: 220px;
-    filter: drop-shadow(0 0 12px #d6a83b);
-    animation: triangleGlow 2s infinite alternate;
-}
-
-.eye-shape {
-    position: absolute;
-    width: 145px;
-    height: 75px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.eye-mask {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: eyeOpen 1.5s ease 1s forwards;
-}
-
-.eye-pupil {
-    fill: #e7bd55;
-    filter: drop-shadow(0 0 10px #e7bd55);
-    animation: pupilGlow 1.5s infinite alternate;
-}
-
-.eye-outline {
-    fill: none;
-    stroke: #e6bd55;
-    stroke-width: 3;
-}
-
-.intro-brand {
-    color: #e7bd55;
-    font-size: 25px;
-    letter-spacing: 7px;
-    margin-top: 20px;
+    width: 70%;
+    height: 2px;
+    top: 68%;
+    background: #d6ad49;
+    box-shadow: 0 0 20px #d6ad49, 0 0 60px #d6ad49;
     opacity: 0;
-    animation: brandReveal 1s ease 2.7s forwards;
+    animation: roadLight 1.2s ease 2s forwards;
+}
+
+.intro-glow {
+    position: absolute;
+    width: 450px;
+    height: 180px;
+    bottom: 15%;
+    background: #d6ad49;
+    filter: blur(100px);
+    opacity: 0;
+    animation: groundGlow 1.5s ease 2.2s forwards;
+}
+
+.car-stage {
+    position: relative;
+    width: min(900px, 100%);
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-svg {
+    width: min(850px, 105%);
+    position: absolute;
+    left: 0;
+    transform: translateX(-115%) scale(.8);
+    opacity: 0;
+    animation: carEnter 2.5s cubic-bezier(.2,.7,.2,1) .5s forwards;
+    filter: drop-shadow(0 15px 18px #000);
+}
+
+.car-body {
+    fill: #101010;
+    stroke: #b58b37;
+    stroke-width: 2;
+}
+
+.car-window {
+    fill: #20252a;
+    stroke: #8d713d;
+    stroke-width: 2;
+}
+
+.car-detail {
+    fill: none;
+    stroke: #b58b37;
+    stroke-width: 2;
+}
+
+.wheel {
+    fill: #080808;
+    stroke: #b18a43;
+    stroke-width: 4;
+}
+
+.rim {
+    fill: #272727;
+    stroke: #d6ad49;
+    stroke-width: 2;
+}
+
+.headlight {
+    fill: #fff4c7;
+    filter: drop-shadow(0 0 9px #ffe5a0)
+            drop-shadow(0 0 20px #ffd76b);
+    animation: headlightGlow 1s infinite alternate;
+}
+
+.brand-name {
+    position: absolute;
+    bottom: 17%;
     text-align: center;
+    width: 100%;
+    color: #e6bd55;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: bold;
+    letter-spacing: 9px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleReveal 1s ease 3.3s forwards;
+    text-shadow: 0 0 20px #d6ad49;
 }
 
-.intro-line {
-    width: 0;
-    height: 1px;
-    background: #d6a83b;
-    margin-top: 15px;
-    animation: lineReveal 1s ease 3s forwards;
+.brand-subtitle {
+    position: absolute;
+    bottom: 12%;
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 5px;
+    opacity: 0;
+    animation: titleReveal 1s ease 3.8s forwards;
 }
 
-@keyframes eyeOpen {
-    from { transform: scaleY(0.05); }
-    to { transform: scaleY(1); }
-}
-
-@keyframes pupilGlow {
-    from { opacity: .6; }
-    to {
+@keyframes carEnter {
+    0% {
+        transform: translateX(-115%) scale(.8);
+        opacity: 0;
+    }
+    35% {
         opacity: 1;
-        filter: drop-shadow(0 0 18px #ffd76b);
+    }
+    75% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
     }
 }
 
-@keyframes triangleGlow {
+@keyframes headlightGlow {
     from { opacity: .65; }
     to { opacity: 1; }
 }
 
-@keyframes brandReveal {
+@keyframes roadLight {
+    from { width: 0; opacity: 0; }
+    to { width: 75%; opacity: .8; }
+}
+
+@keyframes groundGlow {
+    to { opacity: .18; }
+}
+
+@keyframes titleReveal {
     to {
         opacity: 1;
-        letter-spacing: 5px;
+        transform: translateY(0);
     }
 }
 
-@keyframes lineReveal {
-    to { width: 180px; }
-}
-
-@keyframes sceneZoom {
-    from { transform: scale(.75); }
-    to { transform: scale(1); }
-}
-
-@keyframes introDisappear {
+@keyframes introExit {
     to {
         opacity: 0;
         visibility: hidden;
@@ -178,9 +224,7 @@ nav a {
     transition: .3s;
 }
 
-nav a:hover {
-    color: #e6bd55;
-}
+nav a:hover { color: #e6bd55; }
 
 /* HERO */
 
@@ -209,9 +253,7 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
-.hero h1 span {
-    color: #e6bd55;
-}
+.hero h1 span { color: #e6bd55; }
 
 .hero p {
     color: #aaa;
@@ -238,11 +280,9 @@ nav a:hover {
     color: #e6bd55;
 }
 
-/* COMMON SECTION */
+/* COMMON SECTIONS */
 
-section {
-    padding: 90px 8%;
-}
+section { padding: 90px 8%; }
 
 .section-tag {
     color: #d6ad49;
@@ -265,9 +305,7 @@ section {
 
 /* SERVICES */
 
-.services {
-    background: #0e0e0e;
-}
+.services { background: #0e0e0e; }
 
 .service-grid {
     display: grid;
@@ -316,8 +354,7 @@ section {
 .about-box {
     min-height: 320px;
     border: 1px solid #49391b;
-    background:
-        radial-gradient(circle, #453311, #111 65%);
+    background: radial-gradient(circle, #453311, #111 65%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -392,7 +429,6 @@ footer a {
 /* MOBILE */
 
 @media(max-width: 768px) {
-
     header {
         padding: 18px 5%;
         flex-direction: column;
@@ -405,31 +441,33 @@ footer a {
         justify-content: center;
     }
 
-    nav a {
-        font-size: 12px;
-    }
+    nav a { font-size: 12px; }
 
     .hero {
         padding: 90px 6%;
         min-height: 75vh;
     }
 
-    section {
-        padding: 65px 6%;
-    }
+    section { padding: 65px 6%; }
 
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
+    .service-grid { grid-template-columns: 1fr; }
 
     .about {
         grid-template-columns: 1fr;
         gap: 35px;
     }
 
-    .intro-brand {
-        font-size: 19px;
+    .car-stage { height: 190px; }
+
+    .car-svg { width: 115%; }
+
+    .brand-name {
+        font-size: 20px;
+        letter-spacing: 5px;
+        bottom: 20%;
     }
+
+    .brand-subtitle { bottom: 14%; }
 
     footer {
         text-align: center;
@@ -438,7 +476,7 @@ footer a {
 }
 
 @media(prefers-reduced-motion: reduce) {
-    #eyeIntro {
+    #carIntro {
         animation-duration: .3s;
         animation-delay: 1s;
     }
@@ -448,58 +486,111 @@ footer a {
 
 <body>
 
-<!-- GOLDEN EYE INTRO -->
+<!-- SPORTS CAR INTRO -->
 
-<div id="eyeIntro">
+<div id="carIntro">
 
-    <div class="eye-scene">
+    <div class="intro-glow"></div>
+    <div class="intro-light"></div>
 
-        <svg class="eye-triangle" viewBox="0 0 300 300">
-            <polygon
-                points="150,20 280,260 20,260"
-                fill="none"
-                stroke="#d6a83b"
-                stroke-width="2.5"/>
-        </svg>
+    <div class="car-stage">
 
-        <svg class="eye-shape" viewBox="0 0 150 80">
+        <svg class="car-svg" viewBox="0 0 900 320"
+             xmlns="http://www.w3.org/2000/svg">
 
-            <defs>
-                <clipPath id="eyeClip">
-                    <path d="M5 40 Q75 -10 145 40 Q75 90 5 40Z"/>
-                </clipPath>
-            </defs>
+            <!-- CAR BODY -->
+            <path class="car-body"
+                d="M65 218
+                   L95 185
+                   Q125 168 220 158
+                   L300 105
+                   Q345 73 420 68
+                   L555 68
+                   Q620 72 680 135
+                   L755 158
+                   Q820 168 850 202
+                   L862 230
+                   L835 249
+                   L75 249
+                   Z"/>
 
-            <g clip-path="url(#eyeClip)">
+            <!-- ROOF AND WINDOWS -->
+            <path class="car-window"
+                d="M320 151
+                   L365 92
+                   Q390 78 425 78
+                   L470 78
+                   L470 151 Z"/>
 
-                <rect x="0" y="0"
-                      width="150" height="80"
-                      fill="#d6a83b"
-                      class="eye-mask"/>
+            <path class="car-window"
+                d="M485 78
+                   L550 78
+                   Q605 86 652 151
+                   L485 151 Z"/>
 
-                <circle cx="75" cy="40"
-                        r="21"
-                        fill="#8b6725"/>
+            <!-- BODY DETAILS -->
+            <path class="car-detail"
+                d="M75 218 Q170 190 280 192
+                   L700 192 Q800 190 850 218"/>
 
-                <circle cx="75" cy="40"
-                        r="12"
-                        class="eye-pupil"/>
+            <path class="car-detail"
+                d="M470 78 L470 151"/>
 
-                <circle cx="80" cy="34"
-                        r="4"
-                        fill="#fff3c5"/>
+            <path class="car-detail"
+                d="M280 192 L300 105"/>
 
+            <!-- SIDE VENT -->
+            <path d="M670 205 L735 205 L720 220 L665 220 Z"
+                  fill="#292929" stroke="#b18a43"
+                  stroke-width="1.5"/>
+
+            <!-- FRONT HEADLIGHTS -->
+            <path class="headlight"
+                d="M812 188 L849 198 L839 207 L805 202 Z"/>
+
+            <!-- REAR LIGHT -->
+            <path d="M85 191 L119 184 L113 198 L83 203 Z"
+                  fill="#a51d17"/>
+
+            <!-- FRONT BUMPER -->
+            <path d="M820 228 L858 228 L844 244 L810 244 Z"
+                  fill="#222" stroke="#b18a43"
+                  stroke-width="1.5"/>
+
+            <!-- FRONT GRILLE -->
+            <path d="M790 225 L830 225 L817 240 L785 240 Z"
+                  fill="#080808" stroke="#7f602e"
+                  stroke-width="2"/>
+
+            <!-- WHEELS -->
+            <circle class="wheel" cx="255" cy="238" r="53"/>
+            <circle class="rim" cx="255" cy="238" r="30"/>
+            <circle fill="#080808" cx="255" cy="238" r="10"/>
+
+            <circle class="wheel" cx="700" cy="238" r="53"/>
+            <circle class="rim" cx="700" cy="238" r="30"/>
+            <circle fill="#080808" cx="700" cy="238" r="10"/>
+
+            <!-- WHEEL SPOKES -->
+            <g stroke="#d6ad49" stroke-width="3">
+                <path d="M255 210 V266 M227 238 H283
+                         M235 218 L275 258
+                         M275 218 L235 258"/>
+                <path d="M700 210 V266 M672 238 H728
+                         M680 218 L720 258
+                         M720 218 L680 258"/>
             </g>
 
-            <path class="eye-outline"
-                  d="M5 40 Q75 -10 145 40 Q75 90 5 40Z"/>
+            <!-- LOWER SHADOW -->
+            <ellipse cx="450" cy="293" rx="380" ry="13"
+                     fill="#000" opacity=".7"/>
 
         </svg>
 
     </div>
 
-    <div class="intro-brand">VIKAS GRAPHEO</div>
-    <div class="intro-line"></div>
+    <div class="brand-name">VIKAS GRAPHEO</div>
+    <div class="brand-subtitle">CREATIVE DESIGN STUDIO</div>
 
 </div>
 
@@ -519,7 +610,7 @@ footer a {
 
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <div class="hero">
 
@@ -536,11 +627,13 @@ footer a {
         modern graphics and memorable digital experiences.
     </p>
 
-    <a href="portfolio.html" class="btn">Explore Our Work →</a>
+    <a href="portfolio.html" class="btn">
+        Explore Our Work →
+    </a>
 
 </div>
 
-<!-- SERVICES SECTION -->
+<!-- SERVICES -->
 
 <section class="services">
 
@@ -613,7 +706,7 @@ footer a {
 
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 
 <section class="about">
 
@@ -642,13 +735,15 @@ footer a {
             thoughtful and modern design.
         </p>
 
-        <a href="about.html" class="btn">Discover More →</a>
+        <a href="about.html" class="btn">
+            Discover More →
+        </a>
 
     </div>
 
 </section>
 
-<!-- CTA SECTION -->
+<!-- CTA -->
 
 <section class="cta">
 
@@ -663,7 +758,9 @@ footer a {
         designs that make your brand stand out.
     </p>
 
-    <a href="contact.html" class="btn">Start A Project →</a>
+    <a href="contact.html" class="btn">
+        Start A Project →
+    </a>
 
 </section>
 
@@ -677,7 +774,7 @@ footer a {
 
 </footer>
 
-<!-- WHATSAPP BUTTON -->
+<!-- WHATSAPP -->
 
 <a class="whatsapp"
    href="https://wa.me/917834905783"
@@ -687,5 +784,5 @@ footer a {
 </a>
 
 </body>
-              </html>
-              
+    </html>
+    
