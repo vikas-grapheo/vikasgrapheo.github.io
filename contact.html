@@ -5,35 +5,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact | Vikas Grapheo</title>
+<title>Contact Us | Vikas Grapheo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --bg: #090909;
+  --card: #111111;
+  --gold: #d6ad65;
+  --white: #ffffff;
+  --gray: #aaaaaa;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --bg: #090909;
-  --card: #141414;
-  --gold: #d6ad65;
-  --white: #f5f5f5;
-  --muted: #aaa;
-}
-
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
 }
 
-/* HEADER */
-
 header {
-  height: 75px;
-  padding: 0 7%;
+  width: 100%;
+  padding: 22px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,27 +42,27 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #080808;
+  background: #090909;
 }
 
 .logo {
   color: var(--gold);
-  font-size: 21px;
-  font-weight: bold;
-  letter-spacing: 2px;
   text-decoration: none;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 nav {
   display: flex;
-  gap: 25px;
+  gap: 28px;
 }
 
 nav a {
-  color: #ddd;
+  color: white;
   text-decoration: none;
   font-size: 14px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 nav a:hover,
@@ -69,88 +70,38 @@ nav a.active {
   color: var(--gold);
 }
 
-/* MOBILE MENU */
-
-#menuToggle {
+.menu-toggle {
   display: none;
 }
 
 .menu-btn {
   display: none;
-  flex-direction: column;
-  gap: 6px;
   cursor: pointer;
-  padding: 10px;
 }
 
 .menu-btn span {
-  width: 25px;
+  display: block;
+  width: 26px;
   height: 2px;
   background: var(--gold);
-  transition: .3s;
+  margin: 6px 0;
 }
-
-@media(max-width:750px) {
-  .menu-btn {
-    display: flex;
-  }
-
-  nav {
-    position: absolute;
-    top: 75px;
-    left: 0;
-    width: 100%;
-    background: #101010;
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-  }
-
-  nav a {
-    padding: 16px 7%;
-    border-top: 1px solid #292929;
-  }
-
-  #menuToggle:checked ~ nav {
-    max-height: 350px;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  #menuToggle:checked + .menu-btn span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  #menuToggle:checked + .menu-btn span:nth-child(2) {
-    opacity: 0;
-  }
-
-  #menuToggle:checked + .menu-btn span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
-
-/* HERO */
 
 .hero {
   text-align: center;
-  padding: 65px 20px 35px;
+  padding: 75px 20px 35px;
 }
 
-.tag {
+.hero small {
   color: var(--gold);
   letter-spacing: 4px;
   font-size: 12px;
-  margin-bottom: 15px;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 6vw, 50px);
-  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 7vw, 65px);
+  margin: 18px 0;
 }
 
 .hero h1 span {
@@ -158,193 +109,203 @@ nav a.active {
 }
 
 .hero p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 14px;
+  color: var(--gray);
+  max-width: 550px;
+  margin: auto;
+  line-height: 1.8;
 }
 
-/* FORM */
-
-.container {
-  width: min(680px, 92%);
-  margin: 15px auto 65px;
+.contact-section {
+  max-width: 1100px;
+  margin: 35px auto 90px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 35px;
 }
 
-.form-card {
+.contact-info,
+.contact-form {
   background: var(--card);
-  border: 1px solid #383027;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 15px 45px #0008;
+  border: 1px solid #292929;
+  padding: 35px;
+  border-radius: 12px;
 }
 
-.form-heading {
-  text-align: center;
+.contact-info h2,
+.contact-form h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+.contact-info p {
+  color: var(--gray);
+  line-height: 1.8;
   margin-bottom: 28px;
 }
 
-.form-heading h2 {
+.info-item {
+  margin: 25px 0;
+}
+
+.info-item h3 {
   color: var(--gold);
-  letter-spacing: 3px;
-  font-size: 22px;
+  font-size: 14px;
+  margin-bottom: 7px;
 }
 
-.form-heading p {
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-top: 9px;
+.info-item p,
+.info-item a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.field {
-  margin-bottom: 19px;
+.form-group {
+  margin-bottom: 18px;
 }
 
-.field label {
+.form-group label {
   display: block;
-  color: var(--gold);
+  color: #ddd;
   font-size: 13px;
   margin-bottom: 9px;
 }
 
-.field input,
-.field select,
-.field textarea {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
-  background: #090909;
-  color: white;
-  border: 1px solid #383838;
-  border-radius: 7px;
   padding: 14px;
+  background: #080808;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: white;
+  font-family: inherit;
   font-size: 14px;
   outline: none;
-  font-family: Arial, sans-serif;
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   border-color: var(--gold);
 }
 
-.field textarea {
+.form-group select option {
+  background: #111;
+}
+
+.form-group textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-.field select option {
-  background: #111;
-}
-
-.gold-btn {
+.submit-btn {
   width: 100%;
   padding: 16px;
   background: var(--gold);
-  color: #090909;
-  border: 0;
-  border-radius: 7px;
-  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  color: #080808;
   font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.gold-btn:hover {
-  background: #edc982;
+.submit-btn:hover {
+  background: #f0c77e;
   transform: translateY(-2px);
 }
 
 .note {
   color: #999;
-  font-size: 11px;
-  text-align: center;
-  line-height: 1.6;
-  margin-top: 16px;
-}
-
-/* GENERATED FORM */
-
-#result {
-  display: none;
-  margin-top: 30px;
-  border: 1px solid #403421;
-  background: #111;
-  padding: 22px;
-  border-radius: 12px;
-}
-
-#result h3 {
-  color: var(--gold);
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-#preview {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid #403421;
-  margin: 15px 0;
-}
-
-.secondary-btn {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  border-radius: 7px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#status {
-  color: #ccc;
   font-size: 12px;
-  text-align: center;
+  margin-top: 14px;
   line-height: 1.6;
-  margin-top: 13px;
 }
-
-/* FOOTER */
 
 footer {
   border-top: 1px solid #292929;
-  padding: 25px;
   text-align: center;
+  padding: 28px 15px;
   color: #888;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 footer span {
   color: var(--gold);
 }
 
-/* WHATSAPP */
-
-.whatsapp {
+.whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #20c66b;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  height: 55px;
+  background: #25d366;
   color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 13px 18px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: bold;
-  z-index: 90;
+  font-size: 27px;
+  z-index: 99;
+  box-shadow: 0 4px 15px #0008;
 }
 
-@media(max-width:500px) {
-  .form-card {
-    padding: 20px;
+@media(max-width: 768px) {
+  header {
+    padding: 18px 6%;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .menu-btn {
+    display: block;
+    order: 2;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #090909;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid #292929;
+  }
+
+  nav a {
+    padding: 16px 7%;
+    border-bottom: 1px solid #222;
+  }
+
+  .menu-toggle:checked ~ nav {
+    display: flex;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 25px;
   }
 
   .hero {
-    padding-top: 45px;
+    padding-top: 55px;
   }
 }
 </style>
@@ -352,15 +313,10 @@ footer span {
 
 <body>
 
-<!-- HEADER -->
-
 <header>
+  <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
 
-  <a class="logo" href="index.html">
-    VIKAS GRAPHEO.
-  </a>
-
-  <input type="checkbox" id="menuToggle">
+  <input type="checkbox" id="menuToggle" class="menu-toggle">
 
   <label for="menuToggle" class="menu-btn">
     <span></span>
@@ -375,614 +331,168 @@ footer span {
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
-
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
-
-  <div class="tag">
-    LET'S CREATE SOMETHING AMAZING
-  </div>
-
-  <h1>
-    Start Your <span>Project</span>
-  </h1>
-
+  <small>LET'S WORK TOGETHER</small>
+  <h1>Get In <span>Touch.</span></h1>
   <p>
-    Tell us about your vision.
-    Fill out the inquiry form and share your project
-    details with Vikas Grapheo.
+    Have a creative project in mind? Tell us about your ideas.
+    Let's create something extraordinary together.
   </p>
-
 </section>
 
-<!-- CONTACT FORM -->
+<section class="contact-section">
 
-<main class="container">
+  <div class="contact-info">
+    <h2>Let's Connect</h2>
 
-  <section class="form-card">
+    <p>
+      We would love to hear about your project.
+      Send us your inquiry and let's start creating.
+    </p>
 
-    <div class="form-heading">
-
-      <h2>VIKAS GRAPHEO</h2>
-
-      <p>OFFICIAL PROJECT INQUIRY FORM</p>
-
+    <div class="info-item">
+      <h3>OUR STUDIO</h3>
+      <p>Vikas Grapheo<br>Creative Design Studio</p>
     </div>
+
+    <div class="info-item">
+      <h3>WHATSAPP</h3>
+      <a href="https://wa.me/917834905783">
+        +91 78349 05783
+      </a>
+    </div>
+
+    <div class="info-item">
+      <h3>WORKING HOURS</h3>
+      <p>Monday – Saturday<br>10:00 AM – 7:00 PM</p>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Project Inquiry</h2>
 
     <form id="inquiryForm">
 
-      <div class="field">
-        <label for="clientName">FULL NAME *</label>
-
-        <input
-          id="clientName"
-          type="text"
-          placeholder="Enter your name"
-          required
-        >
+      <div class="form-group">
+        <label for="clientName">Your Name *</label>
+        <input type="text" id="clientName"
+        placeholder="Enter your name" required>
       </div>
 
-      <div class="field">
-        <label for="clientPhone">WHATSAPP NUMBER *</label>
-
-        <input
-          id="clientPhone"
-          type="tel"
-          placeholder="Enter your number"
-          required
-        >
+      <div class="form-group">
+        <label for="clientPhone">Phone Number *</label>
+        <input type="tel" id="clientPhone"
+        placeholder="Enter your phone number" required>
       </div>
 
-      <div class="field">
-        <label for="clientEmail">EMAIL ADDRESS</label>
-
-        <input
-          id="clientEmail"
-          type="email"
-          placeholder="Enter your email"
-        >
+      <div class="form-group">
+        <label for="clientEmail">Email Address</label>
+        <input type="email" id="clientEmail"
+        placeholder="Enter your email">
       </div>
 
-      <div class="field">
-        <label for="service">SERVICE REQUIRED *</label>
-
+      <div class="form-group">
+        <label for="service">Select Service *</label>
         <select id="service" required>
-          <option value="">Select a service</option>
+          <option value="">Choose a service</option>
           <option>Logo Design</option>
           <option>Poster Design</option>
           <option>Banner Design</option>
-          <option>YouTube Thumbnail</option>
           <option>Social Media Design</option>
+          <option>YouTube Thumbnail</option>
           <option>Brand Identity</option>
-          <option>Website Design</option>
           <option>Other</option>
         </select>
       </div>
 
-      <div class="field">
-        <label for="budget">PROJECT BUDGET</label>
-
+      <div class="form-group">
+        <label for="budget">Your Budget</label>
         <select id="budget">
           <option value="">Select your budget</option>
           <option>Below ₹500</option>
-          <option>₹500 - ₹1,000</option>
-          <option>₹1,000 - ₹3,000</option>
-          <option>₹3,000 - ₹5,000</option>
+          <option>₹500 – ₹1,000</option>
+          <option>₹1,000 – ₹3,000</option>
+          <option>₹3,000 – ₹5,000</option>
           <option>Above ₹5,000</option>
-          <option>Let's discuss</option>
+          <option>Not Decided</option>
         </select>
       </div>
 
-      <div class="field">
-        <label for="deadline">PROJECT DEADLINE</label>
-
-        <input
-          id="deadline"
-          type="date"
-        >
+      <div class="form-group">
+        <label for="deadline">Project Deadline</label>
+        <input type="date" id="deadline">
       </div>
 
-      <div class="field">
-        <label for="details">PROJECT DETAILS *</label>
-
-        <textarea
-          id="details"
-          placeholder="Describe your project and requirements..."
-          required
-        ></textarea>
+      <div class="form-group">
+        <label for="details">Project Details *</label>
+        <textarea id="details"
+        placeholder="Tell us about your project..."
+        required></textarea>
       </div>
 
-      <button class="gold-btn" type="submit">
-        GENERATE MY INQUIRY FORM
+      <button type="submit" class="submit-btn">
+        SEND INQUIRY ON WHATSAPP
       </button>
 
       <p class="note">
-        Your information will be converted into
-        a branded Vikas Grapheo inquiry image.
+        Your inquiry will open as a WhatsApp message.
+        Please review the message and press Send in WhatsApp.
       </p>
 
     </form>
+  </div>
 
-    <!-- GENERATED IMAGE -->
-
-    <section id="result">
-
-      <h3>YOUR FORM IS READY!</h3>
-
-      <p class="note">
-        Your official Vikas Grapheo inquiry form
-        has been generated.
-      </p>
-
-      <img
-        id="preview"
-        alt="Vikas Grapheo Inquiry Form"
-      >
-
-      <button
-        type="button"
-        class="gold-btn"
-        id="shareBtn"
-      >
-        SHARE FORM IMAGE ON WHATSAPP
-      </button>
-
-      <button
-        type="button"
-        class="secondary-btn"
-        id="downloadBtn"
-      >
-        DOWNLOAD FORM IMAGE
-      </button>
-
-      <p id="status">
-        Your inquiry image will be shared using your phone's share menu.
-      </p>
-
-    </section>
-
-  </section>
-
-</main>
-
-<!-- FOOTER -->
+</section>
 
 <footer>
-  © 2026 <span>VIKAS GRAPHEO</span>. All Rights Reserved.
+  © 2026 <span>Vikas Grapheo.</span> All Rights Reserved.
 </footer>
 
-<!-- WHATSAPP BUTTON -->
-
-<a
-  class="whatsapp"
-  href="https://wa.me/917834905783"
-  target="_blank"
->
-  WhatsApp
-</a>
-
-<!-- JAVASCRIPT -->
+<a class="whatsapp-float"
+href="https://wa.me/917834905783"
+target="_blank"
+aria-label="Chat on WhatsApp">☏</a>
 
 <script>
+document.getElementById("inquiryForm").addEventListener("submit", function(e) {
 
-const form = document.getElementById("inquiryForm");
-const result = document.getElementById("result");
-const preview = document.getElementById("preview");
-const statusText = document.getElementById("status");
+  e.preventDefault();
 
-let inquiryImage = null;
-let imageURL = null;
-let inquiryMessage = "";
+  const name = document.getElementById("clientName").value.trim();
+  const phone = document.getElementById("clientPhone").value.trim();
+  const email = document.getElementById("clientEmail").value.trim();
+  const service = document.getElementById("service").value;
+  const budget = document.getElementById("budget").value || "Not specified";
+  const deadline = document.getElementById("deadline").value || "Not specified";
+  const details = document.getElementById("details").value.trim();
 
-// WRAP TEXT
+  const message =
+`Hello Vikas Grapheo! 👋
 
-function wrapText(ctx, text, maxWidth) {
+I want to inquire about your design services.
 
-  const words = String(text || "-").split(/\s+/);
-  const lines = [];
+Name: ${name}
+Phone: ${phone}
+Email: ${email || "Not provided"}
 
-  let line = "";
+Service: ${service}
+Budget: ${budget}
+Deadline: ${deadline}
 
-  words.forEach(word => {
+Project Details:
+${details}
 
-    const test = line ? line + " " + word : word;
+Thank you for choosing Vikas Grapheo!`;
 
-    if (
-      ctx.measureText(test).width > maxWidth &&
-      line
-    ) {
-      lines.push(line);
-      line = word;
-    } else {
-      line = test;
-    }
+  const whatsappURL =
+    "https://wa.me/917834905783?text=" +
+    encodeURIComponent(message);
 
-  });
-
-  if (line) lines.push(line);
-
-  return lines;
-}
-
-// GENERATE FORM IMAGE
-
-function generateInquiryImage(data) {
-
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-
-  const width = 1000;
-  const padding = 75;
-  const lineHeight = 36;
-  const maxWidth = width - padding * 2;
-
-  const fields = [
-
-    ["CLIENT NAME", data.name],
-
-    ["WHATSAPP NUMBER", data.phone],
-
-    ["EMAIL ADDRESS", data.email || "Not provided"],
-
-    ["SERVICE REQUIRED", data.service],
-
-    ["PROJECT BUDGET", data.budget || "Not specified"],
-
-    ["PROJECT DEADLINE", data.deadline || "Not specified"],
-
-    ["PROJECT DETAILS", data.details]
-
-  ];
-
-  ctx.font = "25px Arial";
-
-  let totalHeight = 300;
-
-  fields.forEach(field => {
-
-    totalHeight += 80;
-
-    totalHeight +=
-      wrapText(ctx, field[1], maxWidth).length * lineHeight;
-
-  });
-
-  totalHeight += 160;
-
-  canvas.width = width;
-  canvas.height = totalHeight;
-
-  // BACKGROUND
-
-  ctx.fillStyle = "#090909";
-  ctx.fillRect(0, 0, width, totalHeight);
-
-  // GOLD BORDER
-
-  ctx.strokeStyle = "#D6AD65";
-  ctx.lineWidth = 3;
-
-  ctx.strokeRect(
-    25,
-    25,
-    950,
-    totalHeight - 50
-  );
-
-  // BRAND NAME
-
-  ctx.textAlign = "center";
-
-  ctx.fillStyle = "#D6AD65";
-  ctx.font = "bold 55px Arial";
-
-  ctx.fillText(
-    "VIKAS GRAPHEO",
-    500,
-    115
-  );
-
-  ctx.fillStyle = "#FFFFFF";
-  ctx.font = "23px Arial";
-
-  ctx.fillText(
-    "OFFICIAL PROJECT INQUIRY FORM",
-    500,
-    165
-  );
-
-  // DIVIDER
-
-  ctx.strokeStyle = "#D6AD65";
-
-  ctx.beginPath();
-  ctx.moveTo(100, 210);
-  ctx.lineTo(900, 210);
-  ctx.stroke();
-
-  // FORM CONTENT
-
-  let y = 275;
-
-  ctx.textAlign = "left";
-
-  fields.forEach(field => {
-
-    ctx.fillStyle = "#D6AD65";
-    ctx.font = "bold 22px Arial";
-
-    ctx.fillText(
-      field[0],
-      padding,
-      y
-    );
-
-    y += 42;
-
-    ctx.fillStyle = "#FFFFFF";
-    ctx.font = "25px Arial";
-
-    const lines = wrapText(
-      ctx,
-      field[1],
-      maxWidth
-    );
-
-    lines.forEach(line => {
-
-      ctx.fillText(
-        line,
-        padding,
-        y
-      );
-
-      y += lineHeight;
-
-    });
-
-    y += 35;
-
-  });
-
-  // FOOTER
-
-  ctx.textAlign = "center";
-
-  ctx.strokeStyle = "#D6AD65";
-
-  ctx.beginPath();
-  ctx.moveTo(100, y);
-  ctx.lineTo(900, y);
-  ctx.stroke();
-
-  ctx.fillStyle = "#D6AD65";
-  ctx.font = "bold 26px Arial";
-
-  ctx.fillText(
-    "YOUR VISION, OUR CREATION",
-    500,
-    y + 65
-  );
-
-  ctx.fillStyle = "#BBBBBB";
-  ctx.font = "19px Arial";
-
-  ctx.fillText(
-    "Thank you for choosing Vikas Grapheo.",
-    500,
-    y + 105
-  );
-
-  return canvas;
-
-}
-
-// SUBMIT FORM
-
-form.addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  const data = {
-
-    name: document.getElementById("clientName").value.trim(),
-
-    phone: document.getElementById("clientPhone").value.trim(),
-
-    email: document.getElementById("clientEmail").value.trim(),
-
-    service: document.getElementById("service").value,
-
-    budget: document.getElementById("budget").value,
-
-    deadline: document.getElementById("deadline").value,
-
-    details: document.getElementById("details").value.trim()
-
-  };
-
-  if (
-    !data.name ||
-    !data.phone ||
-    !data.service ||
-    !data.details
-  ) {
-    alert("Please fill all required fields.");
-    return;
-  }
-
-  const canvas = generateInquiryImage(data);
-
-  canvas.toBlob(function(blob) {
-
-    if (!blob) {
-
-      statusText.textContent =
-        "Image could not be generated. Please try again.";
-
-      return;
-
-    }
-
-    inquiryImage = new File(
-      [blob],
-      "Vikas-Grapheo-Inquiry.png",
-      {
-        type: "image/png"
-      }
-    );
-
-    if (imageURL) {
-      URL.revokeObjectURL(imageURL);
-    }
-
-    imageURL = URL.createObjectURL(blob);
-
-    preview.src = imageURL;
-
-    inquiryMessage =
-
-      "Hello Vikas Grapheo! I want to discuss a project.\n\n" +
-
-      "Name: " + data.name + "\n" +
-
-      "Phone: " + data.phone + "\n" +
-
-      "Email: " + (data.email || "Not provided") + "\n" +
-
-      "Service: " + data.service + "\n" +
-
-      "Budget: " + (data.budget || "Not specified") + "\n" +
-
-      "Deadline: " + (data.deadline || "Not specified") + "\n\n" +
-
-      "Project Details: " + data.details + "\n\n" +
-
-      "Please check my attached inquiry form.";
-
-    result.style.display = "block";
-
-    result.scrollIntoView({
-
-      behavior: "smooth",
-
-      block: "start"
-
-    });
-
-    statusText.textContent =
-      "Your Vikas Grapheo inquiry image is ready!";
-
-  }, "image/png");
+  window.open(whatsappURL, "_blank");
 
 });
-
-// SHARE IMAGE
-
-document.getElementById("shareBtn").addEventListener(
-  "click",
-  async function() {
-
-    if (!inquiryImage) {
-
-      statusText.textContent =
-        "Please generate your inquiry form first.";
-
-      return;
-
-    }
-
-    try {
-
-      if (
-        navigator.share &&
-        navigator.canShare &&
-        navigator.canShare({
-          files: [inquiryImage]
-        })
-      ) {
-
-        await navigator.share({
-
-          files: [inquiryImage],
-
-          title: "Vikas Grapheo Project Inquiry",
-
-          text: inquiryMessage
-
-        });
-
-        statusText.textContent =
-          "Select WhatsApp and choose your recipient to send the image.";
-
-      } else {
-
-        downloadImage();
-
-        window.open(
-
-          "https://wa.me/917834905783?text=" +
-          encodeURIComponent(inquiryMessage),
-
-          "_blank"
-
-        );
-
-        statusText.textContent =
-          "Image downloaded. Attach it in WhatsApp and press Send.";
-
-      }
-
-    } catch(error) {
-
-      if (error.name !== "AbortError") {
-
-        statusText.textContent =
-          "Sharing failed. Please download the image and share it manually.";
-
-      }
-
-    }
-
-  }
-);
-
-// DOWNLOAD IMAGE
-
-function downloadImage() {
-
-  if (!inquiryImage) return;
-
-  const url = URL.createObjectURL(inquiryImage);
-
-  const link = document.createElement("a");
-
-  link.href = url;
-
-  link.download = "Vikas-Grapheo-Inquiry.png";
-
-  document.body.appendChild(link);
-
-  link.click();
-
-  link.remove();
-
-  setTimeout(function() {
-
-    URL.revokeObjectURL(url);
-
-  }, 3000);
-
-}
-
-document.getElementById("downloadBtn").addEventListener(
-  "click",
-  downloadImage
-);
-
 </script>
 
 </body>
