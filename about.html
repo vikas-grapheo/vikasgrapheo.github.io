@@ -51,7 +51,7 @@ header {
   border-bottom:1px solid rgba(214,173,101,.2);
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:10000;
 }
 
 .logo {
@@ -61,8 +61,11 @@ header {
   letter-spacing:2px;
 }
 
+/* DESKTOP NAV */
+
 nav {
   display:flex;
+  align-items:center;
   gap:28px;
 }
 
@@ -77,42 +80,51 @@ nav a.active {
   color:var(--gold);
 }
 
-/* MENU BUTTON */
+/* CHECKBOX MENU */
+
+#menuToggle {
+  display:none;
+}
 
 .menu-btn {
   display:none;
   width:42px;
   height:42px;
-  background:transparent;
-  border:1px solid rgba(214,173,101,.4);
+  border:1px solid rgba(214,173,101,.5);
   border-radius:5px;
   cursor:pointer;
-  padding:9px;
   flex-direction:column;
   justify-content:center;
-  gap:5px;
-  z-index:1002;
+  align-items:center;
+  gap:6px;
+  padding:9px;
+  position:relative;
+  z-index:10002;
 }
 
 .menu-btn span {
   display:block;
   width:100%;
   height:2px;
-  background:#d6ad65;
+  background:var(--gold);
   transition:.3s;
 }
 
-.menu-btn.active span:nth-child(1) {
-  transform:translateY(7px) rotate(45deg);
+/* MENU ANIMATION */
+
+#menuToggle:checked + .menu-btn span:nth-child(1) {
+  transform:translateY(8px) rotate(45deg);
 }
 
-.menu-btn.active span:nth-child(2) {
+#menuToggle:checked + .menu-btn span:nth-child(2) {
   opacity:0;
 }
 
-.menu-btn.active span:nth-child(3) {
-  transform:translateY(-7px) rotate(-45deg);
+#menuToggle:checked + .menu-btn span:nth-child(3) {
+  transform:translateY(-8px) rotate(-45deg);
 }
+
+/* GENERAL */
 
 section {
   padding:85px 8%;
@@ -184,7 +196,7 @@ h1,h2,h3 {
   box-shadow:0 0 35px rgba(214,173,101,.08);
 }
 
-/* FIRE SIDES */
+/* FIRE */
 
 .fire-rail {
   position:absolute;
@@ -258,20 +270,6 @@ h1,h2,h3 {
     transform:scaleY(1.15);
     opacity:1;
   }
-}
-
-.story-art::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(90deg,
-      rgba(255,75,0,.13),
-      transparent 18%,
-      transparent 82%,
-      rgba(255,75,0,.13));
-  z-index:1;
 }
 
 /* LOGO CENTER */
@@ -538,7 +536,7 @@ footer p {
   font-size:26px;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE MENU */
 
 @media(max-width:800px) {
 
@@ -558,24 +556,28 @@ footer p {
     width:100%;
     background:#101010;
     flex-direction:column;
+    align-items:stretch;
     gap:0;
     padding:0 25px;
     max-height:0;
     overflow:hidden;
     opacity:0;
     visibility:hidden;
-    transition:max-height .35s ease, opacity .3s ease;
+    pointer-events:none;
+    transition:max-height .4s ease, opacity .3s ease;
     border-bottom:1px solid rgba(214,173,101,.2);
   }
 
-  nav.open {
-    max-height:350px;
+  #menuToggle:checked ~ nav {
+    max-height:400px;
     padding:15px 25px 25px;
     opacity:1;
     visibility:visible;
+    pointer-events:auto;
   }
 
   nav a {
+    display:block;
     padding:14px 0;
     border-bottom:1px solid rgba(214,173,101,.1);
   }
@@ -685,17 +687,13 @@ footer p {
 
   <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
 
-  <button class="menu-btn"
-          id="menuBtn"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded="false">
+  <input type="checkbox" id="menuToggle">
 
+  <label for="menuToggle" class="menu-btn" aria-label="Toggle navigation">
     <span></span>
     <span></span>
     <span></span>
-
-  </button>
+  </label>
 
   <nav id="mainNav">
     <a href="index.html">Home</a>
@@ -729,21 +727,14 @@ footer p {
 
   <div class="story-art">
 
-    <!-- LEFT FIRE -->
-
     <div class="fire-rail fire-left">
-
-      <svg viewBox="0 0 65 440"
-           preserveAspectRatio="none"
-           xmlns="http://www.w3.org/2000/svg">
-
+      <svg viewBox="0 0 65 440" preserveAspectRatio="none">
         <defs>
           <linearGradient id="fireOuter" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stop-color="#ff2100"/>
             <stop offset="45%" stop-color="#ff6500"/>
             <stop offset="100%" stop-color="#ffb000" stop-opacity=".15"/>
           </linearGradient>
-
           <linearGradient id="fireInner" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stop-color="#ff6500"/>
             <stop offset="65%" stop-color="#ffd000"/>
@@ -768,22 +759,15 @@ footer p {
 
         <path class="flame" fill="url(#fireOuter)"
           d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
-
       </svg>
-
     </div>
-
-    <!-- CENTER LOGO -->
 
     <div class="logo-stage">
 
       <div class="wheel">
-
-        <svg viewBox="0 0 300 300"
-             xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 300 300">
 
           <defs>
-
             <linearGradient id="rimGold" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#fff0c5"/>
               <stop offset="35%" stop-color="#d6ad65"/>
@@ -797,31 +781,14 @@ footer p {
               <stop offset="70%" stop-color="#242424"/>
               <stop offset="100%" stop-color="#d4d4d4"/>
             </linearGradient>
-
           </defs>
 
-          <circle cx="150" cy="150" r="139"
-                  fill="#080808"
-                  stroke="#292929"
-                  stroke-width="9"/>
-
-          <circle cx="150" cy="150" r="128"
-                  fill="none"
-                  stroke="#777"
-                  stroke-width="2"/>
-
-          <circle cx="150" cy="150" r="113"
-                  fill="none"
-                  stroke="url(#rimGold)"
-                  stroke-width="7"/>
-
-          <circle cx="150" cy="150" r="91"
-                  fill="#151515"
-                  stroke="url(#metal)"
-                  stroke-width="5"/>
+          <circle cx="150" cy="150" r="139" fill="#080808" stroke="#292929" stroke-width="9"/>
+          <circle cx="150" cy="150" r="128" fill="none" stroke="#777" stroke-width="2"/>
+          <circle cx="150" cy="150" r="113" fill="none" stroke="url(#rimGold)" stroke-width="7"/>
+          <circle cx="150" cy="150" r="91" fill="#151515" stroke="url(#metal)" stroke-width="5"/>
 
           <g fill="url(#metal)" stroke="#d6ad65" stroke-width="1.2">
-
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(36 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(72 150 150)"/>
@@ -832,27 +799,15 @@ footer p {
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(252 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(288 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(324 150 150)"/>
-
           </g>
 
-          <circle cx="150" cy="150" r="37"
-                  fill="#111"
-                  stroke="url(#rimGold)"
-                  stroke-width="6"/>
-
-          <circle cx="150" cy="150" r="25"
-                  fill="url(#metal)"
-                  stroke="#d6ad65"
-                  stroke-width="2"/>
-
+          <circle cx="150" cy="150" r="37" fill="#111" stroke="url(#rimGold)" stroke-width="6"/>
+          <circle cx="150" cy="150" r="25" fill="url(#metal)" stroke="#d6ad65" stroke-width="2"/>
           <circle cx="150" cy="150" r="16" fill="#111"/>
 
-          <text x="150" y="156"
-                text-anchor="middle"
-                font-size="17"
-                font-weight="bold"
-                fill="#d6ad65"
-                font-family="Arial">VG</text>
+          <text x="150" y="156" text-anchor="middle"
+                font-size="17" font-weight="bold"
+                fill="#d6ad65" font-family="Arial">VG</text>
 
           <g fill="#d6ad65">
             <circle cx="150" cy="105" r="4"/>
@@ -863,7 +818,6 @@ footer p {
           </g>
 
         </svg>
-
       </div>
 
       <div class="logo-brand">
@@ -873,28 +827,19 @@ footer p {
 
     </div>
 
-    <!-- RIGHT FIRE -->
-
     <div class="fire-rail fire-right">
-
-      <svg viewBox="0 0 65 440"
-           preserveAspectRatio="none"
-           xmlns="http://www.w3.org/2000/svg">
-
+      <svg viewBox="0 0 65 440" preserveAspectRatio="none">
         <defs>
-
           <linearGradient id="fireOuterR" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stop-color="#ff2100"/>
             <stop offset="45%" stop-color="#ff6500"/>
             <stop offset="100%" stop-color="#ffb000" stop-opacity=".15"/>
           </linearGradient>
-
           <linearGradient id="fireInnerR" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stop-color="#ff6500"/>
             <stop offset="65%" stop-color="#ffd000"/>
             <stop offset="100%" stop-color="#fff5a0" stop-opacity=".2"/>
           </linearGradient>
-
         </defs>
 
         <path class="flame" fill="url(#fireOuterR)"
@@ -914,17 +859,12 @@ footer p {
 
         <path class="flame" fill="url(#fireOuterR)"
           d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
-
       </svg>
-
     </div>
 
   </div>
 
-  <!-- STORY TEXT -->
-
   <div class="story-text">
-
     <div class="section-label">OUR STORY</div>
 
     <h2>Turning Ideas Into <span class="gold">Visual Reality.</span></h2>
@@ -947,7 +887,6 @@ footer p {
       express their ideas through powerful and
       professional designs.
     </p>
-
   </div>
 
 </section>
@@ -955,7 +894,6 @@ footer p {
 <!-- MISSION AND VISION -->
 
 <section>
-
   <div class="mission-grid">
 
     <div class="info-card">
@@ -978,7 +916,6 @@ footer p {
     </div>
 
   </div>
-
 </section>
 
 <!-- VALUES -->
@@ -1031,4 +968,36 @@ footer p {
 
     <div class="process-card">
       <span>01</span>
-      <h3>Discover<
+      <h3>Discover</h3>
+      <p>Understanding your ideas, goals and requirements.</p>
+    </div>
+
+    <div class="process-card">
+      <span>02</span>
+      <h3>Imagine</h3>
+      <p>Exploring creative concepts and visual directions.</p>
+    </div>
+
+    <div class="process-card">
+      <span>03</span>
+      <h3>Create</h3>
+      <p>Turning concepts into professional designs.</p>
+    </div>
+
+    <div class="process-card">
+      <span>04</span>
+      <h3>Deliver</h3>
+      <p>Presenting the final creative experience.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+  <h2>
+    "Great design is not just seen.
+    It is <span class="gold">remem
