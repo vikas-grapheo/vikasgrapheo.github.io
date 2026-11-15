@@ -4,16 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>About Us | Vikas Grapheo</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg:#090909;
-  --card:#111;
   --gold:#d6ad65;
   --white:#f5f2eb;
   --muted:#a5a19a;
@@ -25,10 +22,6 @@
   box-sizing:border-box;
 }
 
-html {
-  scroll-behavior:smooth;
-}
-
 body {
   background:var(--bg);
   color:var(--white);
@@ -37,8 +30,8 @@ body {
 }
 
 a {
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
 header {
@@ -48,7 +41,7 @@ header {
   justify-content:space-between;
   align-items:center;
   background:#090909;
-  border-bottom:1px solid rgba(214,173,101,.18);
+  border-bottom:1px solid rgba(214,173,101,.2);
   position:sticky;
   top:0;
   z-index:1000;
@@ -69,7 +62,6 @@ nav {
 nav a {
   color:#ddd;
   font-size:14px;
-  transition:.3s;
 }
 
 nav a:hover,
@@ -83,11 +75,10 @@ nav a.active {
   border:0;
   color:var(--gold);
   font-size:30px;
-  cursor:pointer;
 }
 
 section {
-  padding:90px 8%;
+  padding:85px 8%;
 }
 
 .section-label {
@@ -115,9 +106,7 @@ h1,h2,h3 {
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:
-    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 55%),
-    #090909;
+  background:radial-gradient(circle,rgba(214,173,101,.12),transparent 60%);
 }
 
 .hero h1 {
@@ -136,7 +125,7 @@ h1,h2,h3 {
 .story {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:65px;
+  gap:55px;
   align-items:center;
 }
 
@@ -145,7 +134,7 @@ h1,h2,h3 {
 .story-art {
   min-height:440px;
   background:
-    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 65%),
+    radial-gradient(circle at center,rgba(214,173,101,.13),transparent 65%),
     #111;
   border:1px solid rgba(214,173,101,.3);
   border-radius:12px;
@@ -158,118 +147,131 @@ h1,h2,h3 {
   box-shadow:0 0 35px rgba(214,173,101,.08);
 }
 
-/* FIRE SIDE RAILS */
+/* FIRE SIDES */
 
-.side-fire {
+.fire-rail {
   position:absolute;
   top:0;
   bottom:0;
-  width:58px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-around;
-  align-items:center;
-  overflow:hidden;
+  width:65px;
   z-index:4;
+  overflow:hidden;
   pointer-events:none;
 }
 
-.side-fire-left {
+.fire-left {
   left:0;
 }
 
-.side-fire-right {
+.fire-right {
   right:0;
+  transform:scaleX(-1);
 }
 
-.side-fire span {
-  display:block;
-  font-size:35px;
-  line-height:1;
-  transform-origin:center bottom;
-  filter:drop-shadow(0 0 9px #ff6200);
-  animation:sideFlame .45s infinite alternate ease-in-out;
+.fire-rail svg {
+  width:100%;
+  height:100%;
+  overflow:visible;
 }
 
-.side-fire span:nth-child(2n) {
-  animation-delay:.12s;
+.flame {
+  transform-box:fill-box;
+  transform-origin:50% 100%;
+  animation:flameMove .55s infinite alternate ease-in-out;
 }
 
-.side-fire span:nth-child(3n) {
-  animation-delay:.25s;
+.flame:nth-child(2n) {
+  animation-delay:.18s;
 }
 
-.side-fire span:nth-child(4n) {
-  animation-delay:.08s;
+.flame:nth-child(3n) {
+  animation-delay:.3s;
 }
 
-@keyframes sideFlame {
+.flame-core {
+  transform-box:fill-box;
+  transform-origin:50% 100%;
+  animation:coreMove .4s infinite alternate ease-in-out;
+}
+
+@keyframes flameMove {
   0% {
-    transform:scale(.78) rotate(-9deg) translateY(5px);
-    opacity:.72;
-    filter:drop-shadow(0 0 6px #ff4500);
+    transform:scaleY(.82) scaleX(.92) skewX(-5deg);
+    opacity:.78;
   }
-
   50% {
-    transform:scale(1.12) rotate(5deg) translateY(-3px);
+    transform:scaleY(1.12) scaleX(1.08) skewX(5deg);
     opacity:1;
-    filter:drop-shadow(0 0 15px #ff8200);
   }
-
   100% {
-    transform:scale(.92) rotate(9deg) translateY(-7px);
-    opacity:.85;
-    filter:drop-shadow(0 0 20px #ffae00);
+    transform:scaleY(.9) scaleX(.88) skewX(-3deg);
+    opacity:.88;
   }
 }
 
-/* LOGO CENTER AREA */
+@keyframes coreMove {
+  0% {
+    transform:scaleY(.85);
+    opacity:.7;
+  }
+  100% {
+    transform:scaleY(1.15);
+    opacity:1;
+  }
+}
+
+/* FIRE GLOW */
+
+.story-art::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(255,75,0,.13),
+      transparent 18%,
+      transparent 82%,
+      rgba(255,75,0,.13));
+  z-index:1;
+}
+
+/* LOGO CENTER */
 
 .logo-stage {
-  width:calc(100% - 116px);
+  width:calc(100% - 130px);
   min-height:390px;
-  position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  z-index:2;
+  position:relative;
+  z-index:3;
 }
 
-/* ROTATING WHEEL */
+/* WHEEL */
 
 .wheel {
   width:245px;
   height:245px;
-  position:relative;
-  z-index:2;
   animation:wheelRotate 8s linear infinite;
 }
 
 .wheel svg {
   width:100%;
   height:100%;
-  overflow:visible;
 }
 
 @keyframes wheelRotate {
-  from {
-    transform:rotate(0deg);
-  }
-
-  to {
-    transform:rotate(360deg);
-  }
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }
 
-/* BRAND NAME BELOW WHEEL */
+/* BRAND */
 
 .logo-brand {
-  position:relative;
-  z-index:5;
   text-align:center;
   margin-top:17px;
-  padding:8px 5px;
   width:100%;
 }
 
@@ -280,9 +282,7 @@ h1,h2,h3 {
   letter-spacing:3px;
   color:#f0cf91;
   white-space:nowrap;
-  text-shadow:
-    0 0 10px rgba(214,173,101,.7),
-    0 0 22px rgba(214,173,101,.3);
+  text-shadow:0 0 12px rgba(214,173,101,.65);
 }
 
 .logo-brand p {
@@ -305,7 +305,7 @@ h1,h2,h3 {
   margin-bottom:18px;
 }
 
-/* MISSION VISION */
+/* MISSION */
 
 .mission-grid {
   display:grid;
@@ -314,7 +314,7 @@ h1,h2,h3 {
 }
 
 .info-card {
-  background:var(--card);
+  background:#111;
   border:1px solid rgba(214,173,101,.2);
   padding:38px;
   border-radius:10px;
@@ -498,19 +498,18 @@ footer p {
   align-items:center;
   justify-content:center;
   font-size:26px;
-  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
 /* MOBILE */
 
 @media(max-width:800px) {
-
   header {
     padding:16px 5%;
   }
 
   .menu-btn {
     display:block;
+    cursor:pointer;
   }
 
   nav {
@@ -523,7 +522,6 @@ footer p {
     flex-direction:column;
     padding:25px;
     gap:22px;
-    border-bottom:1px solid rgba(214,173,101,.2);
   }
 
   nav.open {
@@ -539,17 +537,13 @@ footer p {
     grid-template-columns:1fr;
   }
 
-  .story {
-    gap:35px;
-  }
-
   .story-art {
     min-height:390px;
   }
 
   .logo-stage {
-    min-height:360px;
-    width:calc(100% - 86px);
+    min-height:350px;
+    width:calc(100% - 100px);
   }
 
   .wheel {
@@ -557,12 +551,8 @@ footer p {
     height:220px;
   }
 
-  .side-fire {
-    width:43px;
-  }
-
-  .side-fire span {
-    font-size:29px;
+  .fire-rail {
+    width:50px;
   }
 
   .values-grid {
@@ -587,14 +577,13 @@ footer p {
 }
 
 @media(max-width:430px) {
-
   .story-art {
     min-height:360px;
   }
 
   .logo-stage {
     min-height:330px;
-    width:calc(100% - 68px);
+    width:calc(100% - 78px);
   }
 
   .wheel {
@@ -602,16 +591,12 @@ footer p {
     height:190px;
   }
 
-  .side-fire {
-    width:34px;
-  }
-
-  .side-fire span {
-    font-size:24px;
+  .fire-rail {
+    width:38px;
   }
 
   .logo-brand h2 {
-    font-size:19px;
+    font-size:18px;
     letter-spacing:2px;
   }
 
@@ -627,7 +612,8 @@ footer p {
 
 @media(prefers-reduced-motion:reduce) {
   .wheel,
-  .side-fire span {
+  .flame,
+  .flame-core {
     animation:none;
   }
 }
@@ -638,7 +624,6 @@ footer p {
 
 <header>
   <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
-
   <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
 
   <nav id="mainNav">
@@ -653,17 +638,13 @@ footer p {
 <!-- HERO -->
 
 <section class="hero">
-
   <div class="section-label">ABOUT VIKAS GRAPHEO</div>
-
   <h1>Creativity Has <span class="gold">A Story.</span></h1>
-
   <p>
     We believe every great design begins with an idea.
     Our mission is to transform ideas into meaningful
     visual experiences through creativity and innovation.
   </p>
-
 </section>
 
 <!-- OUR STORY -->
@@ -672,31 +653,62 @@ footer p {
 
   <div class="story-art">
 
-    <!-- LEFT SIDE FIRE -->
+    <!-- LEFT SVG FLAMES -->
 
-    <div class="side-fire side-fire-left">
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
+    <div class="fire-rail fire-left">
+      <svg viewBox="0 0 65 440" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+          <linearGradient id="fireOuter" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff2100"/>
+            <stop offset="45%" stop-color="#ff6500"/>
+            <stop offset="100%" stop-color="#ffb000" stop-opacity=".15"/>
+          </linearGradient>
+
+          <linearGradient id="fireInner" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff6500"/>
+            <stop offset="65%" stop-color="#ffd000"/>
+            <stop offset="100%" stop-color="#fff5a0" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+
+        <path class="flame"
+          fill="url(#fireOuter)"
+          d="M0 440 L0 350 Q17 325 8 290 Q2 260 20 225 Q27 205 18 175 Q10 145 31 105 Q29 145 45 164 Q57 188 42 225 Q60 210 65 180 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuter)"
+          d="M0 440 L0 265 Q16 240 12 208 Q8 178 25 145 Q23 181 39 205 Q48 231 34 267 Q55 246 65 218 L65 440 Z"/>
+
+        <path class="flame-core"
+          fill="url(#fireInner)"
+          d="M0 440 L0 365 Q17 330 20 294 Q23 265 35 237 Q33 278 50 303 Q61 329 45 362 Q57 346 65 320 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuter)"
+          d="M0 440 L0 160 Q15 138 12 110 Q10 82 28 48 Q25 88 43 109 Q55 135 39 165 Q55 150 65 126 L65 440 Z"/>
+
+        <path class="flame-core"
+          fill="url(#fireInner)"
+          d="M0 440 L0 220 Q15 195 20 167 Q24 140 36 118 Q35 157 50 177 Q58 201 44 228 Q56 211 65 191 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuter)"
+          d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
+
+      </svg>
     </div>
 
     <!-- CENTER LOGO -->
 
     <div class="logo-stage">
 
-      <!-- ROTATING WHEEL -->
-
       <div class="wheel">
-
         <svg viewBox="0 0 300 300"
              xmlns="http://www.w3.org/2000/svg">
 
           <defs>
-
             <linearGradient id="rimGold" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#fff0c5"/>
               <stop offset="35%" stop-color="#d6ad65"/>
@@ -705,46 +717,26 @@ footer p {
             </linearGradient>
 
             <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ffffff"/>
-              <stop offset="40%" stop-color="#777777"/>
+              <stop offset="0%" stop-color="#fff"/>
+              <stop offset="40%" stop-color="#777"/>
               <stop offset="70%" stop-color="#242424"/>
               <stop offset="100%" stop-color="#d4d4d4"/>
             </linearGradient>
-
           </defs>
 
-          <!-- TYRE -->
-
           <circle cx="150" cy="150" r="139"
-                  fill="#080808"
-                  stroke="#292929"
-                  stroke-width="9"/>
+                  fill="#080808" stroke="#292929" stroke-width="9"/>
 
           <circle cx="150" cy="150" r="128"
-                  fill="none"
-                  stroke="#777"
-                  stroke-width="2"/>
-
-          <!-- OUTER GOLD RING -->
+                  fill="none" stroke="#777" stroke-width="2"/>
 
           <circle cx="150" cy="150" r="113"
-                  fill="none"
-                  stroke="url(#rimGold)"
-                  stroke-width="7"/>
-
-          <!-- INNER RING -->
+                  fill="none" stroke="url(#rimGold)" stroke-width="7"/>
 
           <circle cx="150" cy="150" r="91"
-                  fill="#151515"
-                  stroke="url(#metal)"
-                  stroke-width="5"/>
+                  fill="#151515" stroke="url(#metal)" stroke-width="5"/>
 
-          <!-- ALLOY SPOKES -->
-
-          <g fill="url(#metal)"
-             stroke="#d6ad65"
-             stroke-width="1.2">
-
+          <g fill="url(#metal)" stroke="#d6ad65" stroke-width="1.2">
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(36 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(72 150 150)"/>
@@ -755,36 +747,22 @@ footer p {
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(252 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(288 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(324 150 150)"/>
-
           </g>
 
-          <!-- HUB -->
-
           <circle cx="150" cy="150" r="37"
-                  fill="#111"
-                  stroke="url(#rimGold)"
-                  stroke-width="6"/>
+                  fill="#111" stroke="url(#rimGold)" stroke-width="6"/>
 
           <circle cx="150" cy="150" r="25"
-                  fill="url(#metal)"
-                  stroke="#d6ad65"
-                  stroke-width="2"/>
+                  fill="url(#metal)" stroke="#d6ad65" stroke-width="2"/>
 
-          <circle cx="150" cy="150" r="16"
-                  fill="#111"/>
-
-          <!-- VG CENTER -->
+          <circle cx="150" cy="150" r="16" fill="#111"/>
 
           <text x="150" y="156"
                 text-anchor="middle"
                 font-size="17"
                 font-weight="bold"
                 fill="#d6ad65"
-                font-family="Arial">
-            VG
-          </text>
-
-          <!-- BOLTS -->
+                font-family="Arial">VG</text>
 
           <g fill="#d6ad65">
             <circle cx="150" cy="105" r="4"/>
@@ -793,12 +771,8 @@ footer p {
             <circle cx="124" cy="186" r="4"/>
             <circle cx="107" cy="136" r="4"/>
           </g>
-
         </svg>
-
       </div>
-
-      <!-- BRAND NAME BELOW WHEEL -->
 
       <div class="logo-brand">
         <h2>VIKAS GRAPHEO</h2>
@@ -807,26 +781,57 @@ footer p {
 
     </div>
 
-    <!-- RIGHT SIDE FIRE -->
+    <!-- RIGHT SVG FLAMES -->
 
-    <div class="side-fire side-fire-right">
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
-      <span>🔥</span>
+    <div class="fire-rail fire-right">
+      <svg viewBox="0 0 65 440" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+          <linearGradient id="fireOuterR" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff2100"/>
+            <stop offset="45%" stop-color="#ff6500"/>
+            <stop offset="100%" stop-color="#ffb000" stop-opacity=".15"/>
+          </linearGradient>
+
+          <linearGradient id="fireInnerR" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff6500"/>
+            <stop offset="65%" stop-color="#ffd000"/>
+            <stop offset="100%" stop-color="#fff5a0" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+
+        <path class="flame"
+          fill="url(#fireOuterR)"
+          d="M0 440 L0 350 Q17 325 8 290 Q2 260 20 225 Q27 205 18 175 Q10 145 31 105 Q29 145 45 164 Q57 188 42 225 Q60 210 65 180 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuterR)"
+          d="M0 440 L0 265 Q16 240 12 208 Q8 178 25 145 Q23 181 39 205 Q48 231 34 267 Q55 246 65 218 L65 440 Z"/>
+
+        <path class="flame-core"
+          fill="url(#fireInnerR)"
+          d="M0 440 L0 365 Q17 330 20 294 Q23 265 35 237 Q33 278 50 303 Q61 329 45 362 Q57 346 65 320 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuterR)"
+          d="M0 440 L0 160 Q15 138 12 110 Q10 82 28 48 Q25 88 43 109 Q55 135 39 165 Q55 150 65 126 L65 440 Z"/>
+
+        <path class="flame-core"
+          fill="url(#fireInnerR)"
+          d="M0 440 L0 220 Q15 195 20 167 Q24 140 36 118 Q35 157 50 177 Q58 201 44 228 Q56 211 65 191 L65 440 Z"/>
+
+        <path class="flame"
+          fill="url(#fireOuterR)"
+          d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
+
+      </svg>
     </div>
 
   </div>
 
-  <!-- STORY TEXT -->
-
   <div class="story-text">
-
     <div class="section-label">OUR STORY</div>
-
     <h2>Turning Ideas Into <span class="gold">Visual Reality.</span></h2>
 
     <p>
@@ -847,15 +852,13 @@ footer p {
       express their ideas through powerful and
       professional designs.
     </p>
-
   </div>
 
 </section>
 
-<!-- MISSION & VISION -->
+<!-- MISSION AND VISION -->
 
 <section>
-
   <div class="mission-grid">
 
     <div class="info-card">
@@ -878,53 +881,38 @@ footer p {
     </div>
 
   </div>
-
 </section>
 
-<!-- CREATIVE VALUES -->
+<!-- VALUES -->
 
 <section class="values">
-
   <div class="section-label">WHAT DEFINES US</div>
-
   <h2>Our Creative <span class="gold">Values.</span></h2>
 
   <div class="values-grid">
 
     <div class="value-card">
       <h3>Creativity</h3>
-      <p>
-        Every project gets a unique approach
-        and a fresh creative perspective.
-      </p>
+      <p>Every project gets a unique approach and a fresh creative perspective.</p>
     </div>
 
     <div class="value-card">
       <h3>Quality</h3>
-      <p>
-        We focus on detail, clarity and
-        professional design standards.
-      </p>
+      <p>We focus on detail, clarity and professional design standards.</p>
     </div>
 
     <div class="value-card">
       <h3>Innovation</h3>
-      <p>
-        We explore new ideas and creative
-        possibilities to make designs stand out.
-      </p>
+      <p>We explore new ideas and creative possibilities to make designs stand out.</p>
     </div>
 
   </div>
-
 </section>
 
-<!-- CREATIVE PROCESS -->
+<!-- PROCESS -->
 
 <section class="process">
-
   <div class="section-label">HOW WE WORK</div>
-
   <h2>Our Creative <span class="gold">Process.</span></h2>
 
   <div class="process-grid">
@@ -954,50 +942,33 @@ footer p {
     </div>
 
   </div>
-
 </section>
 
 <!-- QUOTE -->
 
 <section class="quote">
-
   <h2>
     "Great design is not just seen.
     It is <span class="gold">remembered.</span>"
   </h2>
-
   <p>VIKAS GRAPHEO</p>
-
 </section>
 
 <!-- CTA -->
 
 <section class="cta">
-
   <div class="section-label">LET'S CREATE SOMETHING</div>
-
   <h2>Have An Idea? <span class="gold">Let's Talk.</span></h2>
-
-  <p>
-    Let's turn your vision into something extraordinary.
-  </p>
-
-  <a class="cta-btn" href="contact.html">
-    Start A Project
-  </a>
-
+  <p>Let's turn your vision into something extraordinary.</p>
+  <a class="cta-btn" href="contact.html">Start A Project</a>
 </section>
 
 <!-- FOOTER -->
 
 <footer>
-
   <div class="footer-logo">VIKAS GRAPHEO.</div>
-
   <p>Creative Design Studio</p>
-
   <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
-
 </footer>
 
 <!-- WHATSAPP -->
@@ -1006,21 +977,4 @@ footer p {
    href="https://wa.me/917834905783"
    target="_blank"
    rel="noopener"
-   aria-label="Chat on WhatsApp">
-  ✆
-</a>
-
-<!-- MOBILE MENU -->
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const mainNav = document.getElementById("mainNav");
-
-menuBtn.addEventListener("click", function() {
-  mainNav.classList.toggle("open");
-});
-</script>
-
-</body>
-              </html>
-              
+   aria-label="Cha
