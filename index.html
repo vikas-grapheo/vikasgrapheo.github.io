@@ -14,9 +14,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background: #080808;
@@ -27,79 +25,164 @@ body {
 
 :root {
     --gold: #d6ad55;
-    --black: #080808;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+/* GOLDEN WAVE INTRO */
 
-/* INTRO ANIMATION */
-
-#carIntro {
+#intro {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #050505;
+    background: #030303;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: introHide 1s ease 5.5s forwards;
+    overflow: hidden;
+    animation: introExit 1s ease 5.5s forwards;
 }
 
-.intro-content {
+.wave-stage {
+    position: absolute;
+    width: 120%;
+    height: 65%;
+    top: 12%;
+    left: -10%;
+    perspective: 900px;
+}
+
+.wave-svg {
     width: 100%;
-    text-align: center;
+    height: 100%;
+    overflow: visible;
 }
 
-.car {
-    width: min(650px, 95%);
-    animation: carMove 3s ease-in-out forwards;
+.wave-one {
+    fill: none;
+    stroke: #f4ca72;
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px #c58b2a);
+    animation: waveMove 4s ease-in-out infinite;
 }
 
-.car svg {
-    width: 100%;
+.wave-two {
+    fill: none;
+    stroke: #9d6b1c;
+    stroke-width: 8;
+    stroke-linecap: round;
+    opacity: .7;
+    filter: drop-shadow(0 0 12px #d6ad55);
+    animation: waveMoveTwo 5s ease-in-out infinite;
 }
 
-.intro-title {
-    color: var(--gold);
-    font-size: clamp(25px, 5vw, 48px);
-    letter-spacing: 7px;
-    margin-top: 20px;
-    opacity: 0;
-    animation: titleShow 1.2s ease 2.7s forwards;
+.wave-three {
+    fill: none;
+    stroke: #fff0b4;
+    stroke-width: 1.5;
+    opacity: .8;
+    animation: waveMoveThree 3.5s ease-in-out infinite;
 }
 
-.intro-subtitle {
-    color: #aaa;
-    letter-spacing: 5px;
-    margin-top: 12px;
-    font-size: 11px;
-    opacity: 0;
-    animation: titleShow 1s ease 3.2s forwards;
+.wave-four {
+    fill: none;
+    stroke: #b88636;
+    stroke-width: 15;
+    opacity: .3;
+    filter: blur(5px);
+    animation: waveMove 6s ease-in-out infinite reverse;
 }
 
-@keyframes carMove {
-    0% {
-        transform: translateX(-120%);
-        opacity: 0;
+@keyframes waveMove {
+    0%, 100% { transform: translateY(0) scaleY(1); }
+    50% { transform: translateY(-35px) scaleY(1.25); }
+}
+
+@keyframes waveMoveTwo {
+    0%, 100% { transform: translateY(20px) scaleY(1); }
+    50% { transform: translateY(-25px) scaleY(.8); }
+}
+
+@keyframes waveMoveThree {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(35px); }
+}
+
+/* PARTICLES */
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f8d98d;
+    box-shadow: 0 0 12px 3px #d6ad55;
+    animation: particleFloat 4s ease-in-out infinite;
+}
+
+.p1 { left: 12%; top: 25%; }
+.p2 { left: 25%; top: 65%; animation-delay: .7s; }
+.p3 { left: 40%; top: 18%; animation-delay: 1.2s; }
+.p4 { left: 62%; top: 70%; animation-delay: .4s; }
+.p5 { left: 80%; top: 30%; animation-delay: 1.5s; }
+.p6 { left: 90%; top: 60%; animation-delay: .9s; }
+.p7 { left: 52%; top: 85%; animation-delay: 2s; }
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) scale(.6);
+        opacity: .3;
     }
-    45% {
+    50% {
+        transform: translateY(-35px) scale(1.5);
         opacity: 1;
     }
-    100% {
-        transform: translateX(0);
-    }
 }
 
-@keyframes titleShow {
+/* INTRO LOGO */
+
+.intro-logo {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: logoReveal 1.3s ease 2.5s forwards;
+}
+
+.intro-logo h1 {
+    color: #f1ca78;
+    font-size: clamp(27px, 6vw, 58px);
+    letter-spacing: 7px;
+    text-shadow: 0 0 25px rgba(214,173,85,.5);
+}
+
+.intro-logo p {
+    color: #bbb;
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin-top: 15px;
+}
+
+.intro-line {
+    width: 0;
+    height: 1px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, #f1ca78, transparent);
+    animation: lineReveal 1s ease 3s forwards;
+}
+
+@keyframes logoReveal {
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes introHide {
+@keyframes lineReveal {
+    to { width: 85%; }
+}
+
+@keyframes introExit {
     to {
         opacity: 0;
         visibility: hidden;
@@ -110,7 +193,6 @@ a {
 /* HEADER */
 
 header {
-    width: 100%;
     min-height: 85px;
     display: flex;
     align-items: center;
@@ -127,6 +209,7 @@ header {
     font-size: 23px;
     font-weight: bold;
     letter-spacing: 2px;
+    padding-right: 55px;
 }
 
 .desktop-nav {
@@ -140,11 +223,9 @@ header {
     transition: .3s;
 }
 
-.desktop-nav a:hover {
-    color: var(--gold);
-}
+.desktop-nav a:hover { color: var(--gold); }
 
-/* HAMBURGER BUTTON - RIGHT TOP */
+/* RIGHT SIDE MENU BUTTON */
 
 .menu-btn {
     position: absolute;
@@ -175,9 +256,7 @@ header {
     transform: translateY(8px) rotate(45deg);
 }
 
-.menu-btn.active span:nth-child(2) {
-    opacity: 0;
-}
+.menu-btn.active span:nth-child(2) { opacity: 0; }
 
 .menu-btn.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
@@ -213,9 +292,7 @@ header {
     transition: .4s ease;
 }
 
-.side-menu.open {
-    right: 0;
-}
+.side-menu.open { right: 0; }
 
 .side-menu h2 {
     color: var(--gold);
@@ -236,7 +313,7 @@ header {
     padding-left: 10px;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     min-height: 570px;
@@ -248,9 +325,7 @@ header {
         #080808;
 }
 
-.hero-content {
-    max-width: 750px;
-}
+.hero-content { max-width: 750px; }
 
 .small-heading {
     color: var(--gold);
@@ -265,9 +340,7 @@ header {
     margin-bottom: 25px;
 }
 
-.hero h1 span {
-    color: var(--gold);
-}
+.hero h1 span { color: var(--gold); }
 
 .hero p {
     color: #aaa;
@@ -366,15 +439,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background:
-        linear-gradient(135deg, #171717, #080808);
+    background: linear-gradient(135deg, #171717, #080808);
 }
 
 .about-box h2 {
     color: var(--gold);
     font-size: 40px;
     letter-spacing: 5px;
-    text-align: center;
 }
 
 .about-text small {
@@ -406,9 +477,7 @@ header {
     margin-bottom: 15px;
 }
 
-.cta p {
-    color: #aaa;
-}
+.cta p { color: #aaa; }
 
 /* FOOTER */
 
@@ -419,7 +488,7 @@ footer {
     text-align: center;
 }
 
-footer .footer-logo {
+.footer-logo {
     color: var(--gold);
     font-size: 22px;
     font-weight: bold;
@@ -447,34 +516,23 @@ footer p {
     z-index: 90;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width: 768px) {
-    header {
-        padding: 20px 5%;
-    }
+    header { padding: 20px 5%; }
 
-    .logo {
-        font-size: 19px;
-        padding-right: 55px;
-    }
+    .logo { font-size: 19px; }
 
-    .desktop-nav {
-        display: none;
-    }
+    .desktop-nav { display: none; }
 
-    .menu-btn {
-        right: 18px;
-    }
+    .menu-btn { right: 18px; }
 
     .hero {
         min-height: 500px;
         padding: 90px 7%;
     }
 
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
+    .service-grid { grid-template-columns: 1fr; }
 
     .about {
         grid-template-columns: 1fr;
@@ -482,12 +540,25 @@ footer p {
         padding: 75px 7%;
     }
 
-    .section-heading h2 {
-        font-size: 29px;
+    .section-heading h2 { font-size: 29px; }
+
+    .services { padding: 75px 7%; }
+
+    .wave-stage {
+        width: 150%;
+        left: -25%;
     }
 
-    .services {
-        padding: 75px 7%;
+    .intro-logo h1 { letter-spacing: 4px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .wave-one,
+    .wave-two,
+    .wave-three,
+    .wave-four,
+    .particle {
+        animation-duration: 8s;
     }
 }
 </style>
@@ -495,49 +566,48 @@ footer p {
 
 <body>
 
-<!-- CAR INTRO -->
+<!-- GOLDEN 3D WAVE INTRO -->
 
-<div id="carIntro">
-    <div class="intro-content">
+<div id="intro">
 
-        <div class="car">
-            <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="carPaint" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#555"/>
-                        <stop offset="45%" stop-color="#111"/>
-                        <stop offset="100%" stop-color="#000"/>
-                    </linearGradient>
-                </defs>
+    <div class="wave-stage">
 
-                <path d="M65 160 L105 145 L160 105 L240 78 L430 78 L505 110 L590 135 L640 160 L650 185 L610 197 L95 197 L55 180 Z"
-                fill="url(#carPaint)" stroke="#d6ad55" stroke-width="3"/>
+        <svg class="wave-svg" viewBox="0 0 1200 500"
+        preserveAspectRatio="none">
 
-                <path d="M175 140 L240 88 L420 88 L485 140 Z"
-                fill="#111" stroke="#d6ad55" stroke-width="2"/>
+            <path class="wave-four"
+            d="M-100 250 C150 20 300 480 550 250 S950 20 1300 250"/>
 
-                <path d="M270 90 L270 140 M390 90 L390 140"
-                stroke="#777" stroke-width="2"/>
+            <path class="wave-two"
+            d="M-100 270 C150 50 300 490 550 260 S950 50 1300 270"/>
 
-                <path d="M80 160 L150 151 L135 169 L70 177 Z"
-                fill="#fff4c4"/>
+            <path class="wave-one"
+            d="M-100 220 C150 450 300 0 550 220 S950 450 1300 220"/>
 
-                <path d="M575 150 L625 164 L625 176 L570 169 Z"
-                fill="#a60000"/>
+            <path class="wave-three"
+            d="M-100 300 C150 70 300 500 550 280 S950 70 1300 300"/>
 
-                <circle cx="170" cy="190" r="38" fill="#050505" stroke="#d6ad55" stroke-width="4"/>
-                <circle cx="170" cy="190" r="18" fill="#333" stroke="#aaa" stroke-width="3"/>
-                <circle cx="520" cy="190" r="38" fill="#050505" stroke="#d6ad55" stroke-width="4"/>
-                <circle cx="520" cy="190" r="18" fill="#333" stroke="#aaa" stroke-width="3"/>
+            <path class="wave-one"
+            d="M-100 180 C150 400 300 20 550 180 S950 400 1300 180"/>
 
-                <path d="M105 205 L590 205" stroke="#d6ad55" stroke-width="2"/>
-            </svg>
-        </div>
-
-        <h1 class="intro-title">VIKAS GRAPHEO</h1>
-        <p class="intro-subtitle">CREATIVE DESIGN STUDIO</p>
+        </svg>
 
     </div>
+
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+    <div class="particle p6"></div>
+    <div class="particle p7"></div>
+
+    <div class="intro-logo">
+        <h1>VIKAS GRAPHEO</h1>
+        <p>CREATIVE DESIGN STUDIO</p>
+        <div class="intro-line"></div>
+    </div>
+
 </div>
 
 <!-- HEADER -->
@@ -686,9 +756,7 @@ onclick="toggleMenu()"></div>
 
     <h2>Have A Project In Mind?</h2>
 
-    <p>
-        Let's create something amazing together.
-    </p>
+    <p>Let's create something amazing together.</p>
 
     <a href="contact.html" class="gold-btn">
         START A PROJECT
@@ -702,9 +770,7 @@ onclick="toggleMenu()"></div>
 
     <div class="footer-logo">VIKAS GRAPHEO.</div>
 
-    <p>
-        © 2026 Vikas Grapheo. All Rights Reserved.
-    </p>
+    <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
 
 </footer>
 
