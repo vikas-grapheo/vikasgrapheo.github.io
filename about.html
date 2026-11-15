@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About Us | Vikas Grapheo</title>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +23,10 @@
   box-sizing:border-box;
 }
 
+html {
+  scroll-behavior:smooth;
+}
+
 body {
   background:var(--bg);
   color:var(--white);
@@ -33,6 +38,8 @@ a {
   text-decoration:none;
   color:inherit;
 }
+
+/* HEADER */
 
 header {
   min-height:78px;
@@ -62,6 +69,7 @@ nav {
 nav a {
   color:#ddd;
   font-size:14px;
+  transition:.3s;
 }
 
 nav a:hover,
@@ -69,12 +77,41 @@ nav a.active {
   color:var(--gold);
 }
 
+/* MENU BUTTON */
+
 .menu-btn {
   display:none;
-  background:none;
-  border:0;
-  color:var(--gold);
-  font-size:30px;
+  width:42px;
+  height:42px;
+  background:transparent;
+  border:1px solid rgba(214,173,101,.4);
+  border-radius:5px;
+  cursor:pointer;
+  padding:9px;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  z-index:1002;
+}
+
+.menu-btn span {
+  display:block;
+  width:100%;
+  height:2px;
+  background:#d6ad65;
+  transition:.3s;
+}
+
+.menu-btn.active span:nth-child(1) {
+  transform:translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity:0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform:translateY(-7px) rotate(-45deg);
 }
 
 section {
@@ -199,10 +236,12 @@ h1,h2,h3 {
     transform:scaleY(.82) scaleX(.92) skewX(-5deg);
     opacity:.78;
   }
+
   50% {
     transform:scaleY(1.12) scaleX(1.08) skewX(5deg);
     opacity:1;
   }
+
   100% {
     transform:scaleY(.9) scaleX(.88) skewX(-3deg);
     opacity:.88;
@@ -214,13 +253,12 @@ h1,h2,h3 {
     transform:scaleY(.85);
     opacity:.7;
   }
+
   100% {
     transform:scaleY(1.15);
     opacity:1;
   }
 }
-
-/* FIRE GLOW */
 
 .story-art::before {
   content:"";
@@ -500,32 +538,46 @@ footer p {
   font-size:26px;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 
 @media(max-width:800px) {
+
   header {
     padding:16px 5%;
   }
 
   .menu-btn {
-    display:block;
-    cursor:pointer;
+    display:flex;
   }
 
   nav {
-    display:none;
+    display:flex;
     position:absolute;
-    top:78px;
+    top:100%;
     left:0;
     width:100%;
     background:#101010;
     flex-direction:column;
-    padding:25px;
-    gap:22px;
+    gap:0;
+    padding:0 25px;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transition:max-height .35s ease, opacity .3s ease;
+    border-bottom:1px solid rgba(214,173,101,.2);
   }
 
   nav.open {
-    display:flex;
+    max-height:350px;
+    padding:15px 25px 25px;
+    opacity:1;
+    visibility:visible;
+  }
+
+  nav a {
+    padding:14px 0;
+    border-bottom:1px solid rgba(214,173,101,.1);
   }
 
   section {
@@ -535,6 +587,10 @@ footer p {
   .story,
   .mission-grid {
     grid-template-columns:1fr;
+  }
+
+  .story {
+    gap:35px;
   }
 
   .story-art {
@@ -577,6 +633,7 @@ footer p {
 }
 
 @media(max-width:430px) {
+
   .story-art {
     min-height:360px;
   }
@@ -622,9 +679,23 @@ footer p {
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
   <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+  <button class="menu-btn"
+          id="menuBtn"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
 
   <nav id="mainNav">
     <a href="index.html">Home</a>
@@ -633,18 +704,23 @@ footer p {
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html">Contact</a>
   </nav>
+
 </header>
 
 <!-- HERO -->
 
 <section class="hero">
+
   <div class="section-label">ABOUT VIKAS GRAPHEO</div>
+
   <h1>Creativity Has <span class="gold">A Story.</span></h1>
+
   <p>
     We believe every great design begins with an idea.
     Our mission is to transform ideas into meaningful
     visual experiences through creativity and innovation.
   </p>
+
 </section>
 
 <!-- OUR STORY -->
@@ -653,10 +729,12 @@ footer p {
 
   <div class="story-art">
 
-    <!-- LEFT SVG FLAMES -->
+    <!-- LEFT FIRE -->
 
     <div class="fire-rail fire-left">
-      <svg viewBox="0 0 65 440" preserveAspectRatio="none"
+
+      <svg viewBox="0 0 65 440"
+           preserveAspectRatio="none"
            xmlns="http://www.w3.org/2000/svg">
 
         <defs>
@@ -673,31 +751,26 @@ footer p {
           </linearGradient>
         </defs>
 
-        <path class="flame"
-          fill="url(#fireOuter)"
+        <path class="flame" fill="url(#fireOuter)"
           d="M0 440 L0 350 Q17 325 8 290 Q2 260 20 225 Q27 205 18 175 Q10 145 31 105 Q29 145 45 164 Q57 188 42 225 Q60 210 65 180 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuter)"
+        <path class="flame" fill="url(#fireOuter)"
           d="M0 440 L0 265 Q16 240 12 208 Q8 178 25 145 Q23 181 39 205 Q48 231 34 267 Q55 246 65 218 L65 440 Z"/>
 
-        <path class="flame-core"
-          fill="url(#fireInner)"
+        <path class="flame-core" fill="url(#fireInner)"
           d="M0 440 L0 365 Q17 330 20 294 Q23 265 35 237 Q33 278 50 303 Q61 329 45 362 Q57 346 65 320 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuter)"
+        <path class="flame" fill="url(#fireOuter)"
           d="M0 440 L0 160 Q15 138 12 110 Q10 82 28 48 Q25 88 43 109 Q55 135 39 165 Q55 150 65 126 L65 440 Z"/>
 
-        <path class="flame-core"
-          fill="url(#fireInner)"
+        <path class="flame-core" fill="url(#fireInner)"
           d="M0 440 L0 220 Q15 195 20 167 Q24 140 36 118 Q35 157 50 177 Q58 201 44 228 Q56 211 65 191 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuter)"
+        <path class="flame" fill="url(#fireOuter)"
           d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
 
       </svg>
+
     </div>
 
     <!-- CENTER LOGO -->
@@ -705,10 +778,12 @@ footer p {
     <div class="logo-stage">
 
       <div class="wheel">
+
         <svg viewBox="0 0 300 300"
              xmlns="http://www.w3.org/2000/svg">
 
           <defs>
+
             <linearGradient id="rimGold" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#fff0c5"/>
               <stop offset="35%" stop-color="#d6ad65"/>
@@ -722,21 +797,31 @@ footer p {
               <stop offset="70%" stop-color="#242424"/>
               <stop offset="100%" stop-color="#d4d4d4"/>
             </linearGradient>
+
           </defs>
 
           <circle cx="150" cy="150" r="139"
-                  fill="#080808" stroke="#292929" stroke-width="9"/>
+                  fill="#080808"
+                  stroke="#292929"
+                  stroke-width="9"/>
 
           <circle cx="150" cy="150" r="128"
-                  fill="none" stroke="#777" stroke-width="2"/>
+                  fill="none"
+                  stroke="#777"
+                  stroke-width="2"/>
 
           <circle cx="150" cy="150" r="113"
-                  fill="none" stroke="url(#rimGold)" stroke-width="7"/>
+                  fill="none"
+                  stroke="url(#rimGold)"
+                  stroke-width="7"/>
 
           <circle cx="150" cy="150" r="91"
-                  fill="#151515" stroke="url(#metal)" stroke-width="5"/>
+                  fill="#151515"
+                  stroke="url(#metal)"
+                  stroke-width="5"/>
 
           <g fill="url(#metal)" stroke="#d6ad65" stroke-width="1.2">
+
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(36 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(72 150 150)"/>
@@ -747,13 +832,18 @@ footer p {
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(252 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(288 150 150)"/>
             <path d="M143 145 L135 55 L150 42 L165 55 L157 145 Z" transform="rotate(324 150 150)"/>
+
           </g>
 
           <circle cx="150" cy="150" r="37"
-                  fill="#111" stroke="url(#rimGold)" stroke-width="6"/>
+                  fill="#111"
+                  stroke="url(#rimGold)"
+                  stroke-width="6"/>
 
           <circle cx="150" cy="150" r="25"
-                  fill="url(#metal)" stroke="#d6ad65" stroke-width="2"/>
+                  fill="url(#metal)"
+                  stroke="#d6ad65"
+                  stroke-width="2"/>
 
           <circle cx="150" cy="150" r="16" fill="#111"/>
 
@@ -771,7 +861,9 @@ footer p {
             <circle cx="124" cy="186" r="4"/>
             <circle cx="107" cy="136" r="4"/>
           </g>
+
         </svg>
+
       </div>
 
       <div class="logo-brand">
@@ -781,13 +873,16 @@ footer p {
 
     </div>
 
-    <!-- RIGHT SVG FLAMES -->
+    <!-- RIGHT FIRE -->
 
     <div class="fire-rail fire-right">
-      <svg viewBox="0 0 65 440" preserveAspectRatio="none"
+
+      <svg viewBox="0 0 65 440"
+           preserveAspectRatio="none"
            xmlns="http://www.w3.org/2000/svg">
 
         <defs>
+
           <linearGradient id="fireOuterR" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stop-color="#ff2100"/>
             <stop offset="45%" stop-color="#ff6500"/>
@@ -799,39 +894,39 @@ footer p {
             <stop offset="65%" stop-color="#ffd000"/>
             <stop offset="100%" stop-color="#fff5a0" stop-opacity=".2"/>
           </linearGradient>
+
         </defs>
 
-        <path class="flame"
-          fill="url(#fireOuterR)"
+        <path class="flame" fill="url(#fireOuterR)"
           d="M0 440 L0 350 Q17 325 8 290 Q2 260 20 225 Q27 205 18 175 Q10 145 31 105 Q29 145 45 164 Q57 188 42 225 Q60 210 65 180 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuterR)"
+        <path class="flame" fill="url(#fireOuterR)"
           d="M0 440 L0 265 Q16 240 12 208 Q8 178 25 145 Q23 181 39 205 Q48 231 34 267 Q55 246 65 218 L65 440 Z"/>
 
-        <path class="flame-core"
-          fill="url(#fireInnerR)"
+        <path class="flame-core" fill="url(#fireInnerR)"
           d="M0 440 L0 365 Q17 330 20 294 Q23 265 35 237 Q33 278 50 303 Q61 329 45 362 Q57 346 65 320 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuterR)"
+        <path class="flame" fill="url(#fireOuterR)"
           d="M0 440 L0 160 Q15 138 12 110 Q10 82 28 48 Q25 88 43 109 Q55 135 39 165 Q55 150 65 126 L65 440 Z"/>
 
-        <path class="flame-core"
-          fill="url(#fireInnerR)"
+        <path class="flame-core" fill="url(#fireInnerR)"
           d="M0 440 L0 220 Q15 195 20 167 Q24 140 36 118 Q35 157 50 177 Q58 201 44 228 Q56 211 65 191 L65 440 Z"/>
 
-        <path class="flame"
-          fill="url(#fireOuterR)"
+        <path class="flame" fill="url(#fireOuterR)"
           d="M0 440 L0 75 Q15 54 14 30 Q13 12 28 0 Q25 37 43 52 Q55 74 39 98 Q54 84 65 60 L65 440 Z"/>
 
       </svg>
+
     </div>
 
   </div>
 
+  <!-- STORY TEXT -->
+
   <div class="story-text">
+
     <div class="section-label">OUR STORY</div>
+
     <h2>Turning Ideas Into <span class="gold">Visual Reality.</span></h2>
 
     <p>
@@ -852,6 +947,7 @@ footer p {
       express their ideas through powerful and
       professional designs.
     </p>
+
   </div>
 
 </section>
@@ -859,6 +955,7 @@ footer p {
 <!-- MISSION AND VISION -->
 
 <section>
+
   <div class="mission-grid">
 
     <div class="info-card">
@@ -881,100 +978,57 @@ footer p {
     </div>
 
   </div>
+
 </section>
 
 <!-- VALUES -->
 
 <section class="values">
+
   <div class="section-label">WHAT DEFINES US</div>
+
   <h2>Our Creative <span class="gold">Values.</span></h2>
 
   <div class="values-grid">
 
     <div class="value-card">
       <h3>Creativity</h3>
-      <p>Every project gets a unique approach and a fresh creative perspective.</p>
+      <p>
+        Every project gets a unique approach
+        and a fresh creative perspective.
+      </p>
     </div>
 
     <div class="value-card">
       <h3>Quality</h3>
-      <p>We focus on detail, clarity and professional design standards.</p>
+      <p>
+        We focus on detail, clarity and
+        professional design standards.
+      </p>
     </div>
 
     <div class="value-card">
       <h3>Innovation</h3>
-      <p>We explore new ideas and creative possibilities to make designs stand out.</p>
+      <p>
+        We explore new ideas and creative
+        possibilities to make designs stand out.
+      </p>
     </div>
 
   </div>
+
 </section>
 
 <!-- PROCESS -->
 
 <section class="process">
+
   <div class="section-label">HOW WE WORK</div>
+
   <h2>Our Creative <span class="gold">Process.</span></h2>
 
   <div class="process-grid">
 
     <div class="process-card">
       <span>01</span>
-      <h3>Discover</h3>
-      <p>Understanding your ideas, goals and requirements.</p>
-    </div>
-
-    <div class="process-card">
-      <span>02</span>
-      <h3>Imagine</h3>
-      <p>Exploring creative concepts and visual directions.</p>
-    </div>
-
-    <div class="process-card">
-      <span>03</span>
-      <h3>Create</h3>
-      <p>Turning concepts into professional designs.</p>
-    </div>
-
-    <div class="process-card">
-      <span>04</span>
-      <h3>Deliver</h3>
-      <p>Presenting the final creative experience.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- QUOTE -->
-
-<section class="quote">
-  <h2>
-    "Great design is not just seen.
-    It is <span class="gold">remembered.</span>"
-  </h2>
-  <p>VIKAS GRAPHEO</p>
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-  <div class="section-label">LET'S CREATE SOMETHING</div>
-  <h2>Have An Idea? <span class="gold">Let's Talk.</span></h2>
-  <p>Let's turn your vision into something extraordinary.</p>
-  <a class="cta-btn" href="contact.html">Start A Project</a>
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-  <div class="footer-logo">VIKAS GRAPHEO.</div>
-  <p>Creative Design Studio</p>
-  <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
-</footer>
-
-<!-- WHATSAPP -->
-
-<a class="whatsapp"
-   href="https://wa.me/917834905783"
-   target="_blank"
-   rel="noopener"
-   aria-label="Cha
+      <h3>Discover<
