@@ -6,611 +6,494 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>About Us | Vikas Grapheo</title>
-<meta name="description" content="Discover Vikas Grapheo, an independent creative design studio focused on branding, graphic design and visual experiences.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #090909;
-  --card: #151515;
-  --gold: #d6ad65;
-  --white: #f7f5f0;
-  --muted: #aaa49a;
+  --bg:#090909;
+  --card:#111111;
+  --gold:#d6ad65;
+  --white:#f5f2eb;
+  --muted:#a5a19a;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior:smooth;
+}
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration:none;
+  color:inherit;
 }
 
 /* HEADER */
 
 header {
-  padding: 20px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #292929;
-  background: #090909;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  width:100%;
+  min-height:78px;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#090909;
+  border-bottom:1px solid rgba(214,173,101,.18);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 25px;
-  font-weight: 800;
-}
-
-.logo span,
-.footer-logo span {
-  color: var(--gold);
+  color:var(--gold);
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 nav {
-  display: flex;
-  gap: 25px;
-  align-items: center;
+  display:flex;
+  gap:28px;
 }
 
 nav a {
-  font-size: 14px;
-  color: #ddd;
-  transition: .3s;
+  color:#ddd;
+  font-size:14px;
+  transition:.3s;
 }
 
 nav a:hover,
 nav a.active {
-  color: var(--gold);
-}
-
-.nav-btn,
-.main-btn {
-  background: var(--gold);
-  color: #111;
-  padding: 13px 22px;
-  border-radius: 3px;
-  font-weight: 700;
-  display: inline-block;
-  transition: .3s;
-}
-
-.main-btn:hover,
-.nav-btn:hover {
-  background: #f0cc8a;
-  transform: translateY(-3px);
+  color:var(--gold);
 }
 
 .menu-btn {
-  display: none;
-  background: none;
-  border: 0;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+  display:none;
+  background:none;
+  border:0;
+  color:var(--gold);
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* COMMON */
+
+section {
+  padding:90px 8%;
+}
+
+.section-label {
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+h1,h2,h3 {
+  font-family:'Playfair Display',serif;
+}
+
+.gold {
+  color:var(--gold);
 }
 
 /* HERO */
 
 .hero {
-  min-height: 490px;
-  padding: 100px 8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  min-height:400px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   background:
-    radial-gradient(circle at 50% 50%, #302516 0%, transparent 55%),
+    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 55%),
     #090909;
-  border-bottom: 1px solid #292929;
-}
-
-.hero-content {
-  max-width: 850px;
-}
-
-.tag {
-  color: var(--gold);
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 25px;
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(45px, 7vw, 78px);
-  line-height: 1.1;
-  margin-bottom: 25px;
-}
-
-.hero h1 span {
-  color: var(--gold);
+  font-size:clamp(42px,7vw,75px);
+  margin-bottom:20px;
 }
 
 .hero p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.9;
-  max-width: 650px;
-  margin: auto;
-}
-
-.hero-links {
-  margin-top: 35px;
-}
-
-/* COMMON SECTION */
-
-.section {
-  padding: 90px 8%;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-heading small {
-  color: var(--gold);
-  letter-spacing: 4px;
-}
-
-.section-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 5vw, 48px);
-  margin-top: 15px;
-}
-
-.section-heading p {
-  color: var(--muted);
-  margin-top: 15px;
-  line-height: 1.8;
+  max-width:650px;
+  color:var(--muted);
+  line-height:1.8;
 }
 
 /* STORY */
 
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+.story {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
 }
-
-/* 3D ADVERTISEMENT BOX */
 
 .story-art {
-  min-height: 430px;
-  border: 1px solid #604a2a;
+  min-height:420px;
   background:
-    radial-gradient(ellipse at center, #332416 0%, #17130d 48%, #090909 100%);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  isolation: isolate;
-}
-
-.story-art::before {
-  content: "";
-  position: absolute;
-  width: 310px;
-  height: 310px;
-  border: 1px solid rgba(214,173,101,.25);
-  border-radius: 50%;
-  z-index: -1;
-  animation: orbit 12s linear infinite;
-}
-
-.story-art::after {
-  content: "";
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border: 1px solid rgba(214,173,101,.15);
-  border-radius: 50%;
-  z-index: -1;
-  animation: orbit 8s linear infinite reverse;
-}
-
-@keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-#wheelScene {
-  width: 100%;
-  height: 315px;
-  position: relative;
-  z-index: 2;
-}
-
-.ad-brand {
-  position: absolute;
-  z-index: 4;
-  bottom: 28px;
-  width: 100%;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px) scale(.9);
-  transition: opacity .8s ease, transform .8s ease;
-  pointer-events: none;
-}
-
-.ad-brand.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.ad-brand h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(25px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: #f0cc8a;
-  text-shadow:
-    0 0 8px rgba(214,173,101,.8),
-    0 0 22px rgba(214,173,101,.45);
-}
-
-.ad-brand p {
-  color: #d9c19a;
-  font-size: 9px;
-  letter-spacing: 4px;
-  margin-top: 7px;
-}
-
-.story-text .tag {
-  margin-bottom: 20px;
+    radial-gradient(circle at center,rgba(214,173,101,.12),transparent 60%),
+    #111;
+  border:1px solid rgba(214,173,101,.25);
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+  padding:20px;
 }
 
 .story-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  line-height: 1.2;
-  margin-bottom: 25px;
+  font-size:42px;
+  margin-bottom:25px;
 }
 
 .story-text p {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.9;
-  margin-bottom: 18px;
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+/* 3D ADVERTISEMENT */
+
+#wheelScene {
+  width:100%;
+  height:315px;
+  position:relative;
+  z-index:2;
+}
+
+.ad-brand {
+  text-align:center;
+  position:relative;
+  z-index:3;
+  font-size:clamp(22px,4vw,32px);
+  font-weight:700;
+  letter-spacing:5px;
+  color:var(--gold);
+  opacity:0;
+  transform:translateY(20px);
+  text-shadow:0 0 20px rgba(214,173,101,.5);
+  transition:opacity 1s, transform 1s;
+}
+
+.ad-brand.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.ad-tagline {
+  color:#aaa;
+  font-size:10px;
+  letter-spacing:4px;
+  margin-top:9px;
+  opacity:0;
+  transition:opacity 1s;
+}
+
+.ad-tagline.show {
+  opacity:1;
 }
 
 /* MISSION VISION */
 
-.mission-section {
-  background: #101010;
-}
-
 .mission-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.mission-card {
-  padding: 45px 35px;
-  background: var(--card);
-  border: 1px solid #292929;
-  transition: .3s;
+.info-card {
+  background:var(--card);
+  border:1px solid rgba(214,173,101,.2);
+  padding:38px;
+  border-radius:10px;
+  transition:.3s;
 }
 
-.mission-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-6px);
+.info-card:hover {
+  transform:translateY(-6px);
+  border-color:var(--gold);
 }
 
-.mission-number {
-  color: var(--gold);
-  font-family: 'Playfair Display', serif;
-  font-size: 35px;
+.info-card h3 {
+  color:var(--gold);
+  font-size:27px;
+  margin-bottom:18px;
 }
 
-.mission-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
-  margin: 20px 0 15px;
-}
-
-.mission-card p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
+.info-card p {
+  color:var(--muted);
+  line-height:1.8;
 }
 
 /* VALUES */
 
+.values {
+  text-align:center;
+}
+
+.values h2,
+.process h2 {
+  font-size:42px;
+  margin-bottom:45px;
+}
+
 .values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
 .value-card {
-  background: var(--card);
-  border: 1px solid #292929;
-  padding: 35px 28px;
-  transition: .3s;
-}
-
-.value-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-7px);
-}
-
-.value-icon {
-  font-size: 32px;
-  color: var(--gold);
+  background:#111;
+  border:1px solid rgba(214,173,101,.18);
+  padding:30px 20px;
+  border-radius:10px;
 }
 
 .value-card h3 {
-  font-size: 21px;
-  margin: 20px 0 12px;
+  color:var(--gold);
+  margin-bottom:14px;
+  font-size:22px;
 }
 
 .value-card p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
+  color:var(--muted);
+  line-height:1.7;
 }
 
 /* PROCESS */
 
-.process-section {
-  background: #101010;
+.process {
+  text-align:center;
 }
 
 .process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .process-card {
-  padding: 30px 20px;
-  background: #151515;
-  border: 1px solid #292929;
+  padding:25px 15px;
+  border-top:2px solid var(--gold);
+  background:#111;
 }
 
 .process-card span {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold);
-  font-size: 30px;
+  display:block;
+  color:var(--gold);
+  font-size:27px;
+  margin-bottom:15px;
 }
 
 .process-card h3 {
-  margin: 18px 0 12px;
-  font-size: 19px;
+  margin-bottom:10px;
 }
 
 .process-card p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
 }
 
 /* QUOTE */
 
 .quote {
-  padding: 85px 8%;
-  text-align: center;
+  text-align:center;
+  background:linear-gradient(120deg,#17130c,#090909);
 }
 
 .quote h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 5vw, 48px);
-  line-height: 1.3;
-}
-
-.quote h2 span {
-  color: var(--gold);
+  max-width:850px;
+  margin:auto;
+  font-size:clamp(25px,4vw,42px);
+  line-height:1.5;
 }
 
 .quote p {
-  color: var(--muted);
-  margin-top: 20px;
+  color:var(--gold);
+  margin-top:20px;
+  letter-spacing:3px;
+  font-size:12px;
 }
 
 /* CTA */
 
 .cta {
-  margin: 20px 8% 90px;
-  padding: 70px 25px;
-  text-align: center;
-  border: 1px solid #4b3c25;
-  background: linear-gradient(135deg, #17130d, #111);
+  text-align:center;
 }
 
 .cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  margin-bottom: 15px;
+  font-size:42px;
+  margin-bottom:18px;
 }
 
 .cta p {
-  color: var(--muted);
-  margin-bottom: 30px;
-  line-height: 1.8;
+  color:var(--muted);
+  margin-bottom:30px;
+}
+
+.cta-btn {
+  display:inline-block;
+  background:var(--gold);
+  color:#090909;
+  padding:14px 30px;
+  font-weight:700;
+  border-radius:4px;
+  transition:.3s;
+}
+
+.cta-btn:hover {
+  background:#fff;
+  transform:translateY(-3px);
 }
 
 /* FOOTER */
 
 footer {
-  border-top: 1px solid #292929;
-  padding: 35px 8%;
-  text-align: center;
-}
-
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  margin-bottom: 15px;
+  padding:35px 8%;
+  border-top:1px solid rgba(214,173,101,.2);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
 footer p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2.2;
+  color:var(--muted);
+  font-size:13px;
 }
 
-footer a:hover {
-  color: var(--gold);
+.footer-logo {
+  color:var(--gold);
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 /* WHATSAPP */
 
 .whatsapp {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  background: #25d366;
-  color: white;
-  padding: 14px 19px;
-  border-radius: 40px;
-  font-weight: 700;
-  z-index: 99;
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:999;
+  background:#25d366;
+  color:white;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
-/* ANIMATION */
+/* MOBILE */
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@media(max-width:800px) {
 
-.hero-content,
-.story-text,
-.story-art {
-  animation: fadeUp .9s ease both;
-}
-
-/* MOBILE RESPONSIVE */
-
-@media(max-width: 850px) {
-  nav {
-    gap: 15px;
-  }
-
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media(max-width: 750px) {
   header {
-    padding: 18px 5%;
+    padding:16px 5%;
   }
 
   .menu-btn {
-    display: block;
+    display:block;
   }
 
   nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #111;
-    padding: 25px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    display:none;
+    position:absolute;
+    top:78px;
+    left:0;
+    width:100%;
+    background:#101010;
+    flex-direction:column;
+    padding:25px;
+    gap:22px;
+    border-bottom:1px solid rgba(214,173,101,.2);
   }
 
-  nav.active {
-    display: flex;
+  nav.open {
+    display:flex;
   }
 
-  .hero {
-    min-height: 440px;
-    padding: 80px 6%;
+  section {
+    padding:65px 6%;
   }
 
-  .section {
-    padding: 70px 6%;
+  .story,
+  .mission-grid {
+    grid-template-columns:1fr;
   }
 
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
+  .story {
+    gap:35px;
   }
 
   .story-art {
-    min-height: 360px;
-  }
-
-  #wheelScene {
-    height: 270px;
-  }
-
-  .story-text h2 {
-    font-size: 34px;
-  }
-
-  .mission-grid {
-    grid-template-columns: 1fr;
+    min-height:360px;
   }
 
   .values-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .process-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
-  .cta {
-    margin: 20px 5% 70px;
-  }
-
+  .story-text h2,
+  .values h2,
+  .process h2,
   .cta h2 {
-    font-size: 30px;
+    font-size:34px;
+  }
+
+  footer {
+    flex-direction:column;
+    text-align:center;
   }
 }
 
-@media(max-width: 400px) {
+@media(max-width:450px) {
   .process-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
-  .logo {
-    font-size: 21px;
+  #wheelScene {
+    height:270px;
+  }
+
+  .ad-brand {
+    letter-spacing:3px;
   }
 }
 
-@media(prefers-reduced-motion: reduce) {
-  .story-art::before,
-  .story-art::after {
-    animation: none;
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
   }
 }
 </style>
@@ -618,530 +501,633 @@ footer a:hover {
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-  <a href="index.html" class="logo">
-    VIKAS <span>GRAPHEO.</span>
-  </a>
+  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
 
-  <button class="menu-btn"
-  onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
 
-  <nav id="navigation">
+  <nav id="mainNav">
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html">Contact</a>
-    <a href="contact.html" class="nav-btn">Start a Project ↗</a>
   </nav>
 </header>
-
-<main>
 
 <!-- HERO -->
 
 <section class="hero">
-  <div class="hero-content">
-
-    <div class="tag">GET TO KNOW US</div>
-
-    <h1>
-      Creativity Has <span>A Story.</span>
-    </h1>
-
-    <p>
-      We believe every great design starts with an idea.
-      At Vikas Grapheo, we turn those ideas into meaningful
-      visual experiences through creativity, imagination
-      and thoughtful design.
-    </p>
-
-    <div class="hero-links">
-      <a href="portfolio.html" class="main-btn">
-        Explore Our Work ↗
-      </a>
-    </div>
-
-  </div>
+  <div class="section-label">ABOUT VIKAS GRAPHEO</div>
+  <h1>Creativity Has <span class="gold">A Story.</span></h1>
+  <p>
+    We believe every great design begins with an idea.
+    Our mission is to transform ideas into meaningful
+    visual experiences through creativity and innovation.
+  </p>
 </section>
 
 <!-- OUR STORY -->
 
-<section class="section">
-  <div class="story-grid">
+<section class="story">
 
-    <!-- 3D ADVERTISEMENT -->
+  <div class="story-art">
 
-    <div class="story-art">
+    <div id="wheelScene"></div>
 
-      <div id="wheelScene"></div>
-
-      <div class="ad-brand" id="adBrand">
-        <h2>VIKAS GRAPHEO.</h2>
-        <p>CREATIVE DESIGN STUDIO</p>
-      </div>
-
+    <div class="ad-brand" id="adBrand">
+      VIKAS GRAPHEO
     </div>
 
-    <div class="story-text">
-
-      <div class="tag">OUR STORY</div>
-
-      <h2>
-        Turning Ideas Into Visual Identity.
-      </h2>
-
-      <p>
-        Vikas Grapheo is an independent creative design
-        studio built around the power of visual storytelling.
-      </p>
-
-      <p>
-        We believe design is more than just colours,
-        shapes and typography. It is a way to communicate
-        ideas, express identities and create memorable
-        experiences.
-      </p>
-
-      <p>
-        From logos and branding to posters and digital
-        graphics, our focus is on creating designs that
-        communicate clearly and leave a lasting impression.
-      </p>
-
-      <a href="services.html" class="main-btn">
-        Discover Our Services ↗
-      </a>
-
+    <div class="ad-tagline" id="adTagline">
+      DESIGN YOUR VISION
     </div>
 
   </div>
+
+  <div class="story-text">
+    <div class="section-label">OUR STORY</div>
+
+    <h2>Turning Ideas Into <span class="gold">Visual Reality.</span></h2>
+
+    <p>
+      Vikas Grapheo is a creative design studio built
+      with a passion for imagination, innovation and
+      visual storytelling.
+    </p>
+
+    <p>
+      We believe that design is more than just colours
+      and shapes. It is about creating an identity,
+      communicating emotions and making brands
+      memorable.
+    </p>
+
+    <p>
+      Our goal is to help businesses and creators
+      express their ideas through powerful and
+      professional designs.
+    </p>
+  </div>
+
 </section>
 
-<!-- MISSION AND VISION -->
+<!-- MISSION & VISION -->
 
-<section class="section mission-section">
-
-  <div class="section-heading">
-    <small>OUR PURPOSE</small>
-    <h2>Mission & Vision</h2>
-    <p>What inspires us and where we want to go.</p>
-  </div>
-
+<section>
   <div class="mission-grid">
 
-    <div class="mission-card">
-      <div class="mission-number">01</div>
-
+    <div class="info-card">
       <h3>Our Mission</h3>
-
       <p>
-        Our mission is to transform ideas into impactful
-        visual designs that help individuals, creators
-        and businesses communicate their identity
-        with creativity and clarity.
+        Our mission is to create meaningful, attractive
+        and professional designs that help brands
+        communicate their message and build a strong
+        visual identity.
       </p>
     </div>
 
-    <div class="mission-card">
-      <div class="mission-number">02</div>
-
+    <div class="info-card">
       <h3>Our Vision</h3>
-
       <p>
-        Our vision is to build a creative design studio
-        known for originality, thoughtful visual
-        communication and meaningful creative experiences.
+        Our vision is to become a trusted creative
+        design studio known for originality,
+        quality and innovative visual experiences.
       </p>
     </div>
 
   </div>
-
 </section>
 
-<!-- OUR VALUES -->
+<!-- CREATIVE VALUES -->
 
-<section class="section">
+<section class="values">
 
-  <div class="section-heading">
-    <small>WHAT DEFINES US</small>
-    <h2>Our Creative Values</h2>
-    <p>The principles behind every creative idea.</p>
-  </div>
+  <div class="section-label">WHAT DEFINES US</div>
+  <h2>Our Creative <span class="gold">Values.</span></h2>
 
   <div class="values-grid">
 
     <div class="value-card">
-      <div class="value-icon">✦</div>
       <h3>Creativity</h3>
       <p>
-        We explore fresh ideas and creative approaches
-        to make every design visually meaningful.
+        Every project gets a unique approach
+        and a fresh creative perspective.
       </p>
     </div>
 
     <div class="value-card">
-      <div class="value-icon">◇</div>
       <h3>Quality</h3>
       <p>
-        We pay attention to details, consistency
-        and presentation in every creative project.
+        We focus on detail, clarity and
+        professional design standards.
       </p>
     </div>
 
     <div class="value-card">
-      <div class="value-icon">✧</div>
-      <h3>Originality</h3>
+      <h3>Innovation</h3>
       <p>
-        We value unique concepts and designs
-        that reflect the personality of each idea.
-      </p>
-    </div>
-
-    <div class="value-card">
-      <div class="value-icon">◎</div>
-      <h3>Communication</h3>
-      <p>
-        We believe understanding an idea is the
-        first step towards creating great design.
-      </p>
-    </div>
-
-    <div class="value-card">
-      <div class="value-icon">✺</div>
-      <h3>Passion</h3>
-      <p>
-        Every creative project is an opportunity
-        to learn, experiment and create something special.
-      </p>
-    </div>
-
-    <div class="value-card">
-      <div class="value-icon">◈</div>
-      <h3>Purpose</h3>
-      <p>
-        We create designs with a clear purpose,
-        message and visual direction.
+        We explore new ideas and creative
+        possibilities to make designs stand out.
       </p>
     </div>
 
   </div>
-
 </section>
 
-<!-- OUR PROCESS -->
+<!-- CREATIVE PROCESS -->
 
-<section class="section process-section">
+<section class="process">
 
-  <div class="section-heading">
-    <small>HOW WE WORK</small>
-    <h2>Our Creative Process</h2>
-    <p>From the first idea to the final design.</p>
-  </div>
+  <div class="section-label">HOW WE WORK</div>
+  <h2>Our Creative <span class="gold">Process.</span></h2>
 
   <div class="process-grid">
 
     <div class="process-card">
       <span>01</span>
       <h3>Discover</h3>
-      <p>
-        We understand your requirements,
-        ideas and creative goals.
-      </p>
+      <p>Understanding your ideas, goals and requirements.</p>
     </div>
 
     <div class="process-card">
       <span>02</span>
       <h3>Imagine</h3>
-      <p>
-        We explore concepts, inspiration
-        and visual directions.
-      </p>
+      <p>Exploring creative concepts and visual directions.</p>
     </div>
 
     <div class="process-card">
       <span>03</span>
       <h3>Create</h3>
-      <p>
-        We transform selected ideas
-        into creative designs.
-      </p>
+      <p>Turning concepts into professional designs.</p>
     </div>
 
     <div class="process-card">
       <span>04</span>
       <h3>Deliver</h3>
-      <p>
-        We present the final design
-        according to the project requirements.
-      </p>
+      <p>Presenting the final creative experience.</p>
     </div>
 
   </div>
-
 </section>
 
 <!-- QUOTE -->
 
 <section class="quote">
-
-  <div class="tag">OUR BELIEF</div>
-
   <h2>
-    Good Design Gets Attention.<br>
-    <span>Great Design Creates Identity.</span>
+    "Great design is not just seen.
+    It is <span class="gold">remembered.</span>"
   </h2>
-
-  <p>
-    Every idea deserves a creative expression.
-  </p>
-
+  <p>VIKAS GRAPHEO</p>
 </section>
 
 <!-- CTA -->
 
 <section class="cta">
+  <div class="section-label">LET'S CREATE SOMETHING</div>
 
-  <div class="tag">LET'S CREATE SOMETHING GREAT</div>
-
-  <h2>Have an Idea? Let's Make It Real.</h2>
+  <h2>Have An Idea? <span class="gold">Let's Talk.</span></h2>
 
   <p>
-    Let's work together and transform your creative
-    vision into something meaningful.
+    Let's turn your vision into something extraordinary.
   </p>
 
-  <a href="contact.html" class="main-btn">
-    Start Your Project ↗
+  <a class="cta-btn"
+     href="contact.html">
+    Start A Project
   </a>
-
 </section>
-
-</main>
 
 <!-- FOOTER -->
 
 <footer>
+  <div class="footer-logo">VIKAS GRAPHEO.</div>
 
-  <div class="footer-logo">
-    VIKAS <span>GRAPHEO.</span>
-  </div>
-
-  <p>Independent Creative Design Studio</p>
-
-  <p>
-    Branding | Posters | Digital Graphics | Creative Design
-  </p>
-
-  <p>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="services.html">Services</a> |
-    <a href="portfolio.html">Portfolio</a> |
-    <a href="contact.html">Contact</a>
-  </p>
+  <p>Creative Design Studio</p>
 
   <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
-
 </footer>
 
 <!-- WHATSAPP -->
 
 <a class="whatsapp"
-   href="https://wa.me/91YOURNUMBER"
+   href="https://wa.me/917834905783"
    target="_blank"
-   rel="noopener">
-   WhatsApp ↗
+   rel="noopener"
+   aria-label="Chat on WhatsApp">
+  ✆
 </a>
 
+<!-- THREE.JS CDN -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
 <script>
-function toggleMenu() {
-  document
-    .getElementById("navigation")
-    .classList.toggle("active");
-}
-</script>
+/* MOBILE MENU */
 
-<!-- 3D WHEEL ADVERTISEMENT -->
+const menuBtn = document.getElementById("menuBtn");
+const mainNav = document.getElementById("mainNav");
 
-<script type="module">
-import * as THREE from
-'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+menuBtn.addEventListener("click", () => {
+  mainNav.classList.toggle("open");
+});
 
-const container = document.getElementById('wheelScene');
-const brand = document.getElementById('adBrand');
+/* 3D WHEEL ADVERTISEMENT */
 
-let renderer;
-let scene;
-let camera;
-let wheel;
-let smokeParticles = [];
-let lightRays = [];
-let animationFrame;
-let startTime = performance.now();
+(function () {
 
-try {
+  const sceneBox = document.getElementById("wheelScene");
+  const brand = document.getElementById("adBrand");
+  const tagline = document.getElementById("adTagline");
+
+  if (!sceneBox || !window.THREE) {
+    sceneBox.innerHTML =
+      '<p style="color:#d6ad65;text-align:center;padding:100px 10px;">3D animation could not load. Please check your internet connection.</p>';
+    return;
+  }
+
+  const THREE = window.THREE;
+
+  let scene, camera, renderer;
+  let wheel;
+  let smokeParticles = [];
+  let particles;
+  let animationStart = performance.now();
+  let lastWidth = 0;
+  let lastHeight = 0;
 
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(
     38,
-    container.clientWidth / container.clientHeight,
+    sceneBox.clientWidth / sceneBox.clientHeight,
     0.1,
     100
   );
 
-  camera.position.set(0, 0, 7.5);
+  camera.position.set(0, 0, 8);
 
   renderer = new THREE.WebGLRenderer({
-    alpha: true,
-    antialias: true
+    antialias:true,
+    alpha:true
   });
 
-  renderer.setPixelRatio(
-    Math.min(window.devicePixelRatio, 2)
-  );
-
-  renderer.setSize(
-    container.clientWidth,
-    container.clientHeight
-  );
-
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(sceneBox.clientWidth, sceneBox.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  sceneBox.appendChild(renderer.domElement);
 
-  container.appendChild(renderer.domElement);
+  /* LIGHTS */
 
-  // LIGHTING
+  const ambient = new THREE.AmbientLight(0xffffff, 1.4);
+  scene.add(ambient);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 1.1));
-
-  const goldLight = new THREE.PointLight(
-    0xffc56d, 65, 15
-  );
-  goldLight.position.set(3, 3, 4);
+  const goldLight = new THREE.PointLight(0xd6ad65, 55, 20);
+  goldLight.position.set(3, 3, 5);
   scene.add(goldLight);
 
-  const whiteLight = new THREE.PointLight(
-    0xffffff, 35, 12
-  );
-  whiteLight.position.set(-3, 1, 3);
+  const whiteLight = new THREE.PointLight(0xffffff, 40, 20);
+  whiteLight.position.set(-4, 2, 4);
   scene.add(whiteLight);
 
-  const backLight = new THREE.PointLight(
-    0xffa32c, 55, 12
-  );
-  backLight.position.set(0, -3, -2);
+  const backLight = new THREE.PointLight(0x9b6b2d, 35, 20);
+  backLight.position.set(0, -3, -3);
   scene.add(backLight);
 
-  // WHEEL GROUP
+  /* WHEEL GROUP */
 
   wheel = new THREE.Group();
   scene.add(wheel);
 
-  const tireMaterial = new THREE.MeshStandardMaterial({
-    color: 0x101010,
-    roughness: 0.42,
-    metalness: 0.15
+  const rubber = new THREE.MeshStandardMaterial({
+    color:0x090909,
+    metalness:0.2,
+    roughness:0.85
   });
 
-  const goldMaterial = new THREE.MeshStandardMaterial({
-    color: 0xd6ad65,
-    metalness: 0.95,
-    roughness: 0.2
+  const chrome = new THREE.MeshStandardMaterial({
+    color:0xbfc3c5,
+    metalness:0.95,
+    roughness:0.18
   });
 
-  const chromeMaterial = new THREE.MeshStandardMaterial({
-    color: 0xd9d9d9,
-    metalness: 1,
-    roughness: 0.15
+  const darkMetal = new THREE.MeshStandardMaterial({
+    color:0x25282b,
+    metalness:0.9,
+    roughness:0.3
   });
 
-  const darkMaterial = new THREE.MeshStandardMaterial({
-    color: 0x242424,
-    metalness: 0.85,
-    roughness: 0.28
+  const goldMetal = new THREE.MeshStandardMaterial({
+    color:0xd6ad65,
+    metalness:0.9,
+    roughness:0.22
   });
 
-  // Main tire
+  /* TYRE */
 
-  const tire = new THREE.Mesh(
-    new THREE.TorusGeometry(1.35, 0.23, 24, 100),
-    tireMaterial
+  const tyre = new THREE.Mesh(
+    new THREE.TorusGeometry(1.65, 0.24, 20, 100),
+    rubber
   );
-  wheel.add(tire);
 
-  // Tire inner golden side ring
+  wheel.add(tyre);
 
-  const sideRing = new THREE.Mesh(
-    new THREE.TorusGeometry(1.13, 0.035, 12, 100),
-    goldMaterial
-  );
-  sideRing.position.z = 0.08;
-  wheel.add(sideRing);
-
-  // Outer alloy rim
+  /* OUTER RIM */
 
   const outerRim = new THREE.Mesh(
-    new THREE.TorusGeometry(1.02, 0.085, 16, 100),
-    chromeMaterial
+    new THREE.TorusGeometry(1.39, 0.105, 16, 100),
+    chrome
   );
-  outerRim.position.z = 0.13;
+
   wheel.add(outerRim);
 
-  // Inner rim
+  /* INNER RIM */
 
   const innerRim = new THREE.Mesh(
-    new THREE.TorusGeometry(0.83, 0.045, 12, 100),
-    goldMaterial
+    new THREE.TorusGeometry(1.19, 0.055, 12, 100),
+    darkMetal
   );
-  innerRim.position.z = 0.15;
+
   wheel.add(innerRim);
 
-  // Spokes
+  /* SPOKES */
 
-  const spokeCount = 10;
+  for (let i = 0; i < 10; i++) {
 
-  for (let i = 0; i < spokeCount; i++) {
-
-    const angle =
-      (Math.PI * 2 / spokeCount) * i;
+    const angle = (Math.PI * 2 / 10) * i;
 
     const spokeGroup = new THREE.Group();
 
     const spoke = new THREE.Mesh(
-      new THREE.BoxGeometry(0.13, 0.82, 0.12),
-      goldMaterial
+      new THREE.BoxGeometry(0.23, 1.02, 0.15),
+      i % 2 === 0 ? chrome : darkMetal
     );
 
-    spoke.position.y = 0.48;
+    spoke.position.y = 0.75;
     spoke.rotation.z = -0.12;
 
     spokeGroup.add(spoke);
-
-    const spokeHighlight = new THREE.Mesh(
-      new THREE.BoxGeometry(0.035, 0.72, 0.035),
-      chromeMaterial
-    );
-
-    spokeHighlight.position.set(
-      -0.035, 0.48, 0.075
-    );
-
-    spokeHighlight.rotation.z = -0.12;
-
-    spokeGroup.add(spokeHighlight);
-
     spokeGroup.rotation.z = angle;
 
     wheel.add(spokeGroup);
+
+    const goldLine = new THREE.Mesh(
+      new THREE.BoxGeometry(0.035, 0.82, 0.17),
+      goldMetal
+    );
+
+    goldLine.position.set(0.04, 0.76, 0.09);
+    goldLine.rotation.z = -0.12;
+
+    spokeGroup.add(goldLine);
   }
 
-  // Central hub
+  /* HUB */
 
   const hub = new THREE.Mesh(
-    new THREE.CylinderGeom
+    new THREE.CylinderGeometry(0.36, 0.36, 0.22, 48),
+    chrome
+  );
+
+  hub.rotation.x = Math.PI / 2;
+  wheel.add(hub);
+
+  const hubCenter = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.23, 0.23, 0.24, 48),
+    goldMetal
+  );
+
+  hubCenter.rotation.x = Math.PI / 2;
+  wheel.add(hubCenter);
+
+  const centerBlack = new THREE.Mesh(
+    new THREE.CircleGeometry(0.16, 48),
+    darkMetal
+  );
+
+  centerBlack.position.z = 0.13;
+  wheel.add(centerBlack);
+
+  /* BOLTS */
+
+  for (let i = 0; i < 5; i++) {
+
+    const angle = (Math.PI * 2 / 5) * i;
+
+    const bolt = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.055, 0.055, 0.12, 16),
+      goldMetal
+    );
+
+    bolt.rotation.x = Math.PI / 2;
+
+    bolt.position.set(
+      Math.cos(angle) * 0.29,
+      Math.sin(angle) * 0.29,
+      0.15
+    );
+
+    wheel.add(bolt);
+  }
+
+  /* GOLD OUTER DETAIL */
+
+  const detailRing = new THREE.Mesh(
+    new THREE.TorusGeometry(1.52, 0.025, 8, 100),
+    goldMetal
+  );
+
+  wheel.add(detailRing);
+
+  /* SMOKE TEXTURE */
+
+  function createSmokeTexture() {
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 128;
+    canvas.height = 128;
+
+    const ctx = canvas.getContext("2d");
+
+    const gradient = ctx.createRadialGradient(
+      64,64,5,
+      64,64,62
+    );
+
+    gradient.addColorStop(0,"rgba(220,220,220,0.30)");
+    gradient.addColorStop(0.35,"rgba(180,180,180,0.17)");
+    gradient.addColorStop(1,"rgba(120,120,120,0)");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0,0,128,128);
+
+    const texture = new THREE.CanvasTexture(canvas);
+
+    return texture;
+  }
+
+  const smokeTexture = createSmokeTexture();
+
+  /* SMOKE PARTICLES */
+
+  for (let i = 0; i < 24; i++) {
+
+    const smokeMaterial = new THREE.SpriteMaterial({
+      map:smokeTexture,
+      transparent:true,
+      opacity:0,
+      depthWrite:false
+    });
+
+    const smoke = new THREE.Sprite(smokeMaterial);
+
+    smoke.position.set(
+      (Math.random() - 0.5) * 3.5,
+      -1.5,
+      0.4
+    );
+
+    smoke.scale.set(0.8,0.8,1);
+
+    scene.add(smoke);
+
+    smokeParticles.push({
+      sprite:smoke,
+      offset:Math.random() * 2,
+      speed:0.4 + Math.random() * 0.6
+    });
+  }
+
+  /* GOLD PARTICLES */
+
+  const particleCount = 180;
+
+  const particlePositions = new Float32Array(particleCount * 3);
+
+  for (let i = 0; i < particleCount; i++) {
+
+    particlePositions[i * 3] = (Math.random() - 0.5) * 6;
+    particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 5;
+    particlePositions[i * 3 + 2] = Math.random() * 2;
+  }
+
+  const particleGeometry = new THREE.BufferGeometry();
+
+  particleGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(particlePositions, 3)
+  );
+
+  const particleMaterial = new THREE.PointsMaterial({
+    color:0xd6ad65,
+    size:0.025,
+    transparent:true,
+    opacity:0
+  });
+
+  particles = new THREE.Points(
+    particleGeometry,
+    particleMaterial
+  );
+
+  scene.add(particles);
+
+  /* RESIZE */
+
+  function resizeScene() {
+
+    const width = sceneBox.clientWidth;
+    const height = sceneBox.clientHeight;
+
+    if (!width || !height) return;
+
+    if (width === lastWidth && height === lastHeight) return;
+
+    lastWidth = width;
+    lastHeight = height;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width,height);
+  }
+
+  window.addEventListener("resize",resizeScene);
+
+  /* ANIMATION */
+
+  function animate(now) {
+
+    requestAnimationFrame(animate);
+
+    resizeScene();
+
+    const elapsed = ((now - animationStart) / 1000) % 10;
+
+    /* WHEEL SPIN */
+
+    wheel.rotation.z = -elapsed * 3.2;
+
+    /* WHEEL INTRO */
+
+    if (elapsed < 2) {
+
+      wheel.visible = true;
+
+      const scale = Math.min(1, elapsed / 1.2);
+
+      wheel.scale.setScalar(scale);
+
+      wheel.position.y = -0.15 + (1 - scale) * 0.7;
+
+      wheel.rotation.x = 0.05;
+    }
+
+    /* WHEEL MAIN DISPLAY */
+
+    if (elapsed >= 2 && elapsed < 5) {
+
+      wheel.visible = true;
+      wheel.scale.setScalar(1);
+      wheel.position.y = -0.15;
+    }
+
+    /* SMOKE REVEAL */
+
+    if (elapsed >= 5 && elapsed < 8) {
+
+      wheel.visible = true;
+
+      const smokeProgress = (elapsed - 5) / 3;
+
+      smokeParticles.forEach((item) => {
+
+        const sprite = item.sprite;
+
+        sprite.visible = true;
+
+        const rise = (smokeProgress * item.speed + item.offset) % 1.4;
+
+        sprite.position.y = -1.6 + rise * 2.5;
+
+        sprite.position.x =
+          Math.sin(elapsed * 2 + item.offset) * 1.6;
+
+        sprite.material.opacity =
+          Math.max(0, Math.sin(rise * Math.PI)) * 0.55;
+
+        const size = 0.5 + rise * 1.2;
+
+        sprite.scale.set(size,size,1);
+      });
+
+    } else {
+
+      smokeParticles.forEach((item) => {
+        item.sprite.material.opacity = 0;
+      });
+
+    }
+
+    /* BRAND R
