@@ -4,330 +4,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Inquiry | Vikas Grapheo</title>
+
+<title>Contact | Vikas Grapheo</title>
 
 <style>
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-  --bg:#080808;
-  --card:#141414;
-  --gold:#d6ad65;
-  --white:#f5f5f5;
-  --muted:#aaa;
+  --bg: #090909;
+  --card: #141414;
+  --gold: #d6ad65;
+  --white: #f5f5f5;
+  --muted: #aaa;
 }
 
 body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:Arial,sans-serif;
-  min-height:100vh;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
 
+/* HEADER */
+
 header {
-  height:75px;
-  padding:0 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #292929;
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#080808;
+  height: 75px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292929;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #080808;
 }
 
 .logo {
-  color:var(--gold);
-  font-size:21px;
-  font-weight:bold;
-  letter-spacing:2px;
-  text-decoration:none;
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
 }
 
 nav {
-  display:flex;
-  gap:25px;
+  display: flex;
+  gap: 25px;
 }
 
 nav a {
-  color:#ddd;
-  text-decoration:none;
-  font-size:14px;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: .3s;
 }
 
 nav a:hover,
 nav a.active {
-  color:var(--gold);
+  color: var(--gold);
 }
 
+/* MOBILE MENU */
+
 #menuToggle {
-  display:none;
+  display: none;
 }
 
 .menu-btn {
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-  padding:10px;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .menu-btn span {
-  width:25px;
-  height:2px;
-  background:var(--gold);
-  transition:.3s;
+  width: 25px;
+  height: 2px;
+  background: var(--gold);
+  transition: .3s;
 }
 
 @media(max-width:750px) {
   .menu-btn {
-    display:flex;
+    display: flex;
   }
 
   nav {
-    position:absolute;
-    top:75px;
-    left:0;
-    width:100%;
-    background:#101010;
-    flex-direction:column;
-    gap:0;
-    max-height:0;
-    overflow:hidden;
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: #101010;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
   }
 
   nav a {
-    padding:16px 7%;
-    border-top:1px solid #292929;
+    padding: 16px 7%;
+    border-top: 1px solid #292929;
   }
 
   #menuToggle:checked ~ nav {
-    max-height:350px;
-    opacity:1;
-    visibility:visible;
+    max-height: 350px;
+    opacity: 1;
+    visibility: visible;
   }
 
   #menuToggle:checked + .menu-btn span:nth-child(1) {
-    transform:translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   #menuToggle:checked + .menu-btn span:nth-child(2) {
-    opacity:0;
+    opacity: 0;
   }
 
   #menuToggle:checked + .menu-btn span:nth-child(3) {
-    transform:translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 
+/* HERO */
+
 .hero {
-  text-align:center;
-  padding:65px 20px 35px;
+  text-align: center;
+  padding: 65px 20px 35px;
 }
 
 .tag {
-  color:var(--gold);
-  letter-spacing:4px;
-  font-size:12px;
-  margin-bottom:15px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
 .hero h1 {
-  font-size:clamp(32px,6vw,50px);
-  margin-bottom:15px;
+  font-size: clamp(32px, 6vw, 50px);
+  margin-bottom: 15px;
 }
 
 .hero h1 span {
-  color:var(--gold);
+  color: var(--gold);
 }
 
 .hero p {
-  color:var(--muted);
-  line-height:1.7;
-  font-size:14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
 }
 
+/* FORM */
+
 .container {
-  width:min(680px,92%);
-  margin:15px auto 65px;
+  width: min(680px, 92%);
+  margin: 15px auto 65px;
 }
 
 .form-card {
-  background:var(--card);
-  border:1px solid #383027;
-  border-radius:15px;
-  padding:30px;
-  box-shadow:0 15px 45px #0008;
+  background: var(--card);
+  border: 1px solid #383027;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 15px 45px #0008;
 }
 
 .form-heading {
-  text-align:center;
-  margin-bottom:28px;
+  text-align: center;
+  margin-bottom: 28px;
 }
 
 .form-heading h2 {
-  color:var(--gold);
-  letter-spacing:3px;
-  font-size:22px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 22px;
 }
 
 .form-heading p {
-  color:var(--muted);
-  font-size:11px;
-  letter-spacing:2px;
-  margin-top:9px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 9px;
 }
 
 .field {
-  margin-bottom:19px;
+  margin-bottom: 19px;
 }
 
 .field label {
-  display:block;
-  color:var(--gold);
-  font-size:13px;
-  margin-bottom:9px;
+  display: block;
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 9px;
 }
 
 .field input,
 .field select,
 .field textarea {
-  width:100%;
-  background:#090909;
-  color:white;
-  border:1px solid #383838;
-  border-radius:7px;
-  padding:14px;
-  font-size:14px;
-  outline:none;
-  font-family:Arial,sans-serif;
+  width: 100%;
+  background: #090909;
+  color: white;
+  border: 1px solid #383838;
+  border-radius: 7px;
+  padding: 14px;
+  font-size: 14px;
+  outline: none;
+  font-family: Arial, sans-serif;
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color:var(--gold);
+  border-color: var(--gold);
 }
 
 .field textarea {
-  min-height:120px;
-  resize:vertical;
+  min-height: 120px;
+  resize: vertical;
 }
 
 .field select option {
-  background:#111;
+  background: #111;
 }
 
 .gold-btn {
-  width:100%;
-  padding:16px;
-  background:var(--gold);
-  color:#090909;
-  border:0;
-  border-radius:7px;
-  font-weight:bold;
-  font-size:14px;
-  cursor:pointer;
-  transition:.3s;
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: #090909;
+  border: 0;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s;
 }
 
 .gold-btn:hover {
-  background:#edc982;
-  transform:translateY(-2px);
+  background: #edc982;
+  transform: translateY(-2px);
 }
 
 .note {
-  color:#999;
-  font-size:11px;
-  text-align:center;
-  line-height:1.6;
-  margin-top:16px;
+  color: #999;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 16px;
 }
 
+/* GENERATED FORM */
+
 #result {
-  display:none;
-  margin-top:30px;
-  border:1px solid #403421;
-  background:#111;
-  padding:22px;
-  border-radius:12px;
+  display: none;
+  margin-top: 30px;
+  border: 1px solid #403421;
+  background: #111;
+  padding: 22px;
+  border-radius: 12px;
 }
 
 #result h3 {
-  color:var(--gold);
-  text-align:center;
-  margin-bottom:12px;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 #preview {
-  width:100%;
-  display:block;
-  border-radius:8px;
-  border:1px solid #403421;
-  margin:15px 0;
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #403421;
+  margin: 15px 0;
 }
 
 .secondary-btn {
-  display:block;
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  border:1px solid var(--gold);
-  background:transparent;
-  color:var(--gold);
-  border-radius:7px;
-  cursor:pointer;
-  font-weight:bold;
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #status {
-  color:#ccc;
-  font-size:12px;
-  text-align:center;
-  line-height:1.6;
-  margin-top:13px;
+  color: #ccc;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 13px;
 }
 
+/* FOOTER */
+
 footer {
-  border-top:1px solid #292929;
-  padding:25px;
-  text-align:center;
-  color:#888;
-  font-size:12px;
+  border-top: 1px solid #292929;
+  padding: 25px;
+  text-align: center;
+  color: #888;
+  font-size: 12px;
 }
 
 footer span {
-  color:var(--gold);
+  color: var(--gold);
 }
 
+/* WHATSAPP */
+
 .whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#20c66b;
-  color:white;
-  text-decoration:none;
-  padding:13px 18px;
-  border-radius:30px;
-  font-size:13px;
-  font-weight:bold;
-  z-index:90;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #20c66b;
+  color: white;
+  text-decoration: none;
+  padding: 13px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 90;
+}
+
+@media(max-width:500px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <a class="logo" href="index.html">VIKAS GRAPHEO.</a>
+
+  <a class="logo" href="index.html">
+    VIKAS GRAPHEO.
+  </a>
 
   <input type="checkbox" id="menuToggle">
 
@@ -344,48 +375,80 @@ footer span {
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
+
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
-  <div class="tag">LET'S CREATE SOMETHING AMAZING</div>
-  <h1>Start Your <span>Project</span></h1>
+
+  <div class="tag">
+    LET'S CREATE SOMETHING AMAZING
+  </div>
+
+  <h1>
+    Start Your <span>Project</span>
+  </h1>
+
   <p>
-    Tell us about your vision. Fill out the inquiry form
-    and send your branded project form to Vikas Grapheo.
+    Tell us about your vision.
+    Fill out the inquiry form and share your project
+    details with Vikas Grapheo.
   </p>
+
 </section>
+
+<!-- CONTACT FORM -->
 
 <main class="container">
 
   <section class="form-card">
 
     <div class="form-heading">
+
       <h2>VIKAS GRAPHEO</h2>
+
       <p>OFFICIAL PROJECT INQUIRY FORM</p>
+
     </div>
 
     <form id="inquiryForm">
 
       <div class="field">
         <label for="clientName">FULL NAME *</label>
-        <input id="clientName" type="text"
-          placeholder="Enter your name" required>
+
+        <input
+          id="clientName"
+          type="text"
+          placeholder="Enter your name"
+          required
+        >
       </div>
 
       <div class="field">
         <label for="clientPhone">WHATSAPP NUMBER *</label>
-        <input id="clientPhone" type="tel"
-          placeholder="Enter your number" required>
+
+        <input
+          id="clientPhone"
+          type="tel"
+          placeholder="Enter your number"
+          required
+        >
       </div>
 
       <div class="field">
         <label for="clientEmail">EMAIL ADDRESS</label>
-        <input id="clientEmail" type="email"
-          placeholder="Enter your email">
+
+        <input
+          id="clientEmail"
+          type="email"
+          placeholder="Enter your email"
+        >
       </div>
 
       <div class="field">
         <label for="service">SERVICE REQUIRED *</label>
+
         <select id="service" required>
           <option value="">Select a service</option>
           <option>Logo Design</option>
@@ -401,6 +464,7 @@ footer span {
 
       <div class="field">
         <label for="budget">PROJECT BUDGET</label>
+
         <select id="budget">
           <option value="">Select your budget</option>
           <option>Below ₹500</option>
@@ -414,14 +478,21 @@ footer span {
 
       <div class="field">
         <label for="deadline">PROJECT DEADLINE</label>
-        <input id="deadline" type="date">
+
+        <input
+          id="deadline"
+          type="date"
+        >
       </div>
 
       <div class="field">
         <label for="details">PROJECT DETAILS *</label>
-        <textarea id="details"
+
+        <textarea
+          id="details"
           placeholder="Describe your project and requirements..."
-          required></textarea>
+          required
+        ></textarea>
       </div>
 
       <button class="gold-btn" type="submit">
@@ -429,32 +500,46 @@ footer span {
       </button>
 
       <p class="note">
-        Your information will be converted into a branded
-        Vikas Grapheo inquiry form image.
+        Your information will be converted into
+        a branded Vikas Grapheo inquiry image.
       </p>
 
     </form>
+
+    <!-- GENERATED IMAGE -->
 
     <section id="result">
 
       <h3>YOUR FORM IS READY!</h3>
 
       <p class="note">
-        Check your generated inquiry form below.
+        Your official Vikas Grapheo inquiry form
+        has been generated.
       </p>
 
-      <img id="preview" alt="Vikas Grapheo Inquiry Form">
+      <img
+        id="preview"
+        alt="Vikas Grapheo Inquiry Form"
+      >
 
-      <button type="button" class="gold-btn" id="shareBtn">
+      <button
+        type="button"
+        class="gold-btn"
+        id="shareBtn"
+      >
         SHARE FORM IMAGE ON WHATSAPP
       </button>
 
-      <button type="button" class="secondary-btn" id="downloadBtn">
+      <button
+        type="button"
+        class="secondary-btn"
+        id="downloadBtn"
+      >
         DOWNLOAD FORM IMAGE
       </button>
 
       <p id="status">
-        Tap Share to send your form image using WhatsApp.
+        Your inquiry image will be shared using your phone's share menu.
       </p>
 
     </section>
@@ -463,242 +548,441 @@ footer span {
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
   © 2026 <span>VIKAS GRAPHEO</span>. All Rights Reserved.
 </footer>
 
-<a class="whatsapp"
-   href="https://wa.me/917834905783"
-   target="_blank">
+<!-- WHATSAPP BUTTON -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/917834905783"
+  target="_blank"
+>
   WhatsApp
 </a>
 
+<!-- JAVASCRIPT -->
+
 <script>
+
 const form = document.getElementById("inquiryForm");
 const result = document.getElementById("result");
 const preview = document.getElementById("preview");
 const statusText = document.getElementById("status");
 
-let generatedFile = null;
-let generatedBlob = null;
-let messageText = "";
+let inquiryImage = null;
+let imageURL = null;
+let inquiryMessage = "";
 
-function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
-  const words = String(text || "-").split(" ");
+// WRAP TEXT
+
+function wrapText(ctx, text, maxWidth) {
+
+  const words = String(text || "-").split(/\s+/);
+  const lines = [];
+
   let line = "";
 
-  for (let i = 0; i < words.length; i++) {
-    const testLine = line + words[i] + " ";
+  words.forEach(word => {
 
-    if (ctx.measureText(testLine).width > maxWidth && line) {
-      ctx.fillText(line.trim(), x, y);
-      line = words[i] + " ";
-      y += lineHeight;
+    const test = line ? line + " " + word : word;
+
+    if (
+      ctx.measureText(test).width > maxWidth &&
+      line
+    ) {
+      lines.push(line);
+      line = word;
     } else {
-      line = testLine;
+      line = test;
     }
-  }
 
-  ctx.fillText(line.trim(), x, y);
-  return y + lineHeight;
+  });
+
+  if (line) lines.push(line);
+
+  return lines;
 }
 
-function makeFormImage(data) {
+// GENERATE FORM IMAGE
+
+function generateInquiryImage(data) {
+
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
   const width = 1000;
   const padding = 75;
-  const contentWidth = width - padding * 2;
+  const lineHeight = 36;
+  const maxWidth = width - padding * 2;
+
+  const fields = [
+
+    ["CLIENT NAME", data.name],
+
+    ["WHATSAPP NUMBER", data.phone],
+
+    ["EMAIL ADDRESS", data.email || "Not provided"],
+
+    ["SERVICE REQUIRED", data.service],
+
+    ["PROJECT BUDGET", data.budget || "Not specified"],
+
+    ["PROJECT DEADLINE", data.deadline || "Not specified"],
+
+    ["PROJECT DETAILS", data.details]
+
+  ];
+
+  ctx.font = "25px Arial";
+
+  let totalHeight = 300;
+
+  fields.forEach(field => {
+
+    totalHeight += 80;
+
+    totalHeight +=
+      wrapText(ctx, field[1], maxWidth).length * lineHeight;
+
+  });
+
+  totalHeight += 160;
 
   canvas.width = width;
-  canvas.height = 1200;
+  canvas.height = totalHeight;
+
+  // BACKGROUND
 
   ctx.fillStyle = "#090909";
-  ctx.fillRect(0, 0, width, 1200);
+  ctx.fillRect(0, 0, width, totalHeight);
+
+  // GOLD BORDER
 
   ctx.strokeStyle = "#D6AD65";
   ctx.lineWidth = 3;
-  ctx.strokeRect(25, 25, 950, 1150);
 
-  ctx.strokeStyle = "#71552D";
-  ctx.lineWidth = 1;
-  ctx.strokeRect(40, 40, 920, 1120);
+  ctx.strokeRect(
+    25,
+    25,
+    950,
+    totalHeight - 50
+  );
+
+  // BRAND NAME
 
   ctx.textAlign = "center";
+
   ctx.fillStyle = "#D6AD65";
-  ctx.font = "bold 54px Arial";
-  ctx.fillText("VIKAS GRAPHEO", 500, 125);
+  ctx.font = "bold 55px Arial";
+
+  ctx.fillText(
+    "VIKAS GRAPHEO",
+    500,
+    115
+  );
 
   ctx.fillStyle = "#FFFFFF";
-  ctx.font = "22px Arial";
-  ctx.fillText("PROJECT INQUIRY FORM", 500, 175);
+  ctx.font = "23px Arial";
+
+  ctx.fillText(
+    "OFFICIAL PROJECT INQUIRY FORM",
+    500,
+    165
+  );
+
+  // DIVIDER
 
   ctx.strokeStyle = "#D6AD65";
+
   ctx.beginPath();
-  ctx.moveTo(120, 215);
-  ctx.lineTo(880, 215);
+  ctx.moveTo(100, 210);
+  ctx.lineTo(900, 210);
   ctx.stroke();
 
-  const fields = [
-    ["CLIENT NAME", data.name],
-    ["WHATSAPP NUMBER", data.phone],
-    ["EMAIL ADDRESS", data.email],
-    ["SERVICE REQUIRED", data.service],
-    ["PROJECT BUDGET", data.budget],
-    ["PROJECT DEADLINE", data.deadline],
-    ["PROJECT DETAILS", data.details]
-  ];
+  // FORM CONTENT
 
-  let y = 280;
+  let y = 275;
 
   ctx.textAlign = "left";
 
-  fields.forEach((field, index) => {
+  fields.forEach(field => {
+
     ctx.fillStyle = "#D6AD65";
-    ctx.font = "bold 21px Arial";
-    ctx.fillText(field[0], padding, y);
+    ctx.font = "bold 22px Arial";
 
-    y += 37;
-
-    ctx.fillStyle = "#FFFFFF";
-    ctx.font = "24px Arial";
-
-    y = drawWrappedText(
-      ctx,
-      field[1] || "Not specified",
+    ctx.fillText(
+      field[0],
       padding,
-      y,
-      contentWidth,
-      34
+      y
     );
 
-    y += index === 6 ? 0 : 13;
+    y += 42;
+
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "25px Arial";
+
+    const lines = wrapText(
+      ctx,
+      field[1],
+      maxWidth
+    );
+
+    lines.forEach(line => {
+
+      ctx.fillText(
+        line,
+        padding,
+        y
+      );
+
+      y += lineHeight;
+
+    });
+
+    y += 35;
+
   });
 
-  ctx.strokeStyle = "#D6AD65";
-  ctx.beginPath();
-  ctx.moveTo(120, 1080);
-  ctx.lineTo(880, 1080);
-  ctx.stroke();
+  // FOOTER
 
   ctx.textAlign = "center";
+
+  ctx.strokeStyle = "#D6AD65";
+
+  ctx.beginPath();
+  ctx.moveTo(100, y);
+  ctx.lineTo(900, y);
+  ctx.stroke();
+
   ctx.fillStyle = "#D6AD65";
-  ctx.font = "bold 23px Arial";
-  ctx.fillText("YOUR VISION, OUR CREATION", 500, 1125);
+  ctx.font = "bold 26px Arial";
+
+  ctx.fillText(
+    "YOUR VISION, OUR CREATION",
+    500,
+    y + 65
+  );
 
   ctx.fillStyle = "#BBBBBB";
-  ctx.font = "16px Arial";
-  ctx.fillText("Thank you for choosing Vikas Grapheo.", 500, 1150);
+  ctx.font = "19px Arial";
+
+  ctx.fillText(
+    "Thank you for choosing Vikas Grapheo.",
+    500,
+    y + 105
+  );
 
   return canvas;
+
 }
 
+// SUBMIT FORM
+
 form.addEventListener("submit", function(event) {
+
   event.preventDefault();
 
   const data = {
+
     name: document.getElementById("clientName").value.trim(),
+
     phone: document.getElementById("clientPhone").value.trim(),
+
     email: document.getElementById("clientEmail").value.trim(),
+
     service: document.getElementById("service").value,
+
     budget: document.getElementById("budget").value,
+
     deadline: document.getElementById("deadline").value,
+
     details: document.getElementById("details").value.trim()
+
   };
 
-  const canvas = makeFormImage(data);
+  if (
+    !data.name ||
+    !data.phone ||
+    !data.service ||
+    !data.details
+  ) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const canvas = generateInquiryImage(data);
 
   canvas.toBlob(function(blob) {
+
     if (!blob) {
-      statusText.textContent = "Image could not be generated. Please try again.";
+
+      statusText.textContent =
+        "Image could not be generated. Please try again.";
+
       return;
+
     }
 
-    generatedBlob = blob;
-
-    generatedFile = new File(
+    inquiryImage = new File(
       [blob],
       "Vikas-Grapheo-Inquiry.png",
-      {type: "image/png"}
+      {
+        type: "image/png"
+      }
     );
 
-    preview.src = URL.createObjectURL(blob);
+    if (imageURL) {
+      URL.revokeObjectURL(imageURL);
+    }
 
-    messageText =
-      "Hello Vikas Grapheo! I am interested in your design services.\n\n" +
-      "Client: " + data.name + "\n" +
+    imageURL = URL.createObjectURL(blob);
+
+    preview.src = imageURL;
+
+    inquiryMessage =
+
+      "Hello Vikas Grapheo! I want to discuss a project.\n\n" +
+
+      "Name: " + data.name + "\n" +
+
+      "Phone: " + data.phone + "\n" +
+
+      "Email: " + (data.email || "Not provided") + "\n" +
+
       "Service: " + data.service + "\n" +
-      "Please check my attached project inquiry form.";
+
+      "Budget: " + (data.budget || "Not specified") + "\n" +
+
+      "Deadline: " + (data.deadline || "Not specified") + "\n\n" +
+
+      "Project Details: " + data.details + "\n\n" +
+
+      "Please check my attached inquiry form.";
 
     result.style.display = "block";
-    result.scrollIntoView({behavior:"smooth", block:"start"});
+
+    result.scrollIntoView({
+
+      behavior: "smooth",
+
+      block: "start"
+
+    });
 
     statusText.textContent =
-      "Your branded inquiry image is ready. Tap the WhatsApp button to share it.";
+      "Your Vikas Grapheo inquiry image is ready!";
 
   }, "image/png");
+
 });
 
-document.getElementById("downloadBtn").addEventListener("click", function() {
-  if (!generatedBlob) return;
+// SHARE IMAGE
 
-  const url = URL.createObjectURL(generatedBlob);
+document.getElementById("shareBtn").addEventListener(
+  "click",
+  async function() {
+
+    if (!inquiryImage) {
+
+      statusText.textContent =
+        "Please generate your inquiry form first.";
+
+      return;
+
+    }
+
+    try {
+
+      if (
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare({
+          files: [inquiryImage]
+        })
+      ) {
+
+        await navigator.share({
+
+          files: [inquiryImage],
+
+          title: "Vikas Grapheo Project Inquiry",
+
+          text: inquiryMessage
+
+        });
+
+        statusText.textContent =
+          "Select WhatsApp and choose your recipient to send the image.";
+
+      } else {
+
+        downloadImage();
+
+        window.open(
+
+          "https://wa.me/917834905783?text=" +
+          encodeURIComponent(inquiryMessage),
+
+          "_blank"
+
+        );
+
+        statusText.textContent =
+          "Image downloaded. Attach it in WhatsApp and press Send.";
+
+      }
+
+    } catch(error) {
+
+      if (error.name !== "AbortError") {
+
+        statusText.textContent =
+          "Sharing failed. Please download the image and share it manually.";
+
+      }
+
+    }
+
+  }
+);
+
+// DOWNLOAD IMAGE
+
+function downloadImage() {
+
+  if (!inquiryImage) return;
+
+  const url = URL.createObjectURL(inquiryImage);
+
   const link = document.createElement("a");
 
   link.href = url;
+
   link.download = "Vikas-Grapheo-Inquiry.png";
+
+  document.body.appendChild(link);
+
   link.click();
 
-  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  link.remove();
 
-  statusText.textContent =
-    "Image downloaded. You can now attach it in WhatsApp.";
-});
+  setTimeout(function() {
 
-document.getElementById("shareBtn").addEventListener("click", async function() {
-  if (!generatedFile) return;
+    URL.revokeObjectURL(url);
 
-  if (navigator.share && navigator.canShare &&
-      navigator.canShare({files:[generatedFile]})) {
+  }, 3000);
 
-    try {
-      await navigator.share({
-        files:[generatedFile],
-        title:"Vikas Grapheo Project Inquiry",
-        text:messageText
-      });
+}
 
-      statusText.textContent =
-        "Share menu opened. Select WhatsApp and send your image.";
+document.getElementById("downloadBtn").addEventListener(
+  "click",
+  downloadImage
+);
 
-    } catch(error) {
-      if (error.name !== "AbortError") {
-        statusText.textContent =
-          "Sharing was not completed. Try downloading the image.";
-      }
-    }
-
-  } else {
-    const url = URL.createObjectURL(generatedBlob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = "Vikas-Grapheo-Inquiry.png";
-    link.click();
-
-    setTimeout(() => URL.revokeObjectURL(url), 2000);
-
-    window.open(
-      "https://wa.me/917834905783?text=" +
-      encodeURIComponent(messageText),
-      "_blank"
-    );
-
-    statusText.textContent =
-      "Image downloaded. Attach Vikas-Grapheo-Inquiry.png in WhatsApp and press Send.";
-  }
-});
 </script>
 
 </body>
