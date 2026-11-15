@@ -20,167 +20,86 @@ html {
 
 body {
     background: #080808;
-    color: #f5f5f5;
+    color: #fff;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-/* =========================
-   SPORTS CAR INTRO
-========================= */
+:root {
+    --gold: #d6ad55;
+    --black: #080808;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* INTRO ANIMATION */
 
 #carIntro {
     position: fixed;
     inset: 0;
-    z-index: 99999;
-    background:
-        radial-gradient(ellipse at 50% 65%, #282016 0%, #090909 48%, #000 100%);
-    overflow: hidden;
+    z-index: 9999;
+    background: #050505;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    animation: introExit 1s ease 5.5s forwards;
-}
-
-.intro-light {
-    position: absolute;
-    width: 70%;
-    height: 2px;
-    top: 68%;
-    background: #d6ad49;
-    box-shadow: 0 0 20px #d6ad49, 0 0 60px #d6ad49;
-    opacity: 0;
-    animation: roadLight 1.2s ease 2s forwards;
-}
-
-.intro-glow {
-    position: absolute;
-    width: 450px;
-    height: 180px;
-    bottom: 15%;
-    background: #d6ad49;
-    filter: blur(100px);
-    opacity: 0;
-    animation: groundGlow 1.5s ease 2.2s forwards;
-}
-
-.car-stage {
-    position: relative;
-    width: min(900px, 100%);
-    height: 260px;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    animation: introHide 1s ease 5.5s forwards;
 }
 
-.car-svg {
-    width: min(850px, 105%);
-    position: absolute;
-    left: 0;
-    transform: translateX(-115%) scale(.8);
-    opacity: 0;
-    animation: carEnter 2.5s cubic-bezier(.2,.7,.2,1) .5s forwards;
-    filter: drop-shadow(0 15px 18px #000);
-}
-
-.car-body {
-    fill: #101010;
-    stroke: #b58b37;
-    stroke-width: 2;
-}
-
-.car-window {
-    fill: #20252a;
-    stroke: #8d713d;
-    stroke-width: 2;
-}
-
-.car-detail {
-    fill: none;
-    stroke: #b58b37;
-    stroke-width: 2;
-}
-
-.wheel {
-    fill: #080808;
-    stroke: #b18a43;
-    stroke-width: 4;
-}
-
-.rim {
-    fill: #272727;
-    stroke: #d6ad49;
-    stroke-width: 2;
-}
-
-.headlight {
-    fill: #fff4c7;
-    filter: drop-shadow(0 0 9px #ffe5a0)
-            drop-shadow(0 0 20px #ffd76b);
-    animation: headlightGlow 1s infinite alternate;
-}
-
-.brand-name {
-    position: absolute;
-    bottom: 17%;
-    text-align: center;
+.intro-content {
     width: 100%;
-    color: #e6bd55;
-    font-size: clamp(22px, 4vw, 34px);
-    font-weight: bold;
-    letter-spacing: 9px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: titleReveal 1s ease 3.3s forwards;
-    text-shadow: 0 0 20px #d6ad49;
+    text-align: center;
 }
 
-.brand-subtitle {
-    position: absolute;
-    bottom: 12%;
+.car {
+    width: min(650px, 95%);
+    animation: carMove 3s ease-in-out forwards;
+}
+
+.car svg {
+    width: 100%;
+}
+
+.intro-title {
+    color: var(--gold);
+    font-size: clamp(25px, 5vw, 48px);
+    letter-spacing: 7px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: titleShow 1.2s ease 2.7s forwards;
+}
+
+.intro-subtitle {
     color: #aaa;
-    font-size: 10px;
     letter-spacing: 5px;
+    margin-top: 12px;
+    font-size: 11px;
     opacity: 0;
-    animation: titleReveal 1s ease 3.8s forwards;
+    animation: titleShow 1s ease 3.2s forwards;
 }
 
-@keyframes carEnter {
+@keyframes carMove {
     0% {
-        transform: translateX(-115%) scale(.8);
+        transform: translateX(-120%);
         opacity: 0;
     }
-    35% {
+    45% {
         opacity: 1;
     }
-    75%, 100% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
+    100% {
+        transform: translateX(0);
     }
 }
 
-@keyframes headlightGlow {
-    from { opacity: .65; }
-    to { opacity: 1; }
-}
-
-@keyframes roadLight {
-    from { width: 0; opacity: 0; }
-    to { width: 75%; opacity: .8; }
-}
-
-@keyframes groundGlow {
-    to { opacity: .18; }
-}
-
-@keyframes titleReveal {
+@keyframes titleShow {
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
-@keyframes introExit {
+@keyframes introHide {
     to {
         opacity: 0;
         visibility: hidden;
@@ -188,40 +107,67 @@ body {
     }
 }
 
-/* =========================
-   HEADER & HAMBURGER MENU
-========================= */
+/* HEADER */
 
 header {
     width: 100%;
-    padding: 20px 5%;
+    min-height: 85px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 25px;
+    justify-content: space-between;
+    padding: 20px 7%;
+    border-bottom: 1px solid #242424;
+    position: relative;
+    z-index: 100;
     background: #080808;
-    border-bottom: 1px solid #302716;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
+.logo {
+    color: var(--gold);
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.desktop-nav a {
+    font-size: 13px;
+    color: #ddd;
+    transition: .3s;
+}
+
+.desktop-nav a:hover {
+    color: var(--gold);
+}
+
+/* HAMBURGER BUTTON - RIGHT TOP */
+
 .menu-btn {
-    width: 38px;
-    height: 35px;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--gold);
     background: transparent;
-    border: none;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 6px;
+    cursor: pointer;
+    z-index: 300;
 }
 
 .menu-btn span {
-    width: 27px;
+    width: 21px;
     height: 2px;
-    background: #e6bd55;
+    background: var(--gold);
     transition: .3s;
 }
 
@@ -237,58 +183,13 @@ header {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-.logo {
-    color: #e6bd55;
-    font-size: 23px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-decoration: none;
-}
-
 /* SIDE MENU */
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 280px;
-    height: 100vh;
-    background: #0b0b0b;
-    border-right: 1px solid #49391b;
-    padding: 100px 30px 30px;
-    z-index: 2000;
-    transition: left .4s ease;
-}
-
-.side-menu.open {
-    left: 0;
-}
-
-.side-menu h3 {
-    color: #e6bd55;
-    letter-spacing: 4px;
-    margin-bottom: 30px;
-}
-
-.side-menu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 17px 0;
-    border-bottom: 1px solid #252018;
-    transition: .3s;
-}
-
-.side-menu a:hover {
-    color: #e6bd55;
-    padding-left: 10px;
-}
 
 .menu-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,.7);
-    z-index: 1500;
+    z-index: 150;
     opacity: 0;
     visibility: hidden;
     transition: .3s;
@@ -299,135 +200,160 @@ header {
     visibility: visible;
 }
 
-/* =========================
-   HERO
-========================= */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #111;
+    border-left: 1px solid var(--gold);
+    z-index: 200;
+    padding: 100px 35px 30px;
+    transition: .4s ease;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu h2 {
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.side-menu a {
+    display: block;
+    color: #eee;
+    padding: 16px 0;
+    border-bottom: 1px solid #292929;
+    transition: .3s;
+}
+
+.side-menu a:hover {
+    color: var(--gold);
+    padding-left: 10px;
+}
+
+/* HERO SECTION */
 
 .hero {
-    min-height: 85vh;
-    padding: 100px 8%;
+    min-height: 570px;
+    padding: 110px 8%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     background:
-        radial-gradient(circle at 80% 30%, #29200d 0%, transparent 35%),
+        radial-gradient(circle at 80% 40%, #29200e 0%, transparent 35%),
         #080808;
 }
 
-.hero-tag {
-    color: #e6bd55;
-    letter-spacing: 4px;
-    font-size: 13px;
+.hero-content {
+    max-width: 750px;
+}
+
+.small-heading {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 12px;
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(42px, 7vw, 85px);
+    font-size: clamp(40px, 7vw, 78px);
     line-height: 1.1;
-    max-width: 850px;
     margin-bottom: 25px;
 }
 
 .hero h1 span {
-    color: #e6bd55;
+    color: var(--gold);
 }
 
 .hero p {
     color: #aaa;
-    max-width: 570px;
     line-height: 1.8;
-    font-size: 16px;
-    margin-bottom: 35px;
+    max-width: 550px;
+    font-size: 15px;
 }
 
-.btn {
+.gold-btn {
     display: inline-block;
-    padding: 15px 28px;
-    background: #d6ad49;
+    background: var(--gold);
     color: #080808;
-    text-decoration: none;
+    padding: 15px 28px;
+    margin-top: 30px;
+    font-size: 13px;
     font-weight: bold;
-    border: 1px solid #d6ad49;
+    letter-spacing: 1px;
     transition: .3s;
-    width: fit-content;
 }
 
-.btn:hover {
-    background: transparent;
-    color: #e6bd55;
-}
-
-/* =========================
-   COMMON SECTIONS
-========================= */
-
-section {
-    padding: 90px 8%;
-}
-
-.section-tag {
-    color: #d6ad49;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 15px;
-}
-
-.section-title {
-    font-size: clamp(30px, 4vw, 48px);
-    margin-bottom: 18px;
-}
-
-.section-desc {
-    color: #aaa;
-    max-width: 650px;
-    line-height: 1.8;
-    margin-bottom: 45px;
+.gold-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
 }
 
 /* SERVICES */
 
 .services {
-    background: #0e0e0e;
+    padding: 90px 8%;
+    background: #0d0d0d;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading small {
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    margin-top: 15px;
 }
 
 .service-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 25px;
 }
 
 .service-card {
-    padding: 35px 28px;
     background: #151515;
-    border: 1px solid #302716;
+    padding: 35px 25px;
+    border: 1px solid #292929;
     transition: .3s;
 }
 
 .service-card:hover {
+    border-color: var(--gold);
     transform: translateY(-7px);
-    border-color: #d6ad49;
 }
 
-.service-number {
-    color: #d6ad49;
-    font-size: 14px;
+.service-card .number {
+    color: var(--gold);
+    font-size: 30px;
     margin-bottom: 25px;
 }
 
 .service-card h3 {
-    font-size: 22px;
     margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .service-card p {
-    color: #aaa;
-    line-height: 1.7;
+    color: #999;
     font-size: 14px;
+    line-height: 1.8;
 }
 
 /* ABOUT */
 
 .about {
+    padding: 100px 8%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
@@ -435,62 +361,75 @@ section {
 }
 
 .about-box {
-    min-height: 320px;
-    border: 1px solid #49391b;
-    background: radial-gradient(circle, #453311, #111 65%);
+    min-height: 300px;
+    border: 1px solid var(--gold);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, #171717, #080808);
+}
+
+.about-box h2 {
+    color: var(--gold);
+    font-size: 40px;
+    letter-spacing: 5px;
     text-align: center;
 }
 
-.about-symbol {
-    color: #e6bd55;
-    font-size: 80px;
+.about-text small {
+    color: var(--gold);
+    letter-spacing: 4px;
 }
 
-.about-content p {
+.about-text h2 {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.about-text p {
     color: #aaa;
     line-height: 1.9;
-    margin-bottom: 25px;
+    font-size: 15px;
 }
 
 /* CTA */
 
 .cta {
+    padding: 85px 8%;
+    background: #17130a;
     text-align: center;
-    background: #111;
-    border-top: 1px solid #302716;
-    border-bottom: 1px solid #302716;
+}
+
+.cta h2 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin-bottom: 15px;
 }
 
 .cta p {
     color: #aaa;
-    margin: 20px auto 30px;
-    max-width: 600px;
-    line-height: 1.8;
 }
 
 /* FOOTER */
 
 footer {
     padding: 35px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
     background: #050505;
+    border-top: 1px solid #292929;
+    text-align: center;
+}
+
+footer .footer-logo {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
 footer p {
     color: #777;
-    font-size: 13px;
-}
-
-footer a {
-    color: #d6ad49;
-    text-decoration: none;
+    margin-top: 15px;
+    font-size: 12px;
 }
 
 /* WHATSAPP */
@@ -499,36 +438,38 @@ footer a {
     position: fixed;
     bottom: 22px;
     right: 22px;
-    z-index: 999;
-    background: #d6ad49;
-    color: #080808;
-    padding: 14px 20px;
+    background: #25d366;
+    color: #fff;
+    padding: 14px 19px;
     border-radius: 30px;
     font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 0 20px #d6ad4940;
+    font-size: 13px;
+    z-index: 90;
 }
 
-/* MOBILE & TABLET */
+/* RESPONSIVE */
 
 @media(max-width: 768px) {
-
     header {
-        padding: 18px 5%;
-        gap: 18px;
+        padding: 20px 5%;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 19px;
+        padding-right: 55px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        right: 18px;
     }
 
     .hero {
-        padding: 90px 6%;
-        min-height: 75vh;
-    }
-
-    section {
-        padding: 65px 6%;
+        min-height: 500px;
+        padding: 90px 7%;
     }
 
     .service-grid {
@@ -538,36 +479,15 @@ footer a {
     .about {
         grid-template-columns: 1fr;
         gap: 35px;
+        padding: 75px 7%;
     }
 
-    .car-stage {
-        height: 190px;
+    .section-heading h2 {
+        font-size: 29px;
     }
 
-    .car-svg {
-        width: 115%;
-    }
-
-    .brand-name {
-        font-size: 20px;
-        letter-spacing: 5px;
-        bottom: 20%;
-    }
-
-    .brand-subtitle {
-        bottom: 14%;
-    }
-
-    footer {
-        text-align: center;
-        justify-content: center;
-    }
-}
-
-@media(prefers-reduced-motion: reduce) {
-    #carIntro {
-        animation-duration: .3s;
-        animation-delay: 1s;
+    .services {
+        padding: 75px 7%;
     }
 }
 </style>
@@ -575,236 +495,155 @@ footer a {
 
 <body>
 
-<!-- SPORTS CAR INTRO -->
+<!-- CAR INTRO -->
 
 <div id="carIntro">
+    <div class="intro-content">
 
-    <div class="intro-glow"></div>
-    <div class="intro-light"></div>
+        <div class="car">
+            <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="carPaint" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#555"/>
+                        <stop offset="45%" stop-color="#111"/>
+                        <stop offset="100%" stop-color="#000"/>
+                    </linearGradient>
+                </defs>
 
-    <div class="car-stage">
+                <path d="M65 160 L105 145 L160 105 L240 78 L430 78 L505 110 L590 135 L640 160 L650 185 L610 197 L95 197 L55 180 Z"
+                fill="url(#carPaint)" stroke="#d6ad55" stroke-width="3"/>
 
-        <svg class="car-svg"
-             viewBox="0 0 900 320"
-             xmlns="http://www.w3.org/2000/svg">
+                <path d="M175 140 L240 88 L420 88 L485 140 Z"
+                fill="#111" stroke="#d6ad55" stroke-width="2"/>
 
-            <path class="car-body"
-                d="M65 218
-                   L95 185
-                   Q125 168 220 158
-                   L300 105
-                   Q345 73 420 68
-                   L555 68
-                   Q620 72 680 135
-                   L755 158
-                   Q820 168 850 202
-                   L862 230
-                   L835 249
-                   L75 249 Z"/>
+                <path d="M270 90 L270 140 M390 90 L390 140"
+                stroke="#777" stroke-width="2"/>
 
-            <path class="car-window"
-                d="M320 151
-                   L365 92
-                   Q390 78 425 78
-                   L470 78 L470 151 Z"/>
+                <path d="M80 160 L150 151 L135 169 L70 177 Z"
+                fill="#fff4c4"/>
 
-            <path class="car-window"
-                d="M485 78
-                   L550 78
-                   Q605 86 652 151
-                   L485 151 Z"/>
+                <path d="M575 150 L625 164 L625 176 L570 169 Z"
+                fill="#a60000"/>
 
-            <path class="car-detail"
-                d="M75 218 Q170 190 280 192
-                   L700 192 Q800 190 850 218"/>
+                <circle cx="170" cy="190" r="38" fill="#050505" stroke="#d6ad55" stroke-width="4"/>
+                <circle cx="170" cy="190" r="18" fill="#333" stroke="#aaa" stroke-width="3"/>
+                <circle cx="520" cy="190" r="38" fill="#050505" stroke="#d6ad55" stroke-width="4"/>
+                <circle cx="520" cy="190" r="18" fill="#333" stroke="#aaa" stroke-width="3"/>
 
-            <path class="car-detail"
-                d="M470 78 L470 151"/>
+                <path d="M105 205 L590 205" stroke="#d6ad55" stroke-width="2"/>
+            </svg>
+        </div>
 
-            <path d="M670 205 L735 205 L720 220 L665 220 Z"
-                  fill="#292929"
-                  stroke="#b18a43"
-                  stroke-width="1.5"/>
-
-            <path class="headlight"
-                d="M812 188 L849 198 L839 207 L805 202 Z"/>
-
-            <path d="M85 191 L119 184 L113 198 L83 203 Z"
-                  fill="#a51d17"/>
-
-            <path d="M820 228 L858 228 L844 244 L810 244 Z"
-                  fill="#222"
-                  stroke="#b18a43"
-                  stroke-width="1.5"/>
-
-            <path d="M790 225 L830 225 L817 240 L785 240 Z"
-                  fill="#080808"
-                  stroke="#7f602e"
-                  stroke-width="2"/>
-
-            <circle class="wheel" cx="255" cy="238" r="53"/>
-            <circle class="rim" cx="255" cy="238" r="30"/>
-            <circle fill="#080808" cx="255" cy="238" r="10"/>
-
-            <circle class="wheel" cx="700" cy="238" r="53"/>
-            <circle class="rim" cx="700" cy="238" r="30"/>
-            <circle fill="#080808" cx="700" cy="238" r="10"/>
-
-            <g stroke="#d6ad49" stroke-width="3">
-                <path d="M255 210 V266 M227 238 H283
-                         M235 218 L275 258
-                         M275 218 L235 258"/>
-
-                <path d="M700 210 V266 M672 238 H728
-                         M680 218 L720 258
-                         M720 218 L680 258"/>
-            </g>
-
-            <ellipse cx="450" cy="293" rx="380" ry="13"
-                     fill="#000" opacity=".7"/>
-
-        </svg>
+        <h1 class="intro-title">VIKAS GRAPHEO</h1>
+        <p class="intro-subtitle">CREATIVE DESIGN STUDIO</p>
 
     </div>
-
-    <div class="brand-name">VIKAS GRAPHEO</div>
-    <div class="brand-subtitle">CREATIVE DESIGN STUDIO</div>
-
 </div>
 
 <!-- HEADER -->
 
 <header>
 
-    <button class="menu-btn"
-            id="menuBtn"
-            aria-label="Open menu"
-            aria-expanded="false"
-            aria-controls="sideMenu"
-            onclick="toggleMenu()">
+    <a href="index.html" class="logo">VIKAS GRAPHEO.</a>
 
-        <span></span>
-        <span></span>
-        <span></span>
+    <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
+    <button class="menu-btn" id="menuBtn"
+    onclick="toggleMenu()" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
     </button>
-
-    <a href="index.html" class="logo">
-        VIKAS GRAPHEO.
-    </a>
 
 </header>
 
-<!-- MENU OVERLAY -->
-
-<div class="menu-overlay"
-     id="menuOverlay"
-     onclick="toggleMenu()">
-</div>
-
 <!-- SIDE MENU -->
+
+<div class="menu-overlay" id="menuOverlay"
+onclick="toggleMenu()"></div>
 
 <nav class="side-menu" id="sideMenu">
 
-    <h3>MENU</h3>
+    <h2>MENU</h2>
 
-    <a href="index.html">Home →</a>
-    <a href="about.html">About →</a>
-    <a href="services.html">Services →</a>
-    <a href="portfolio.html">Portfolio →</a>
-    <a href="contact.html">Contact →</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
 
 </nav>
 
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero">
 
-    <div class="hero-tag">CREATIVE DESIGN STUDIO</div>
+    <div class="hero-content">
 
-    <h1>
-        We Create<br>
-        <span>Visual Experiences.</span>
-    </h1>
+        <div class="small-heading">
+            WELCOME TO VIKAS GRAPHEO
+        </div>
 
-    <p>
-        Welcome to Vikas Grapheo — a creative design studio
-        focused on building powerful visual identities,
-        modern graphics and memorable digital experiences.
-    </p>
+        <h1>
+            We Create<br>
+            <span>Visual Stories.</span>
+        </h1>
 
-    <a href="portfolio.html" class="btn">
-        Explore Our Work →
-    </a>
+        <p>
+            We transform ideas into powerful visual experiences.
+            From creative graphic designs to professional digital
+            branding, we help your brand stand out.
+        </p>
 
-</div>
+        <a href="portfolio.html" class="gold-btn">
+            EXPLORE OUR WORK
+        </a>
+
+    </div>
+
+</section>
 
 <!-- SERVICES -->
 
 <section class="services">
 
-    <div class="section-tag">WHAT WE DO</div>
-
-    <h2 class="section-title">Creative Solutions</h2>
-
-    <p class="section-desc">
-        We transform ideas into meaningful designs
-        that help brands stand out and make an impact.
-    </p>
+    <div class="section-heading">
+        <small>WHAT WE DO</small>
+        <h2>Creative Solutions</h2>
+    </div>
 
     <div class="service-grid">
 
         <div class="service-card">
-            <div class="service-number">01 / DESIGN</div>
-            <h3>Logo Design</h3>
+            <div class="number">01</div>
+            <h3>Graphic Design</h3>
             <p>
-                Unique and memorable brand identities
-                designed to represent your business.
+                Creative and professional designs that
+                communicate your brand identity.
             </p>
         </div>
 
         <div class="service-card">
-            <div class="service-number">02 / GRAPHICS</div>
-            <h3>Poster Design</h3>
-            <p>
-                Creative posters and promotional graphics
-                that communicate your message.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <div class="service-number">03 / DIGITAL</div>
+            <div class="number">02</div>
             <h3>Social Media Design</h3>
             <p>
-                Modern social media creatives that
-                give your brand a consistent look.
+                Attractive social media creatives to
+                make your online presence stronger.
             </p>
         </div>
 
         <div class="service-card">
-            <div class="service-number">04 / VIDEO</div>
-            <h3>YouTube Graphics</h3>
-            <p>
-                Attractive thumbnails, banners and
-                channel visuals for creators.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <div class="service-number">05 / BRANDING</div>
+            <div class="number">03</div>
             <h3>Brand Identity</h3>
             <p>
-                A complete visual style that makes
-                your brand recognizable.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <div class="service-number">06 / CREATIVE</div>
-            <h3>Custom Designs</h3>
-            <p>
-                Personalized creative designs made
-                around your ideas and requirements.
+                Unique logos and branding elements
+                that make your business memorable.
             </p>
         </div>
 
@@ -817,32 +656,24 @@ footer a {
 <section class="about">
 
     <div class="about-box">
-        <div class="about-symbol">VG.</div>
+        <h2>VG.</h2>
     </div>
 
-    <div class="about-content">
+    <div class="about-text">
 
-        <div class="section-tag">ABOUT THE STUDIO</div>
+        <small>ABOUT THE STUDIO</small>
 
-        <h2 class="section-title">
-            Design With<br>
-            <span style="color:#e6bd55;">A Purpose.</span>
-        </h2>
+        <h2>Design With A Purpose.</h2>
 
         <p>
-            Vikas Grapheo is a creative design studio
-            built around imagination, creativity and
-            attention to detail.
+            Vikas Grapheo is a creative design studio focused
+            on modern, unique and meaningful visual design.
+            Our goal is to turn simple ideas into creative
+            experiences that leave a lasting impression.
         </p>
 
-        <p>
-            Our goal is to turn simple ideas into
-            extraordinary visual experiences through
-            thoughtful and modern design.
-        </p>
-
-        <a href="about.html" class="btn">
-            Discover More →
+        <a href="about.html" class="gold-btn">
+            MORE ABOUT US
         </a>
 
     </div>
@@ -853,19 +684,14 @@ footer a {
 
 <section class="cta">
 
-    <div class="section-tag">LET'S WORK TOGETHER</div>
-
-    <h2 class="section-title">
-        Have A Project In Mind?
-    </h2>
+    <h2>Have A Project In Mind?</h2>
 
     <p>
-        Let's bring your ideas to life with creative
-        designs that make your brand stand out.
+        Let's create something amazing together.
     </p>
 
-    <a href="contact.html" class="btn">
-        Start A Project →
+    <a href="contact.html" class="gold-btn">
+        START A PROJECT
     </a>
 
 </section>
@@ -874,45 +700,39 @@ footer a {
 
 <footer>
 
-    <p>© 2026 Vikas Grapheo. All Rights Reserved.</p>
+    <div class="footer-logo">VIKAS GRAPHEO.</div>
 
-    <a href="contact.html">Let's Create Something Great.</a>
+    <p>
+        © 2026 Vikas Grapheo. All Rights Reserved.
+    </p>
 
 </footer>
 
 <!-- WHATSAPP -->
 
 <a class="whatsapp"
-   href="https://wa.me/917834905783"
-   target="_blank"
-   rel="noopener">
-   WhatsApp
+href="https://wa.me/917834905783"
+target="_blank">
+    WhatsApp
 </a>
 
-<!-- MENU JAVASCRIPT -->
+<!-- JAVASCRIPT -->
 
 <script>
+
 function toggleMenu() {
 
     const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
+    const button = document.getElementById("menuBtn");
     const overlay = document.getElementById("menuOverlay");
 
     menu.classList.toggle("open");
-    btn.classList.toggle("active");
+    button.classList.toggle("active");
     overlay.classList.toggle("show");
 
-    const isOpen = menu.classList.contains("open");
-
-    btn.setAttribute("aria-expanded", isOpen);
-
-    btn.setAttribute(
-        "aria-label",
-        isOpen ? "Close menu" : "Open menu"
-    );
 }
+
 </script>
 
 </body>
-                </html>
-                
+</html>
